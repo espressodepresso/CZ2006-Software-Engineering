@@ -25,7 +25,7 @@ def getEntireFoodData(url):
             row_list.append(row)
             print(foodNameLowerCase)
         if next_url is not None:
-            createD(next_url)
+            getEntireFoodData(next_url)
 
 getEntireFoodData("http://wger.de/api/v2/ingredient/")
 # with open('allFoodInfo.csv', 'w', newline='') as file:
