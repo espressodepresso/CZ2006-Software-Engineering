@@ -1,0 +1,86 @@
+name,calorie,protein,carb,carb_sugar,fat,fat_saturated,fibres,sodium,userLikes
+"alcoholic beverage, wine, table, red, pinot noir",82,0.07,2.31,0,0,0,0,0,0
+"alcoholic beverage, wine, table, red, sangiovese",86,0.07,2.62,0,0,0,0,0,0
+"alcoholic beverage, wine, table, white, pinot gris (grigio)",83,0.07,2.06,0,0,0,0,0,0
+"apple juice, frozen concentrate, unsweetened, undiluted, with added ascorbic acid",166,0.51,41,38.83,0.37,0.06,0,0.025,0
+"babyfood, juice, apple and prune",72,0.2,18.1,10.58,0.1,0.018,0.1,0.008,1
+"bacon, pre-sliced, reduced/low sodium, unprepared",407,12.53,0.79,0.83,39.27,6.581,0,0.47,1
+"beans, navy, mature seeds, canned",113,7.53,20.45,0.28,0.43,0.112,5.1,0.448,1
+"beans, snap, yellow, cooked, boiled, drained, without salt",35,1.89,7.88,1.55,0.28,0.062,3.3,0.003,1
+"beef, australian, grass-fed, loin, top sirloin cap-off steak/roast, boneless, separable lean only, raw",122,21.9,0,0,3.87,1.601,0,0.06,1
+"beef, australian, wagyu, loin, tenderloin steak/roast, boneless, separable lean and fat, aust. marble score 4/5, raw",206,19.71,0,0,14.09,6.105,0,0.063,0
+"beef, carcass, separable lean and fat, select, raw",278,17.48,0,0,22.55,9.16,0,0.059,0
+"beef, chuck, mock tender steak, boneless, separable lean only, trimmed to 0' fat, select, raw",117,21.22,0,0,3.53,1.684,0,0.076,1
+"beef, chuck, under blade pot roast or steak, boneless, separable lean and fat, trimmed to 0' fat, choice, raw",202,19.15,0,0,13.93,5.896,0,0.076,1
+"beef, loin, top sirloin filet, boneless, separable lean only, trimmed to 0' fat, choice, cooked, grilled",174,30.45,0,0,5.83,1.978,0,0.059,1
+"beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8' fat, choice, cooked, broiled",352,22.26,0,0,28.5,11.57,0,0.063,1
+"beef, round, eye of round, roast, separable lean and fat, trimmed to 1/8' fat, select, raw",159,21.3,0,0,7.57,2.98,0,0.062,0
+"beef, round, knuckle, tip center, steak, separable lean and fat, trimmed to 0' fat, choice, raw",150,20.74,0,0,6.85,2.3,0,0.054,0
+"beef, round, outside round, bottom round, steak, separable lean and fat, trimmed to 0' fat, select, cooked, grilled",166,28.01,0,0,5.17,1.716,0,0.06,0
+"biscuits, plain or buttermilk, dry mix",428,8,63.3,11.65,15.4,3.965,2.1,1.276,0
+"bologna, chicken, turkey, pork",298,9.88,5.65,0,26.18,7.99,0,0.922,1
+"bratwurst, veal, cooked",341,13.99,0,0,31.7,14.94,0,0.06,1
+"butter, salted",717,0.85,0.06,0.06,81.11,51.368,0,0.714,1
+"campbell's chunky microwavable bowls, grilled chicken and sausage gumbo, ready-to-serve",57,2.86,7.35,2.04,1.63,0.816,0.4,0.318,0
+"campbell's red and white, tomato bisque, condensed",103,1.59,18.25,11.9,2.78,1.19,0.8,0.698,0
+"campbell's select gold label soups, southwestern corn chowder",61,1.22,10.61,2.86,1.22,0.204,0.8,0.253,0
+"campbell's select microwaveable bowls, italian sausage pasta & pepperoni soup",53,2.86,6.12,2.04,2.45,1.02,0.8,0.355,0
+"campbell's select soup, italian-style wedding soup",53,2.86,5.31,1.22,2.04,1.225,0.4,0.196,0
+"campbell's select soup, new england clam chowder",70,2.33,5.68,0,4.23,0.816,0.8,0.194,0
+"campbell's select soup, vegetable medley soup",33,1.22,6.53,2.45,0.2,0,1.2,0.196,0
+"carbonated beverage, cream soda",51,0,13.3,13.3,0,0,0,0.012,0
+"carl buddig. cooked smoked beef pastrami, chopped, pressed",141,19.6,1,0,6.5,3,0,1.056,0
+"cereals ready-to-eat, general mills, fiber one, frosted shredded wheat",321,8.4,81.7,20.3,1.7,0.3,15,0.002,0
+"cereals ready-to-eat, general mills, total raisin bran",312,5.6,76.8,32.3,1.6,0.4,9.1,0.339,0
+"cereals ready-to-eat, general mills, wheaties",353,8.3,83.3,15.2,2.3,0.5,10.1,0.732,0
+"cheese, cottage, lowfat, 2% milkfat",86,11.83,3.66,3.67,2.45,0.979,0,0.33,0
+"chicken, broilers or fryers, leg, meat and skin, cooked, roasted",184,24.03,0,0,8.99,2.446,0,0.098,0
+"cookies, chocolate wafers",433,6.6,72.4,29.66,14.2,4.241,3.4,0.69,0
+"crackers, cheese, sandwich-type with peanut butter filling",496,12.41,56.74,6.98,25.12,4.406,3.4,0.829,0
+"cranberry-grape juice drink, bottled",56,0.2,14,0,0.1,0.033,0.1,0.003,0
+"currants, zante, dried",283,4.08,74.08,67.28,0.27,0.028,6.8,0.008,0
+"domino's 14' pepperoni pizza, ultimate deep dish crust",283,11.52,31.89,3.91,12.1,4.856,2.4,0.693,0
+"egg, whole, cooked, poached",143,12.51,0.71,0.37,9.47,3.113,0,0.297,0
+"egg, whole, dried",605,48.37,1.53,0.3,43.04,13.516,0,0.48,0
+"fast foods, egg and cheese sandwich",233,10.69,17.76,0,13.3,4.538,0,0.551,0
+"fast foods, shrimp, breaded and fried",308,7.84,27.99,0.1,18.9,3.843,0.7,1.143,0
+"game meat, bison, separable lean only, raw",109,21.62,0,0,1.84,0.69,0,0.054,0
+"gardenburger, veggie medley burger",135,4.6,24.3,1.6,3.7,0.4,7.3,0.53,0
+"grapefruit juice, pink, raw",39,0.5,9.2,0,0.1,0.014,0,0.001,0
+"ground turkey, 93% lean, 7% fat, pan-broiled crumbles",213,27.1,0,0,11.6,2.966,0,0.09,1
+"ice cream sandwich, made with light ice cream, vanilla",186,4.29,39.64,17.86,3.04,0.821,0,0.146,1
+"infant formula, abbott nutrition, similac, isomil, with iron, powder, not reconstituted (formerly ross)",517,12.6,53.57,52.97,28.09,9.167,0,0.226,0
+"infant formula, abbott nutrition, similac, with iron, powder, not reconstituted (formerly ross)",522,10.89,54.73,54.73,28.87,9.873,0,0.126,0
+"infant formula, mead johnson, enfamil, lactofree, with iron, powder, not reconstituted",521,10.85,57,57,28,12.02,0,0.156,0
+"infant formula, mead johnson, enfamil, low iron, powder, not reconstituted",511,10.8,56.2,56,27,11.5,0,0.139,1
+"infant formula, mead johnson, enfamil, with iron, ready-to-feed",63,1.38,6.45,7.18,3.5,1.469,0,0.018,1
+"kellogg's, eggo, fiberplus waffles, buttermilk",227,4.7,41.8,4.7,7.9,2.1,13.2,0.559,1
+"kellogg's, special k, cracker chips, cheddar",382,6.4,73.7,4.3,9.4,2.4,9.2,0.75,1
+"lamb, australian, imported, fresh, foreshank, separable lean only, trimmed to 1/8' fat, cooked, braised",165,27.5,0,0,5.22,1.884,0,0.1,0
+mango,60,0.82,14.98,13.66,0.38,0.092,1.6,0.001,0
+"mcdonald's, bacon ranch salad without chicken",61,4.14,4.2,2.14,3.64,1.507,1.5,0.132,1
+"morningstar farms grillers prime, frozen, unprepared",238,24,5.9,0.3,13.2,1.6,2.6,0.501,0
+"nuts, almonds, dry roasted, without salt added",595,21.06,21.2,4.93,52.05,4.03,10.9,0.003,0
+"pace, triple pepper salsa",47,3.13,9.38,6.25,0,0,3.1,0.594,0
+"peanut butter, smooth, vitamin and mineral fortified",591,25.72,18.75,10.47,50.81,10.125,5.6,0.42,0
+"peanuts, spanish, raw",570,26.15,15.82,0,49.6,7.642,9.5,0.022,1
+"pickles, cucumber, sour",11,0.33,2.26,1.06,0.2,0.052,1.2,1.208,1
+"pie, blueberry, prepared from recipe",245,2.7,33.5,0,11.9,2.911,0,0.185,0
+"pie, chocolate creme, commercially prepared",304,2.6,33.6,0,19.4,4.968,2,0.136,1
+"pizza hut 12' cheese pizza, pan crust",280,11.73,29.93,3.21,12.56,5.184,1.7,0.624,1
+"pork, cured, ham with natural juices, spiral slice, boneless, separable lean and fat, unheated",129,18.66,0.69,1.18,5.75,1.833,0,0.881,0
+"puddings, chocolate flavor, low calorie, regular, dry mix",365,10.08,74.42,0.7,3,1.578,10.1,3.326,1
+"quail, meat only, raw",134,21.76,0,0,4.53,1.32,0,0.051,0
+"salmon, sockeye, canned, total can contents",153,20.63,0,0,7.17,1.46,0,0.433,0
+"sauce, ready-to-serve, pepper or hot",11,0.51,1.75,1.26,0.37,0.052,0.3,2.643,0
+"snacks, pretzels, hard, plain, made with unenriched flour, salted",381,9.1,79.2,0,3.5,0.75,2.8,1.715,0
+"snacks, trail mix, tropical",442,6.3,65.6,0,17.1,8.48,0,0.095,0
+"soup, tomato rice, canned, condensed",93,1.64,17.08,5.9,2.12,0.4,1.3,0.635,0
+"spices, mustard seed, ground",508,26.08,28.09,6.79,36.24,1.989,12.2,0.013,1
+"sugar, turbinado",399,0,99.8,99.19,0,18.993,0,0.003,1
+"taco shells, baked, without added salt",468,7.2,62.4,0,22.6,3.245,7.5,0.015,0
+"t.g.i. friday's, chicken fingers, from kids' menu",260,21.52,12.08,0.29,13.91,2.656,0.9,0.524,0
+tofu yogurt,94,3.5,15.96,1.24,1.8,0.259,0.2,0.035,1
+"v8 splash juice drinks, mango peach",33,0,8.23,8.23,0,0,0,0.016,1
+"veal, leg (top round), separable lean only, cooked, roasted",150,28.07,0,0,3.39,1.22,0,0.068,0
+"veal, variety meats and by-products, heart, raw",110,17.18,0.08,0,3.98,1.07,0,0.077,0

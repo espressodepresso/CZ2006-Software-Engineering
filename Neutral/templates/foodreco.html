@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Recommendation</title>
+</head>
+<body>
+    <h1>Tick if you like the food!</h1>
+    <form action = "http://localhost:5000/foodreco" method = "POST">
+        {% for name in names_list %}
+            {{name}}
+            <input type = "checkbox" value = "{{loop.index}}" name="mycheckbox">
+            <br>
+        {% endfor %}
+    <input type = "submit">
+    </form>
+
+
+
+</body>
+</html>
