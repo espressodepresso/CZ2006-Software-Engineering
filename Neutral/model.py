@@ -1,7 +1,10 @@
-#from flask import Flask
-#from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from Neutral import db
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+db = SQLAlchemy(app)
 
 class User(db.Model): #User info
     user_id = db.Column(db.Integer, primary_key = True)
@@ -31,9 +34,9 @@ class FoodRecord(db.Model): #a food record that user eat
     foodrecord_meal = db.Column(db.String(20), nullable = False, default = 'Breakfast')
 
 class Food(db.Model): #individual food eaten by user
-    food_id = db.Column(db.Integer, db.ForeignKey('FoodDB.food_id'), nullable = False)
-    user_id = db.Column(db.Integer, db.ForeignKey('User.user_id'), nullable = False)
-    foodrecord_id = db.Column(db.Integer, db.ForeignKey('FoodRecord.foodrecord_id'), nullable = False)
+    food_id = db.Column(db.Integer, db.ForeignKey('FoodDB.food_id'), nullable = False, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('User.user_id'), nullable = False, primary_key=True)
+    foodrecord_id = db.Column(db.Integer, db.ForeignKey('FoodRecord.foodrecord_id'), nullable = False, primary_key=True)
     food_name = db.Column(db.Float, nullable = False)
     food_calories = db.Column(db.Float, nullable = False)
     food_protein = db.Column(db.Float, nullable = False)
@@ -50,7 +53,7 @@ class ExerciseDB(db.Model): # from exercise API
 class WorkoutRecord(db.Model):#workout that user is supposed to do that day
     workoutrecord_id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey('User.user_id'), nullable = False)
-    workoutrecord_date = b.Column(db.DateTime, nullable = False, default = datetime.now())
+    workoutrecord_date = db.Column(db.DateTime, nullable = False, default = datetime.now())
 
 class Workout(db.Model):#one workout of user
     workout_id = db.Column(db.Integer, primary_key = True)
@@ -59,29 +62,29 @@ class Workout(db.Model):#one workout of user
     workout_name = db.Column(db.String(50), nullable = False)
 
 class Exercise(db.Model):#one exercise in workout
-    exercise_id = db.Column(db.Integer, db.ForeignKey('ExerciseDB.exercise_id'), nullable = False)
-    workout_id = db.Column(db.Integer, db.ForeignKey('Workout.workout_id'), nullable = False)
-    workoutrecord_id = db.Column(db.Integer, db.ForeignKey('WorkoutRecord.workoutrecord_id'), nullable = False)
-    user_id = db.Column(db.Integer, db.ForeignKey('User.user_id'), nullable = False)
+    exercise_id = db.Column(db.Integer, db.ForeignKey('ExerciseDB.exercise_id'), nullable = False, primary_key=True)
+    workout_id = db.Column(db.Integer, db.ForeignKey('Workout.workout_id'), nullable = False, primary_key=True)
+    workoutrecord_id = db.Column(db.Integer, db.ForeignKey('WorkoutRecord.workoutrecord_id'), nullable = False, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('User.user_id'), nullable = False, primary_key=True)
     exercise_desc = db.Column(db.String(1000000), nullable = False)
     exercise_caloriesburnt = db.Column(db.Float, nullable = False)
     status = db.Column(db.Boolean, nullable = False, default = False)
 
 class Set(db.Model):#one set in exercise
     set_id = db.Column(db.Integer, primary_key = True)
-    exercise_id = db.Column(db.Integer, ForeignKey('ExerciseDB.exercise_id'), nullable = False)
-    workout_id = db.Column(db.Integer, ForeignKey('Workout.workout_id'), nullable = False)
-    workoutrecord_id = db.column(db.Integer, db.ForeignKey('WorkoutRecord.workoutrecord_id'), nullable = False)
+    exercise_id = db.Column(db.Integer, db.ForeignKey('ExerciseDB.exercise_id'), nullable = False)
+    workout_id = db.Column(db.Integer, db.ForeignKey('Workout.workout_id'), nullable = False)
+    workoutrecord_id = db.Column(db.Integer, db.ForeignKey('WorkoutRecord.workoutrecord_id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('User.user_id'), nullable = False)
-    set_count = db.column(db.Integer, nullable = False)
+    set_count = db.Column(db.Integer, nullable = False)
 
 class Rep(db.Model):#one in set
     rep_id = db.Column(db.Integer, primary_key = True)
-    set_id = db.Column(db.Integer, ForeignKey('Set.set_id'), nullable = False)
-    exercise_id = db.Column(db.Integer, ForeignKey('ExerciseDB.exercise_id'), nullable = False)
-    workout_id = db.Column(db.Integer, ForeignKey('Workout.workout_id'), nullable = False)
+    set_id = db.Column(db.Integer, db.ForeignKey('Set.set_id'), nullable = False)
+    exercise_id = db.Column(db.Integer, db.ForeignKey('ExerciseDB.exercise_id'), nullable = False)
+    workout_id = db.Column(db.Integer, db.ForeignKey('Workout.workout_id'), nullable = False)
     workoutrecord_id = db.Column(db.Integer, db.ForeignKey('WorkoutRecord.workoutrecord_id'), nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey('User.user_id'), nullable = False)
     rep_count = db.Column(db.Integer, nullable = False)
-    rep_unit = db.Coloumn(db.String(20), nullable = False)#e.g. 50 kg, kg is the desc
+    rep_unit = db.Column(db.String(20), nullable = False)#e.g. 50 kg, kg is the desc
     rep_desc = db.Column(db.String(20), nullable = False) #e.g. 50kg, 50 is the desc
