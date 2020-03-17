@@ -18,7 +18,7 @@ class User(db.Model): #User info
     height = db.Column(db.Float, nullable = False)
     weight = db.Column(db.Float, nullable = False)
     image = db.Column(db.String(20), nullable = False, default = 'default.jpg')
-    healthGoal = db.Column(db.String(120), nullable = False, default = 'Lose 0.5kg in a week')
+    healthGoal = db.Column(db.String(120), nullable = False, default = 'Maintain')
     FoodRecord = db.relationship("FoodRecord", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     Food = db.relationship("Food", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     WorkoutRecord = db.relationship("WorkoutRecord", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
@@ -67,11 +67,13 @@ class Food(db.Model): #individual food eaten by user
 class ExerciseDB(db.Model): # from exercise API
     __tablename__ = 'ExerciseDB'
     exercise_id = db.Column(db.Integer, primary_key = True)
-    exercise_desc = db.Column(db.String(1000000), nullable = False)
-    exercise_caloriesburnt = db.Column(db.Float, nullable = False)
+    exercise_name = db.Column(db.String, nullable = False)
+    exercise_desc = db.Column(db.String, nullable = False)
+    exercise_category_primary = db.Column(db.String, nullable = False)
+    exercise_category_secondary = db.Column(db.String, nullable = True)
+    exercise_img = db.Column(db.String, nullable = False)
     Exercise = db.relationship("Exercise", backref="ExerciseDB", cascade="all, delete", passive_deletes=True)
-    Set = db.relationship("Set", backref="ExerciseDB", cascade="all, delete, delete-orphan", passive_deletes=True)
-    Rep = db.relationship("Rep", backref="ExerciseDB", cascade="all, delete, delete-orphan", passive_deletes=True)
+    
 
 class WorkoutRecord(db.Model):#workout that user is supposed to do that day
     __tablename__ = 'WorkoutRecord'
@@ -96,12 +98,18 @@ class Workout(db.Model):#one workout of user
 class Exercise(db.Model):#one exercise in workout
     __tablename__ = 'Exercise'
     exercise_id = db.Column(db.Integer, db.ForeignKey('ExerciseDB.exercise_id', ondelete='CASCADE'), nullable = False, primary_key=True)
+    exercise_name = db.Column(db.String, nullable = False)
+    exercise_desc = db.Column(db.String, nullable = False)
+    exercise_category_primary = db.Column(db.String, nullable = False)
+    exercise_category_secondary = db.Column(db.String, nullable = True)
+    exercise_caloriesburnt = db.Column(db.Float, nullable = False)
+    exercise_img = db.Column(db.String, nullable = False)
+    status = db.Column(db.Boolean, nullable = False, default = False)
     workout_id = db.Column(db.Integer, db.ForeignKey('Workout.workout_id', ondelete='CASCADE'), nullable = False, primary_key=True)
     workoutrecord_id = db.Column(db.Integer, db.ForeignKey('WorkoutRecord.workoutrecord_id', ondelete='CASCADE'), nullable = False, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('User.user_id', ondelete='CASCADE'), nullable = False, primary_key=True)
-    exercise_desc = db.Column(db.String(1000000), nullable = False)
-    exercise_caloriesburnt = db.Column(db.Float, nullable = False)
-    status = db.Column(db.Boolean, nullable = False, default = False)
+    Set = db.relationship("Set", backref="Exercise", cascade="all, delete, delete-orphan", passive_deletes=True)
+    Rep = db.relationship("Rep", backref="Exercise", cascade="all, delete, delete-orphan", passive_deletes=True)
 
 class Set(db.Model):#one set in exercise
     __tablename__ = 'Set'
@@ -123,6 +131,5 @@ class Rep(db.Model):#one in set
     workoutrecord_id = db.Column(db.Integer, db.ForeignKey('WorkoutRecord.workoutrecord_id', ondelete='CASCADE'), nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey('User.user_id', ondelete='CASCADE'), nullable = False)
     rep_count = db.Column(db.Integer, nullable = False)
-    rep_unit = db.Column(db.String(20), nullable = False)#e.g. 50 kg, kg is the desc
+    rep_unit = db.Column(db.String(20), nullable = False) #e.g. 50kg, kg is the desc
     rep_desc = db.Column(db.String(20), nullable = False) #e.g. 50kg, 50 is the desc
-
