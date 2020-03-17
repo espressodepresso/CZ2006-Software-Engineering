@@ -37,7 +37,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
         <div class="container-lg bg-dark">
-            <div class=".ct-chart ct-meal ct-perfect-fourth"></div>
+            <div class="ct-chart ct-meal ct-perfect-fourth"></div>
         </div>
         <script type="text/javascript">
             var Mvalues = {{ Mvalues|tojson }};
@@ -63,6 +63,8 @@
             var data = {labels:['Carbohydrates', 'Protein', 'Fats'],
                         series: Nvalues};
             var options = {
+                height: '60%',
+                width:'60%',
                 total: 100,
                 donut: true,
                 donutWidth: '60%',
