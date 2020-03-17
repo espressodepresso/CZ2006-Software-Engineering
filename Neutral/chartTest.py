@@ -8,7 +8,7 @@ def chartDisplay():
     foodinfo=[{'fname':'Avocado Toast','calories':244,'carbs':27,'fats':18.3}]
     MealData = [20,40,30,10]
 
-    return render_template('foodTables.html', Nvalues=NutritionData, Mvalues=MealData, tableData=foodinfo)
+    return render_template('layout.html', Nvalues=NutritionData, Mvalues=MealData, tableData=foodinfo)
 
 if __name__ == '__main__':
     app.run(debug=True)
