@@ -6,9 +6,9 @@ app = Flask(__name__)
 def chartDisplay():
     NutritionData =[30,30,40]
     foodinfo=[{'fname':'Avocado Toast','calories':244,'carbs':27,'fats':18.3}]
+    MealData = [20,40,30,10]
 
-
-    return render_template('charts.html', values=NutritionData, tableData=foodinfo)
+    return render_template('foodTables.html', Nvalues=NutritionData, Mvalues=MealData, tableData=foodinfo)
 
 if __name__ == '__main__':
     app.run(debug=True)
