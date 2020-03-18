@@ -4,40 +4,66 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
 
-    <title>Test</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href = "main.css">
+    <link rel="stylesheet" type="text/css" href="static/main.css">
+
+    {% if title %}
+        <title>Neutral - {{ title }}</title>
+    {% else %}
+        <title>Neutral</title>
+    {% endif %}
 </head>
 <body>
     <header>
-      <div class = "container">
-        <nav>
-          <h1 class="neutral">
-            <a href="{{ url_for('home') }}"><img src="logo.png"/></a>
-          </h1>
-          <ul>
-            <li><a href="{{ url_for('home') }}"><img class='img-valign' src="home.png"/> Home</a></li>
-            <li><a href="{{ url_for('food') }}"><img class='img-valign' src="food.png"/> Food</a>
-                <ul>
-                    <li><a href="{{ url_for('fooddiary') }}">Diary</a></li>
-                    <li><a href="{{ url_for('searchfood') }}">Search Food</a></li>
-                    <li><a href="{{ url_for('recommendfood') }}">Recommend Food</a></li>
-                </ul>
-            </li>
-            <li><a href="{{ url_for('fitness') }}"><img class='img-valign' src="fitness.png"/> Fitness</a>
-                <ul>
-                    <li><a href="{{ url_for('fitnessdiary') }}">Diary</a></li>
-                    <li><a href="{{ url_for('fitnessworkout') }}">Workout</a></li>
-                    <li><a href="{{ url_for('fitnessexercise') }}">Exercise</a></li>
-                </ul>
-            </li>
-            <li><a href='#'><img class='img-valign' src="logout.png"/> Logout</a></li>
-            <li><a href="{{ url_for('profile') }}"><img class='img-valign' src="default profile pic.png"/> Profile</a></li>
-          </ul>
-        </nav>
-      </div>
+          <div class="container">
+            <nav>
+              <h1 class="neutral">
+                <a href="{{ url_for('home') }}"><img src="static/logo.png"></a>
+              </h1>
+              <ul>
+                <li><a href="{{ url_for('home') }}"><img class='img-valign' src="static/home.png"/>Home</a></li>
+                <li><a href='#'><img class='img-valign' src="static/food.png"/> Food</a>
+                  <ul>
+                    <li><a href="#">Diary</a></li> <!--put in the link to the page at where the # is-->
+                    <li><a href="#">Search Food</a></li>
+                    <li><a href="#">Recommend Food</a></li>
+                  </ul>
+                </li>
+                <li><a href='#'><img class='img-valign' src="static/fitness.png"/> Fitness</a>
+                  <ul>
+                      <li><a href="">Diary</a></li>
+                      <li><a href="">Workout</a></li>
+                      <li><a href="">Exercise</a></li>
+                  </ul>
+                </li>
+                <li><a href="{{ url_for('account') }}"><img class='img-valign' src="static/default profile pic.png"/> Profile</a></li>
+                <li><a href="{{ url_for('logout') }}"><img class='img-valign' src="static/logout.png"/> Logout</a></li>
+              </ul>
+            </nav>
+          </div>
     </header>
+    <main role="main" class="container">
+        <div class="row">
+          <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+          </div>
+        </div>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

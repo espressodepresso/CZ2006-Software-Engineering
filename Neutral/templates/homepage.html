@@ -1,0 +1,86 @@
+{% extends 'chartIndex.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-sm bg-dark">
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">placeholder</a>
+    </li>
+  </ul>
+
+</nav>
+
+<div class="container-fluid" style="margin-top:3rem">
+  <div class="d-flex justify-content-end">
+    <a href="{{ url_for('breakdown') }}" class="btn btn-primary btn-lg active mr-3"><i class="fa fa-plus-circle"></i> Add Food</a>
+    <a href="{{ url_for('breakdown') }}" class="btn btn-primary btn-lg active"><i class="fa fa-plus-circle"></i> Add Workout</a>
+  </div>
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="card border-dark mt-2">
+        <div class="card-body ">
+          <h4 class="card-title">Daily Summary</h4>
+          <p class="card-text">Calories remaining: {{data1[0]}} calories</p>
+          <p class="card-text">Goal: {{data1[1]}} calories</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <div class="card border-dark mt-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-4 text-center">{{data2[0]}} calories</div>
+            <div class="col-sm-1 text-center">-</div>
+            <div class="col-sm-2 text-center">{{data2[1]}} calories</div>
+            <div class="col-sm-1 text-center">=</div>
+            <div class="col-sm-4 text-center">{{data2[2]}} calories</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 text-center">FOOD</div>
+            <div class="col-sm-4 text-center">EXERCISE</div>
+            <div class="col-sm-4 text-center">NETT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="card border-dark mt-2">
+        <div class="card-body">
+          <h4 class="card-title">Weekly Goals</h4>
+          <p class="card-text">placeholder</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <div class="card border-dark mt-2">
+        <div class="card-body">
+          <div class="container">
+              <div class="ct-chart"></div>
+          </div>
+          <script type="text/javascript">
+            var values = {{ values|tojson }};
+            var data = {labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri','Sat','Sun'],  
+                        series: [values
+                        ]};
+            var options = {showLine: true,
+                           showPoint: true,
+                           showArea: true};
+            new Chartist.Line('.ct-chart', data, options);
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
