@@ -31,6 +31,11 @@ header{
     height: 10rem;
 }
 
+.main-form{
+    width: 450px;
+    margin: auto;
+
+}
 nav{
     padding-top:1rem;
     display: flex;

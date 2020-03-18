@@ -1,0 +1,87 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf%}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='main.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div>
+            <header>
+                Add Food
+            </header>
+        </div>
+        <div class="row first-row">
+            <form method="POST" action="{{url_for('displayaddFoodRecord')}}">
+            <dl class="col-md-10 col-lg-10">
+                {{ form.csrf_token }}
+                {{ wtf.form_field(form.foodname) }}
+            </dl><input class="searchbutton" type="image" src="../static/search.png" width="20" height="20" alt="Submit" />
+            </form>
+
+        </div>
+        {% if foodList %}
+        {% for food in foodList %}
+        <div class="row">
+            <div class="results">
+            <div class="col-12">
+                <table class="table">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">Food Name</th>
+                <th scope="col">Calories</th>
+                <th scope="col">Carb</th>
+                <th scope="col">Fat</th>
+                <th scope="col">Saturated Fat</th>
+                <th scope="col">Protein</th>
+                <th scope="col">Sodium</th>
+                <th scope="col">Fibres</th>
+                <th class = "text-right">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="results-row">
+                <th scope="row">{{food.food_name}}</th>
+                <td>{{food.food_calories}}</td>
+                <td>{{food.food_carb}}</td>
+                <td>{{food.food_fat}}</td>
+                <td>{{food.food_saturatedfat}}</td>
+                <td>{{food.food_protein}}</td>
+                <td>{{food.food_sodium}}</td>
+                <td>{{food.food_fibres}}</td>
+                <td class = "text-right"><button class="btn btn-primary" style = "width:150px;" class = "addfoodrecord"><input class="addbutton" type="image" src="../static/add.png" width="20" height="20" alt="Submit" /> Add Food </button></td>
+            </tr>
+        </tbody>
+        </table>
+            </div>
+                </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    $('.table tbody').on('click','.btn',function(){
+        var food = $(this).closest('tr');
+        var food_name = food.find('td:eq(0)').text();
+        var food_calories = food.find('td:eq(1)').text();
+        var food_carb = food.find('td:eq(2)').text();
+        var food_fat = food.find('td:eq(3)').text();
+        var food_saturatedfat = food.find('td:eq(4)').text();
+        var food_protein = food.find('td:eq(5)').text();
+        var food_sodium = food.find('td:eq(6)').text();
+        var food_fibres = food.find('td:eq(7)').text();
+
+        alert(food_name);
+    })
+</script>
+
+
+{% endblock %}
+

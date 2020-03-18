@@ -1,0 +1,15 @@
+{% macro render_field(field) %}
+  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder=""{{ field.label }}
+            aria-label="Search">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <dt>{{ field.label }}
+  <dd>{{ field(**kwargs)|safe }}
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </dd>
+{% endmacro %}

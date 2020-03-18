@@ -1,11 +1,11 @@
 name,description,primary,secondary,img
 Bench Press,This is an exercise for the chest.,chest,triceps,_images/web/bench-press-1.png
-Tate Press,This is an advanced triceps exercise which moves the muscle differently than other exercises.,triceps,nil,_images/web/tate-press-1.png
-Static Neck Flexion and Extension,An exercise to either build or warm-up front and back neck strength.,"neck extensors, neck flexors",nil,_images/web/static-neck-flexion-extension-1.png
-Static Neck Side Flexion,An exercise either build or warm up neck side flexors.,neck side flexors,nil,_images/web/static-neck-side-flexion-1.png
+Tate Press,This is an advanced triceps exercise which moves the muscle differently than other exercises.,triceps,,_images/web/tate-press-1.png
+Static Neck Flexion and Extension,An exercise to either build or warm-up front and back neck strength.,"neck extensors, neck flexors",,_images/web/static-neck-flexion-extension-1.png
+Static Neck Side Flexion,An exercise either build or warm up neck side flexors.,neck side flexors,,_images/web/static-neck-side-flexion-1.png
 Seated Shoulder Press Machine,This is an exercise for the shoulder strengthening.,shoulders,triceps,_images/web/seated-shoulder-press-machine-1.png
 Seated Military Press,An exercise for the shoulder and triceps strengthening.,shoulders,triceps,_images/web/seated-military-press-1.png
-Shoulder Shrugs,An exercise for trapezius strengthening.,trapezius,nil,_images/web/shoulder-shrugs-1.png
+Shoulder Shrugs,An exercise for trapezius strengthening.,trapezius,,_images/web/shoulder-shrugs-1.png
 Arnold Press,An exercise for shoulder and triceps strengthening.,shoulders,triceps,_images/web/arnold-press-1.png
 Front Barbell Raises,"An exercise for shoulder, chest and forearm strengthening.",shoulders,chest,_images/web/front-barbell-raises-1.png
 Front Cable Raises,"An exercise for shoulders, chest and forearm strengthening.",shoulders,chest,_images/web/front-cable-raises-1.png
@@ -21,31 +21,31 @@ Bent-over Lateral Cable Raises,"This is an exercise for shoulder, trapezius and 
 Lateral Dumbbell Raises,"This is an exercise for lateral deltoid, shoulder and forearm strengthening.",lateral deltoid,forearm,_images/web/lateral-dumbbell-raises-1.png
 Ball Wall Circles,This is an exercise to strengthen and stretch the rotator cuff muscles or shoulder muscles.,shoulders,biceps,_images/web/ball-wall-circles-1.png
 Back Fly's with Exercise Band,"This is an exercise for shoulder, middle back and triceps strengthening.",shoulders,triceps,_images/web/back-flys-exercise-band-1.png
-Flat Bench Leg Raises,This is an exercise for lower abdominal strengthening.,lower abdominals,nil,_images/web/flat-bench-leg-raises-1.png
-Lying Rear Lateral Raise,This is an exercise for shoulder strengthening.,shoulders,nil,_images/web/lying-rear-lateral-raise-1.png
+Flat Bench Leg Raises,This is an exercise for lower abdominal strengthening.,lower abdominals,,_images/web/flat-bench-leg-raises-1.png
+Lying Rear Lateral Raise,This is an exercise for shoulder strengthening.,shoulders,,_images/web/lying-rear-lateral-raise-1.png
 Rear Deltoid Row Dumbbell,"This is an exercise for deltoid, biceps and trapezius strengthening.",posterior deltoid,lateral deltoid,_images/web/rear-deltoid-row-dumbbell-1.png
 Seated Cable Rows,"This is an exercise for middle back, biceps and lower back strengthening.",middle back,biceps,_images/web/seated-cable-rows-1.png
 Reverse Grips Bent Over Barbell Rows,This is an exercise for middle back and biceps strengthening.,middle back,biceps,_images/web/reverse-grips-bent-over-barbell-rows-1.png
 Stationary Abdominal Draw In,This is an exercise for abdominal and core strengthening which are vital in supporting the spine.,abdominals,core,_images/web/stationary-abdominal-draw-in-1.png
 Rear Deltoid Row Barbell,This is an exercise for shoulder and biceps strengthening.,shoulders,biceps,_images/web/rear-deltoid-row-barbell-1.png
 T-Bar Rows,"This is an exercise for middle back, biceps and shoulder strengthening.",middle back,biceps,_images/web/t-bar-rows-1.png
-Barbell Shrugs,This is an exercise for trapezius strengthening.,trapezius,nil,_images/web/barbell-shrugs-1.png
-Incline Shoulder Press Dumbbell,This is an exercise for shoulder strengthening.,shoulders,nil,_images/web/incline-shoulder-press-dumbbell-1.png
-Bent Over Rear Deltoid Raise With Head On Bench,This is an exercise for shoulder strengthening.,shoulders,nil,_images/web/bent-over-rear-deltoid-raise-with-head-on-bench-1.png
-Front Dumbbell Raise,This is an exercise for shoulder strengthening.,shoulders,nil,_images/web/front-dumbbell-raise-1.png
+Barbell Shrugs,This is an exercise for trapezius strengthening.,trapezius,,_images/web/barbell-shrugs-1.png
+Incline Shoulder Press Dumbbell,This is an exercise for shoulder strengthening.,shoulders,,_images/web/incline-shoulder-press-dumbbell-1.png
+Bent Over Rear Deltoid Raise With Head On Bench,This is an exercise for shoulder strengthening.,shoulders,,_images/web/bent-over-rear-deltoid-raise-with-head-on-bench-1.png
+Front Dumbbell Raise,This is an exercise for shoulder strengthening.,shoulders,,_images/web/front-dumbbell-raise-1.png
 Internal Cable Rotation,This is an exercise for shoulder and biceps strengthening.,shoulders,biceps,_images/web/internal-cable-rotation-1.png
-Seated Rear Lateral Cable Raise,Tis is an exercise for shoulder strengthening.,shoulders,nil,_images/web/seated-rear-lateral-cable-raise-1.png
+Seated Rear Lateral Cable Raise,Tis is an exercise for shoulder strengthening.,shoulders,,_images/web/seated-rear-lateral-cable-raise-1.png
 Cuban Dumbbell Press,This is a three point exercise for shoulder and middle back strengthening.,shoulders,middle back,_images/web/cuban-dumbbell-press-1.png
-Lying One Arm Rear Lateral Raise,This is an exercise for shoulder strengthening.,shoulders,nil,_images/web/lying-one-arm-rear-lateral-raise-1.png
+Lying One Arm Rear Lateral Raise,This is an exercise for shoulder strengthening.,shoulders,,_images/web/lying-one-arm-rear-lateral-raise-1.png
 One Arm Dumbbell Shoulder Press,This is an exercise for shoulder strengthening.,shoulders,triceps,_images/web/one-arm-dumbbell-shoulder-press-1.png
 One Arm Upright Row,This is an exercise for shoulder and trapezius strengthening.,shoulders,trapezius,_images/web/one-arm-upright-row-1.png
 Dumbbell Raise,This is an exercise for shoulder and biceps strengthening.,shoulders,biceps,_images/web/dumbbell-raise-1.png
-Smith Machine Shoulder Shrugs,This is an exercise for shoulder strengthening.,shoulders,nil,_images/web/smith-machine-shoulder-shrugs-1.png
+Smith Machine Shoulder Shrugs,This is an exercise for shoulder strengthening.,shoulders,,_images/web/smith-machine-shoulder-shrugs-1.png
 Incline Bench Press,This is an exercise for chest and triceps strengthening.,chest,triceps,_images/web/incline-bench-press-1.png
 Incline Bench Press with Bands,This is an exercise for chest and biceps strengthening.,chest,biceps,_images/web/incline-bench-press-with-bands-1.png
 Bent Arm Pullover,"This is an exercise for chest, triceps, shoulders and lats strengthening.",chest,lats,_images/web/bent-arm-pullover-1.png
 Dumbbell Bent Arm Pullover,"This is an exercise for chest, shoulder, lats and biceps strengthening.",chest,shoulders,_images/web/dumbbell-bent-arm-pullover-1.png
-Butterfly Machine,This is an exercise for chest strengthening.,chest,nil,_images/web/butterfly-machine-1.png
+Butterfly Machine,This is an exercise for chest strengthening.,chest,,_images/web/butterfly-machine-1.png
 Cable Crossover,This is an exercise for chest and shoulder strengthening.,chest,shoulders,_images/web/cable-crossover-1.png
 Close Grip Barbell Bench Press,"This is an exercise for chest, triceps and shoulder strengthening.",chest,triceps,_images/web/close-grip-barbell-bench-press-1.png
 Crossover with Bands,"This is an exercise for chest, biceps and shoulder strengthening",chest,shoulders,_images/web/crossover-bands-1.png
@@ -61,13 +61,13 @@ Hammer Grip Incline Bench Press,"This is an advanced exercise for strengthening 
 Incline Cable Fly's,"This exercise is an alternative to the Butterfly or Pec Deck, it defines the muscles of the chest.Place an incline bench set at a 45 degree angle between two cable towers.",chest,biceps,_images/web/incline-cable-flys-1.png
 Dumbbell Incline Bench Press,This is an advanced exercise for building and sculpting the chest as well as your triceps and shoulders.,chest,triceps,_images/web/dumbbell-incline-bench-press-1.png
 Incline Dumbbell Fly's,This is an exercise for chest sculpting and strengthening.,chest,shoulders,_images/web/incline-dumbbell-flys-1.png
-Wide Grip Decline Barbell Pullover,This is an advanced strengthening exercise which targets the pectoral or chest muscles.,chest,nil,_images/web/wide-grip-decline-barbell-pullover-1.png
+Wide Grip Decline Barbell Pullover,This is an advanced strengthening exercise which targets the pectoral or chest muscles.,chest,,_images/web/wide-grip-decline-barbell-pullover-1.png
 Machine Bench Press,"This is an exercise for chest, biceps and shoulder strengthening.",chest,triceps,_images/web/machine-bench-press-1.png
 Barbell Neck Press,This is an advanced exercise for chest strengthening.,chest,biceps,_images/web/barbell-neck-press-1.png
 One Arm Bench Press,This is an advanced strengthening exercise for the chest and rotator cuff muscles of the shoulder.,chest,triceps,_images/web/one-arm-bench-press-1.png
 Bosu Ball Push Up,"This is an exercise for chest, core, shoulders and triceps strengthening with the use of a Bosu ball.",chest,shoulders,_images/web/bosu-ball-push-up-1.png
 One Arm Barbell Floor Press,This is an exercise for chest and triceps strengthening.,chest,triceps,_images/web/one-arm-barbell-floor-press-1.png
-One Arm Flat Bench Fly’s,This is an exercise for chest strengthening.,chest,nil,_images/web/one-arm-flat-bench-flys-1.png
+One Arm Flat Bench Fly’s,This is an exercise for chest strengthening.,chest,,_images/web/one-arm-flat-bench-flys-1.png
 One Armed Biased Push Up,"This is an exercise for chest strengthening but also strengthens ones core, shoulders, biceps and triceps.",chest,triceps,_images/web/one-armed-biased-push-up-1.png
 Push Ups Close and Wide Hand Versions,"These are variations on Push Ups, one of the best exercise for muscles of the chest (pectorals), arms (bicep and triceps) and core development. The core muscles are the rectus abdomen and oblique’s which support the spine.",chest,triceps,_images/web/push-ups-close-and-wide-hand-versions-1.png
 Push Ups with Feet Elevated,This is the same general movement as with a Push Up except your feet are elevated allowing greater range of motions and targeting the pectorals differently than the regular Push Up.,chest,shoulders,_images/web/push-up-feet-elevated-2-1.png
@@ -105,14 +105,14 @@ Dumbbell Dead Lifts,"This is an exercise for lower back, hamstring and calves st
 Bridging,This is an excellent exercise for strengthening and maintaining the core muscles.,gluts,core,_images/web/bridging-1.png
 Body Leg Lifts,This is an exercise for gluts and hamstring strengthening.,gluts,hamstring,_images/web/body-leg-lifts-1.png
 One Legged Cable Kickback,This is an exercise for gluts and hamstring strengthening.,gluts,hamstring,_images/web/one-legged-cable-kickback-1.png
-Side Plank,This is an exercise for core strengthening.,core,nil,_images/web/side-plank-1.png
+Side Plank,This is an exercise for core strengthening.,core,,_images/web/side-plank-1.png
 Barbell Lunges,"This is a classic exercise used for strengthening the hamstrings, quadriceps, calves and gluts.",hamstring,gluts,_images/web/barbell-lunges-1.png
 Dumbbell Lunges,This is an exercise for whole leg but mainly hamstring strengthening.,hamstring,gluts,_images/web/dumbbell-lunges-1.png
 Flutter Kicks,This is an exercise for quadriceps and hamstring strengthening.,hamstrings,quadriceps,_images/web/flutter-kicks-1.png
-Lying Leg Curl Machine,This is an exercise for hamstring strengthening.,hamstring,nil,_images/web/lying-leg-curl-machine-1.png
+Lying Leg Curl Machine,This is an exercise for hamstring strengthening.,hamstring,,_images/web/lying-leg-curl-machine-1.png
 Romanian Dead Lift,"This is an exercise similar to the regular dead lift and strengthens the hamstring, calves, quadriceps and gluts.",hamstrings,calves,_images/web/romanian-dead-lift-1.png
-Seated Leg Curl,This is an exercise for hamstring strengthening which is similar to the laying leg curls.,hamstrings,nil,_images/web/seated-leg-curl-1.png
-Standing Leg Curls,This is an exercise for hamstring strengthening.,hamstrings,nil,_images/web/standing-leg-curls-1.png
+Seated Leg Curl,This is an exercise for hamstring strengthening which is similar to the laying leg curls.,hamstrings,,_images/web/seated-leg-curl-1.png
+Standing Leg Curls,This is an exercise for hamstring strengthening.,hamstrings,,_images/web/standing-leg-curls-1.png
 Walking Lunges,A walking lunge gives you the benefit of lunges plus core muscle training from the constant motion.,hamstrings,quadriceps,_images/web/walking-lunges-1.png
 Hack Squat Machine,This exercise is a variation of the Squat which uses a machine.,quadriceps,hamstrings,_images/web/hack-squat-machine-1.png
 Smith Machine Squats,This exercise is a variation of a squat using the Smith Machine.,quadriceps,calves,_images/web/smith-machine-squats-1.png
@@ -132,8 +132,8 @@ Step Ups with Dumbbells,This exercise builds coordination as well as muscle.,qua
 Front Squat with Barbell,The Front Squat works the same muscles as the rear squat without placing the weight of the bar on your shoulders.,quadriceps,hamstrings,_images/web/front-squat-with-barbell-1.png
 Front Squat to Bench with Barbells,The Front Squat works the same muscles as the rear squat without placing the weight of the bar on your shoulders.,quadriceps,hamstrings,_images/web/front-squat-to-bench-with-barbells-1.png
 Iron Cross with Dumbbells,This is an advanced exercise that works the whole body.,quadriceps,trapezius,_images/web/iron-cross-with-dumbbells-1.png
-Jefferson Squats with Barbell,This exercise builds and shapes the inner thighs.,hamstrings,nil,_images/web/jefferson-squats-with-barbell-1.png
-Leg Extensions,This exercise is a staple for building strong legs.,quadriceps,nil,_images/web/leg-extensions-1.png
+Jefferson Squats with Barbell,This exercise builds and shapes the inner thighs.,hamstrings,,_images/web/jefferson-squats-with-barbell-1.png
+Leg Extensions,This exercise is a staple for building strong legs.,quadriceps,,_images/web/leg-extensions-1.png
 Narrow Stance Leg Press,This is a variation of the leg press which targets more of the external muscles of the legs.,quadriceps,calves,_images/web/narrow-stance-leg-press-1.png
 Lying Squat,This exercise is similar to a Leg Press Machine working the same muscles.,quadriceps,calves,_images/web/lying-squat-1.png
 Narrow Stance Hack Squats,"Like the Hack Squat, this exercise works the muscles of the leg.",quadriceps,hamstrings,_images/web/narrow-stance-hack-squats-1.png
@@ -147,54 +147,54 @@ Speed Squats with Barbell,This version of the squat uses an empty barbell and mo
 Squats with Exercise Bands,This version of the Squat uses flexible exercise bands for resistance instead of weights.,quadriceps,calves,_images/web/squats-with-exercise-bands-1.png
 Thigh Abductor,This exercise targets and works the muscles of the outer thigh.,quadriceps,hamstrings,_images/web/thigh-abductor-1.png
 Thigh Adductor,This exercise targets and works the muscles of the inner thigh.,quadriceps,hamstrings,_images/web/thigh-adductor-1.png
-Weighted Sissy Squat with Weight Plate,"Don't let the name of this exercise fool you, it is a an assisted squat which effectively works the quadriceps.",quadriceps,nil,_images/web/weighted-sissy-squat-with-weight-plate-1.png
+Weighted Sissy Squat with Weight Plate,"Don't let the name of this exercise fool you, it is a an assisted squat which effectively works the quadriceps.",quadriceps,,_images/web/weighted-sissy-squat-with-weight-plate-1.png
 Wide Stance Squat with Barbell,This version of the squat uses a wider stance to isolate the inner thigh.,quadriceps,calves,_images/web/wide-stance-squat-with-barbell-1.png
 Zecher Squats,"This variation of squat is similar to a Front Squat, it works to build the Upper muscles of the quadriceps (thighs).",quadriceps,glutes,_images/web/zecher-squats-1.png
 Bench Dips,This exercise is one of the most basic and still one of the best for building the triceps.,triceps,chest,_images/web/bench-dips-1.png
-Incline Pushdown with Cable,This exercise uses cables to isolate and work the triceps.,triceps,nil,_images/web/incline-pushdown-with-cable-1.png
-Incline Triceps Extension with Cable,This exercise uses cables to isolate and work the triceps.,triceps,nil,_images/web/incline-triceps-extension-with-cable-1.png
-Lying Tricep Extension with Cable,This exercise uses cables to isolate and work the triceps.,triceps,nil,_images/web/lying-triceps-extension-with-cable-1.png
-One Arm Tricep Extension with Cable,This exercise isolates the triceps muscles individually.,triceps,nil,_images/web/one-arm-tricep-extension-with-cable-1.png
-Standing Triceps Extension,This exercise works the triceps by reaching behind your neck.,triceps,nil,_images/web/standing-triceps-extension-1.png
+Incline Pushdown with Cable,This exercise uses cables to isolate and work the triceps.,triceps,,_images/web/incline-pushdown-with-cable-1.png
+Incline Triceps Extension with Cable,This exercise uses cables to isolate and work the triceps.,triceps,,_images/web/incline-triceps-extension-with-cable-1.png
+Lying Tricep Extension with Cable,This exercise uses cables to isolate and work the triceps.,triceps,,_images/web/lying-triceps-extension-with-cable-1.png
+One Arm Tricep Extension with Cable,This exercise isolates the triceps muscles individually.,triceps,,_images/web/one-arm-tricep-extension-with-cable-1.png
+Standing Triceps Extension,This exercise works the triceps by reaching behind your neck.,triceps,,_images/web/standing-triceps-extension-1.png
 Decline Close Grip Bench to Skull Crusher,This exercise combines a close grip bench press with triceps extension.,triceps,chest,_images/web/decline-close-grip-bench-to-skull-crusher-1.png
-Decline Triceps Extension with Dumbbell,This exercise combines a decline bench and dumbbells to target the triceps.,triceps,nil,_images/web/decline-triceps-extension-with-dumbbell-1.png
-Decline EZ Bar Triceps Extension with Barbell,This exercise combines a decline bench and a curved bar to more efficiently work the triceps.,triceps,nil,_images/web/decline-ez-bar-triceps-extension-with-barbell-1.png
+Decline Triceps Extension with Dumbbell,This exercise combines a decline bench and dumbbells to target the triceps.,triceps,,_images/web/decline-triceps-extension-with-dumbbell-1.png
+Decline EZ Bar Triceps Extension with Barbell,This exercise combines a decline bench and a curved bar to more efficiently work the triceps.,triceps,,_images/web/decline-ez-bar-triceps-extension-with-barbell-1.png
 Tricep Dips using Machine,This exercise uses a machine to work the triceps while in seated position.,triceps,shoulders,_images/web/tricep-dips-1.png
 Tricep Dips using Body Weight,This classic exercise uses the weight of your own body to work your triceps.,triceps,shoulders,_images/web/tricep-dips-using-body-weight-1.png
-One Arm Triceps Extension with Dumbbell,This exercise uses a dumbbell to work each arm individually.,triceps,nil,_images/web/one-arm-triceps-extension-with-dumbbell-1.png
-Incline Triceps Extension with Barbell,This version of a triceps extension uses gravity to increase the resistance of the exercise.,triceps,nil,_images/web/incline-triceps-extension-with-barbell-1.png
+One Arm Triceps Extension with Dumbbell,This exercise uses a dumbbell to work each arm individually.,triceps,,_images/web/one-arm-triceps-extension-with-dumbbell-1.png
+Incline Triceps Extension with Barbell,This version of a triceps extension uses gravity to increase the resistance of the exercise.,triceps,,_images/web/incline-triceps-extension-with-barbell-1.png
 JM Press,This is an advanced exercise used by bodybuilders and power lifters to build explosive power in the triceps muscle.,triceps,shoulders,_images/web/jm-press-1.png
-Kneeling Triceps Concentration Extension with Cable,Concentration exercises limit your range of movement to increase the effectiveness of the movement.,triceps,nil,_images/web/kneeling-triceps-extension-with-cable-1.png
-Kneeling Triceps Extension with Cable,Kneeling allows you to isolate your triceps more effectively.,triceps,nil,_images/web/kneeling-triceps-extension-with-cable-2-1.png
-Low Triceps Extension with Cable,This exercise is done while lying on a seated row station.,triceps,nil,_images/web/low-triceps-extension-with-cable-1.png
-Lying Close-Grip Triceps Extension Behind the Head with Barbell,You can use a barbell or EZ bar to further concentrate the benefit to your triceps.,triceps,nil,_images/web/lying-close-grip-triceps-extension-behind-the-head-with-barbell-1.png
-Lying Close Grip Triceps Press to Chin with Barbell,This exercise is a classic for building the triceps.,triceps,nil,_images/web/lying-close-grip-triceps-press-to-chin-with-barbell-1.png
-Lying Triceps Extension with Dumbbells,This exercise uses gravity to increase the resistance of the weight.,triceps,nil,_images/web/lying-triceps-extension-with-dumbbells-1.png
-Lying Triceps Extension Across Face with Dumbbell,This is an advanced Triceps exercise and should be avoided by beginners.,triceps,nil,_images/web/lying-triceps-extension-across-face-with-dumbbell-1.png
+Kneeling Triceps Concentration Extension with Cable,Concentration exercises limit your range of movement to increase the effectiveness of the movement.,triceps,,_images/web/kneeling-triceps-extension-with-cable-1.png
+Kneeling Triceps Extension with Cable,Kneeling allows you to isolate your triceps more effectively.,triceps,,_images/web/kneeling-triceps-extension-with-cable-2-1.png
+Low Triceps Extension with Cable,This exercise is done while lying on a seated row station.,triceps,,_images/web/low-triceps-extension-with-cable-1.png
+Lying Close-Grip Triceps Extension Behind the Head with Barbell,You can use a barbell or EZ bar to further concentrate the benefit to your triceps.,triceps,,_images/web/lying-close-grip-triceps-extension-behind-the-head-with-barbell-1.png
+Lying Close Grip Triceps Press to Chin with Barbell,This exercise is a classic for building the triceps.,triceps,,_images/web/lying-close-grip-triceps-press-to-chin-with-barbell-1.png
+Lying Triceps Extension with Dumbbells,This exercise uses gravity to increase the resistance of the weight.,triceps,,_images/web/lying-triceps-extension-with-dumbbells-1.png
+Lying Triceps Extension Across Face with Dumbbell,This is an advanced Triceps exercise and should be avoided by beginners.,triceps,,_images/web/lying-triceps-extension-across-face-with-dumbbell-1.png
 Lying Triceps Press with Barbell,This is another classic exercise for building the triceps.,triceps,chest,_images/web/lying-triceps-press-with-barbell-1.png
-Lying Two Arm Triceps Extension with Dumbbell,This a lying version of a Triceps Kickback.,triceps,nil,_images/web/lying-two-arm-triceps-extension-with-dumbbell-1.png
-Old School Reverse Extensions,"As the name suggests, this is an old classic exercise that hits the triceps hard.",triceps,nil,_images/web/old-school-reverse-extensions-1.png
-Single Arm Pronated Triceps Extension with Dumbbell,This is an advanced exercise to isolate and work the tricep muscles.,triceps,nil,_images/web/single-arm-triceps-extension-with-dumbbell-1.png
-Single Arm Supinated Triceps Extension with Dumbbell,This exercise is similar to the Single Arm Pronated Triceps Extension except the movement is over the head instead of across the chest.,triceps,nil,_images/web/single-arm-supinated-triceps-extension-with-dumbbell-1.png
+Lying Two Arm Triceps Extension with Dumbbell,This a lying version of a Triceps Kickback.,triceps,,_images/web/lying-two-arm-triceps-extension-with-dumbbell-1.png
+Old School Reverse Extensions,"As the name suggests, this is an old classic exercise that hits the triceps hard.",triceps,,_images/web/old-school-reverse-extensions-1.png
+Single Arm Pronated Triceps Extension with Dumbbell,This is an advanced exercise to isolate and work the tricep muscles.,triceps,,_images/web/single-arm-triceps-extension-with-dumbbell-1.png
+Single Arm Supinated Triceps Extension with Dumbbell,This exercise is similar to the Single Arm Pronated Triceps Extension except the movement is over the head instead of across the chest.,triceps,,_images/web/single-arm-supinated-triceps-extension-with-dumbbell-1.png
 Close Triceps Pushup,This version of the Pushup isolates the tricep muscles.,triceps,chest,_images/web/close-triceps-pushup-1.png
-Reverse Grip Triceps Pushdown,This exercise is the reverse version of the triceps pushdown.,triceps,nil,_images/web/reverse-grip-triceps-pushdown-1.png
+Reverse Grip Triceps Pushdown,This exercise is the reverse version of the triceps pushdown.,triceps,,_images/web/reverse-grip-triceps-pushdown-1.png
 Reverse Triceps Bench Press with Barbell,This exercise is a version of the Bench Press that specifically isolates the triceps.,triceps,chest,_images/web/reverse-triceps-bench-press-with-barbell-1.png
-Seated One Arm Triceps Extension with Dumbbell,This exercise uses a kickback movement to work the triceps in each arm individually.,triceps,nil,_images/web/seated-one-arm-triceps-extension-with-dumbbell-1.png
-Seated Overhead Triceps Extension with Barbell,This exercise uses a barbell behind your neck to isolate the triceps effectively.,triceps,nil,_images/web/seated-overhead-triceps-extension-with-barbell-1.png
-Seated Triceps Press with Dumbbell,This exercise uses a single dumbbell held between both hands to work the triceps.,triceps,nil,_images/web/seated-triceps-press-with-dumbbell-1.png
-Standing Triceps Extension,This exercise works the triceps by reaching behind your neck.,triceps,nil,_images/web/standing-triceps-extension-2-1.png
-One Arm Low-Pulley Triceps Extension with Cable,This exercise uses a cable machine to isolate the triceps.,triceps,nil,_images/web/one-arm-low-pulley-triceps-extension-with-cable-1.png
-Standing One Arm Triceps Extension with Dumbbell,This is a single arm version of a behind the neck triceps exercise.,triceps,nil,_images/web/standing-one-arm-triceps-extension-with-dumbbell-1.png
-Standing Overhead Triceps Extension with Barbell,This is a double arm barbell version of a behind the neck triceps exercise.,triceps,nil,_images/web/standing-overhead-triceps-extension-with-barbell-1.png
-Triceps Pushdown with Cable,This exercise is the original version of the triceps pushdown.,triceps,nil,_images/web/triceps-pushdown-with-cable-1.png
-Triceps Pushdown with Rope and Cable,This version of the triceps pushdown uses a rope for better definition in the muscle.,triceps,nil,_images/web/triceps-pushdown-with-rope-and-cable-1.png
-Triceps Pushdown with V Bar and Cable,This exercise is the triceps pushdown uses a V shaped bar.,triceps,nil,_images/web/triceps-pushdown-with-v-bar-and-cable-1.png
+Seated One Arm Triceps Extension with Dumbbell,This exercise uses a kickback movement to work the triceps in each arm individually.,triceps,,_images/web/seated-one-arm-triceps-extension-with-dumbbell-1.png
+Seated Overhead Triceps Extension with Barbell,This exercise uses a barbell behind your neck to isolate the triceps effectively.,triceps,,_images/web/seated-overhead-triceps-extension-with-barbell-1.png
+Seated Triceps Press with Dumbbell,This exercise uses a single dumbbell held between both hands to work the triceps.,triceps,,_images/web/seated-triceps-press-with-dumbbell-1.png
+Standing Triceps Extension,This exercise works the triceps by reaching behind your neck.,triceps,,_images/web/standing-triceps-extension-2-1.png
+One Arm Low-Pulley Triceps Extension with Cable,This exercise uses a cable machine to isolate the triceps.,triceps,,_images/web/one-arm-low-pulley-triceps-extension-with-cable-1.png
+Standing One Arm Triceps Extension with Dumbbell,This is a single arm version of a behind the neck triceps exercise.,triceps,,_images/web/standing-one-arm-triceps-extension-with-dumbbell-1.png
+Standing Overhead Triceps Extension with Barbell,This is a double arm barbell version of a behind the neck triceps exercise.,triceps,,_images/web/standing-overhead-triceps-extension-with-barbell-1.png
+Triceps Pushdown with Cable,This exercise is the original version of the triceps pushdown.,triceps,,_images/web/triceps-pushdown-with-cable-1.png
+Triceps Pushdown with Rope and Cable,This version of the triceps pushdown uses a rope for better definition in the muscle.,triceps,,_images/web/triceps-pushdown-with-rope-and-cable-1.png
+Triceps Pushdown with V Bar and Cable,This exercise is the triceps pushdown uses a V shaped bar.,triceps,,_images/web/triceps-pushdown-with-v-bar-and-cable-1.png
 Incline Triceps Extensions with Dumbbell,This version of the triceps extension uses an incline bench.,triceps,shoulders,_images/web/incline-triceps-extensions-with-dumbbell-1.png
-Triceps Extensions using Machine,This exercise uses a machine to insure proper range of motion for tricep extensions.,triceps,nil,_images/web/triceps-extensions-using-machine-1.png
+Triceps Extensions using Machine,This exercise uses a machine to insure proper range of motion for tricep extensions.,triceps,,_images/web/triceps-extensions-using-machine-1.png
 Biceps Curls with Barbell,This is a basic exercise for the biceps.,biceps,shoulders,_images/web/biceps-curls-with-barbell-1.png
 Standing Biceps Curl with Cable,This version of the biceps curl uses a cable instead of a barbell to work the muscles of the arms.,biceps,forearm,_images/web/standing-biceps-curl-with-cable-1.png
 Alternating Hammer Curl with Dumbbell,This exercise uses a hammering motion to isolate the biceps.,biceps,forearm,_images/web/alternating-hammer-curl-with-dumbbell-1.png
-Hammer Curls with Rope and Cable,Using the rope with the cable machine allows you isolate the biceps with this version of the Hammer Curl.,biceps,nil,_images/web/hammer-curls-with-rope-and-cable-1.png
+Hammer Curls with Rope and Cable,Using the rope with the cable machine allows you isolate the biceps with this version of the Hammer Curl.,biceps,,_images/web/hammer-curls-with-rope-and-cable-1.png
 Preacher Curl with Cable,A Preacher Curl uses a special bench to support the triceps and isolate the biceps to build the arms.,biceps,forearm,_images/web/preacher-curl-with-cable-1.png
 Close Grip EZ Bar Curl with Barbell,This exercise uses a cambered EZ or curl bar to isolate the biceps during a curl.,biceps,forearm,_images/web/close-grip-ez-bar-curl-with-barbell-1.png
 Close Grip Standing Biceps Curls with Barbell,This exercise uses a standard barbell to isolate the biceps during a curl.,biceps,forearm,_images/web/close-grip-standing-biceps-curls-with-barbell-1.png
@@ -203,13 +203,13 @@ Drag Curl with Barbell,This exercise works the biceps and forearms.,biceps,forea
 Alternating Bicep Curl with Dumbbell,This exercise is a single arm version of a biceps curl.,biceps,forearm,_images/web/alternating-biceps-curl-with-dumbbell-1.png
 Biceps Curl with Dumbbell,This version of a biceps curl uses both arms at the same time.,biceps,forearm,_images/web/biceps-curl-with-dumbbell-1.png
 EZ Bar Curl with Barbell,This exercise uses an EZ or curl bar to better isolate and build the arms.,biceps,forearm,_images/web/ez-bar-curl-with-barbell-1.png
-Biceps Hammer Curl with Dumbbell,This exercise uses a hammering motion to isolate the biceps.,biceps,nil,_images/web/bicep-hammer-curl-with-dumbbell-1.png
+Biceps Hammer Curl with Dumbbell,This exercise uses a hammering motion to isolate the biceps.,biceps,,_images/web/bicep-hammer-curl-with-dumbbell-1.png
 High Cable Curls,This exercise allows you to target the muscles of your arms from a different position.,biceps,triceps,_images/web/high-cable-curls-1.png
-Lying Close Grip Biceps Curls with Cable,This exercise combines a flat body position with a pulling motion to work the biceps.,biceps,nil,_images/web/lying-close-grip-biceps-curls-with-cable-1.png
+Lying Close Grip Biceps Curls with Cable,This exercise combines a flat body position with a pulling motion to work the biceps.,biceps,,_images/web/lying-close-grip-biceps-curls-with-cable-1.png
 Preacher Curl with Machine,A Preacher Curl uses a special bench to support the triceps and isolate the biceps to build the arms.,biceps,forearm,_images/web/preacher-curl-with-machine-1.png
-Overhead Curl with Cable,"By using cable, this exercise isolates and defines the biceps muscles.",biceps,nil,_images/web/overhead-curl-with-cable-1.png
+Overhead Curl with Cable,"By using cable, this exercise isolates and defines the biceps muscles.",biceps,,_images/web/overhead-curl-with-cable-1.png
 Preacher Curl with Barbell,A Preacher Curl uses a special bench to support the triceps and isolate the biceps to build the arms.,biceps,forearm,_images/web/preacher-curl-with-barbell-1.png
-Preacher Hammer Curl with Dumbbell,This exercise combines a Hammer Curl with a Preacher bench.,biceps,nil,_images/web/preacher-hammer-curl-with-dumbbell-1.png
+Preacher Hammer Curl with Dumbbell,This exercise combines a Hammer Curl with a Preacher bench.,biceps,,_images/web/preacher-hammer-curl-with-dumbbell-1.png
 Seated Bicep Curl with Dumbbell,This exercise is a seated biceps curl using dumbbells.,biceps,forearm,_images/web/seated-biceps-curl-with-dumbbell-1.png
 Seated Inner Biceps Curl with Dumbbell,This exercise works the inner biceps.,biceps,forearm,_images/web/seated-inner-biceps-curl-with-dumbbell-1.png
 Standing Inner Biceps Curl with Dumbbell,This exercise works the inner biceps.,biceps,forearm,_images/web/standing-inner-biceps-curl-with-dumbbell-1.png
@@ -230,16 +230,16 @@ Forward Lunge with Bicep Curl using Dumbbell,This exercise combines a forward lu
 Step Up Single Leg Balance with Bicep Curl using Dumbbells,This exercise combines a step up with a bicep curl.,biceps,core,_images/web/step-up-single-leg-balance-with-biceps-curl-using-dumbbells-1.png
 Stork Stance Bicep Curl with Dumbbells,This is an advanced exercise that requires excellent coordination and balance.,biceps,quadriceps,_images/web/stork-stance-biceps-curl-with-dumbbells-1.png
 Balance Board,"Your calves are stabilizing muscles for your legs, so this exercises uses a Balance Board or wobble board to force you to balance.",calves,quadriceps,_images/web/balance-board-1.png
-Seated Calf Raise with Barbell,This version of a calves raise uses a block and a barbell.,calves,nil,_images/web/seated-calf-raise-with-barbell-1.png
-Calves Press on Leg Machine,This exercise uses a Leg Press Machine to work your calves.,calves,nil,_images/web/calves-press-on-leg-machine-1.png
-Donkey Calf Raises,This is an old school gym exercise which requires the assistance of another person.,calves,nil,_images/web/donkey-calf-raises-1.png
-Rocking Standing Calf Raise with Barbell,This exercise uses a simple rocking motion to strengthen the calves.,calves,nil,_images/web/rocking-standing-calf-raise-with-barbell-1.png
-Smith Machine Reverse Calf Raises,"This is a unique exercise that works the tibialis anterior muscle, one of the muscles of the calves.",calves,nil,_images/web/smith-machine-reverse-calf-raises-1.png
-Standing Barbell Calf Raise,This is standing version of a Calf Raise.,calves,nil,_images/web/standing-barbell-calf-raise-1.png
-Standing Calf Raises using Machine,This exercise uses a machine to allow for proper form.,calves,nil,_images/web/standing-calf-raises-using-machine-1.png
-Air Bike,This exercise works your abs by raising your arms to meet your legs.,abdominals,nil,_images/web/air-bike-1.png
+Seated Calf Raise with Barbell,This version of a calves raise uses a block and a barbell.,calves,,_images/web/seated-calf-raise-with-barbell-1.png
+Calves Press on Leg Machine,This exercise uses a Leg Press Machine to work your calves.,calves,,_images/web/calves-press-on-leg-machine-1.png
+Donkey Calf Raises,This is an old school gym exercise which requires the assistance of another person.,calves,,_images/web/donkey-calf-raises-1.png
+Rocking Standing Calf Raise with Barbell,This exercise uses a simple rocking motion to strengthen the calves.,calves,,_images/web/rocking-standing-calf-raise-with-barbell-1.png
+Smith Machine Reverse Calf Raises,"This is a unique exercise that works the tibialis anterior muscle, one of the muscles of the calves.",calves,,_images/web/smith-machine-reverse-calf-raises-1.png
+Standing Barbell Calf Raise,This is standing version of a Calf Raise.,calves,,_images/web/standing-barbell-calf-raise-1.png
+Standing Calf Raises using Machine,This exercise uses a machine to allow for proper form.,calves,,_images/web/standing-calf-raises-using-machine-1.png
+Air Bike,This exercise works your abs by raising your arms to meet your legs.,abdominals,,_images/web/air-bike-1.png
 Ab Rollout on Knees with Barbell,This exercise works the abs and lower back and is the proper version of an “ab roller”.,abdominals,lower back,_images/web/ab-rollout-on-knees-with-barbell-1.png
-Bent Knee Hip Raise,This is a good exercise core muscle development.,abdominals,nil,_images/web/bent-knee-hip-raise-1.png
-Seated Ab Crunch with Cable,This exercise uses the weight of a cable machine to assist in a crunch.,abdominals,nil,_images/web/seated-ab-crunch-with-cable-1.png
-Crunches with Legs on Stability Ball,This exercise uses a Stability Ball as the base during your crunches.,abdominals,nil,_images/web/crunches-with-legs-on-stability-ball-1.png
-Side Bend with Dumbbell,"This exercise works the obliques, the muscles on the sides of your abs.",abdominals,nil,_images/web/side-bend-with-dumbbell-1.png
+Bent Knee Hip Raise,This is a good exercise core muscle development.,abdominals,,_images/web/bent-knee-hip-raise-1.png
+Seated Ab Crunch with Cable,This exercise uses the weight of a cable machine to assist in a crunch.,abdominals,,_images/web/seated-ab-crunch-with-cable-1.png
+Crunches with Legs on Stability Ball,This exercise uses a Stability Ball as the base during your crunches.,abdominals,,_images/web/crunches-with-legs-on-stability-ball-1.png
+Side Bend with Dumbbell,"This exercise works the obliques, the muscles on the sides of your abs.",abdominals,,_images/web/side-bend-with-dumbbell-1.png

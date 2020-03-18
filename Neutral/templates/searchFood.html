@@ -1,0 +1,66 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf%}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='main.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row first-row">
+            <form method="POST" action="{{url_for('displaySearchFood')}}" class="main-form">
+            <dl class="col-md-10 col-lg-10">
+                {{ form.csrf_token }}
+                {{ wtf.form_field(form.foodname) }}
+            </dl><input class="searchbutton" type="image" src="../static/search.png" width="20" height="20" alt="Submit" />
+            </form>
+
+        </div>
+        {% if foodList %}
+        {% for food in foodList %}
+        <div class="row">
+            <div class="results">
+            <div class="col-12">
+                <table class="table">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">Food Name</th>
+                <th scope="col">Calories</th>
+                <th scope="col">Carb</th>
+                <th scope="col">Fat</th>
+                <th scope="col">Saturated Fat</th>
+                <th scope="col">Protein</th>
+                <th scope="col">Sodium</th>
+                <th scope="col">Fibres</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="results-row">
+                <th scope="row">{{food.food_name}}</th>
+                <td>{{food.food_calories}}</td>
+                <td>{{food.food_carb}}</td>
+                <td>{{food.food_fat}}</td>
+                <td>{{food.food_saturatedfat}}</td>
+                <td>{{food.food_protein}}</td>
+                <td>{{food.food_sodium}}</td>
+                <td>{{food.food_fibres}}</td>
+            </tr>
+        </tbody>
+        </table>
+            </div>
+                </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}
+
+
+
+
+

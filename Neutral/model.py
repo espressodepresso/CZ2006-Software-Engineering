@@ -20,7 +20,6 @@ class User(db.Model): #User info
     image = db.Column(db.String(20), nullable = False, default = 'default.jpg')
     healthGoal = db.Column(db.String(120), nullable = False, default = 'Lose 0.5kg in a week')
     FoodRecord = db.relationship("FoodRecord", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
-    Food = db.relationship("Food", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     WorkoutRecord = db.relationship("WorkoutRecord", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     Workout = db.relationship("Workout", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     Exercise = db.relationship("Exercise", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
@@ -30,7 +29,7 @@ class User(db.Model): #User info
 class FoodDB(db.Model): #from food API
     __tablename__ = 'FoodDB'
     food_id = db.Column(db.Integer, primary_key = True)
-    food_name = db.Column(db.String(50), nullable = False)
+    food_name = db.Column(db.String(1000), nullable = False)
     food_calories = db.Column(db.Float, nullable = False)
     food_protein = db.Column(db.Float, nullable = False)
     food_carb = db.Column(db.Float, nullable = False)
@@ -39,7 +38,7 @@ class FoodDB(db.Model): #from food API
     food_saturatedfat = db.Column(db.Float, nullable = False)
     food_sodium = db.Column(db.Float, nullable = False)
     serving_size = db.Column(db.Float, nullable = False)
-    Food = db.relationship("Food", backref="FoodDB", cascade="all, delete, delete-orphan", passive_deletes=True)
+    FoodRecord = db.relationship("FoodRecord", backref="FoodDB", cascade="all, delete, delete-orphan", passive_deletes=True)
 
 class FoodRecord(db.Model): #a food record that user eat
     __tablename__ = 'FoodRecord'
@@ -47,14 +46,8 @@ class FoodRecord(db.Model): #a food record that user eat
     user_id = db.Column(db.Integer, db.ForeignKey('User.user_id', ondelete='CASCADE'), nullable = False)
     foodrecord_date = db.Column(db.DateTime, nullable = False, default = datetime.now())
     foodrecord_meal = db.Column(db.String(20), nullable = False, default = 'Breakfast')
-    Food = db.relationship("Food", backref="FoodRecord", cascade="all, delete, delete-orphan", passive_deletes=True)
-
-class Food(db.Model): #individual food eaten by user
-    __tablename__ = 'Food'
     food_id = db.Column(db.Integer, db.ForeignKey('FoodDB.food_id', ondelete='CASCADE'), nullable = False, primary_key = True)
-    user_id = db.Column(db.Integer, db.ForeignKey('User.user_id', ondelete='CASCADE'), nullable = False, primary_key = True)
-    foodrecord_id = db.Column(db.Integer, db.ForeignKey('FoodRecord.foodrecord_id', ondelete='CASCADE'), nullable = False, primary_key = True)
-    food_name = db.Column(db.Float, nullable = False)
+    food_name = db.Column(db.String(1000), nullable = False)
     food_calories = db.Column(db.Float, nullable = False)
     food_protein = db.Column(db.Float, nullable = False)
     food_carb = db.Column(db.Float, nullable = False)
@@ -71,7 +64,7 @@ class ExerciseDB(db.Model): # from exercise API
     exercise_desc = db.Column(db.String(1000000), nullable = False)
     exercise_img = db.Column(db.String(1000000), nullable = False)
     exercise_category_primary = db.Column(db.String(1000000), nullable = False)
-    exercise_category_secondary = db.Column(db.String(1000000), nullable = False)
+    exercise_category_secondary = db.Column(db.String(1000000), nullable = True)
     Exercise = db.relationship("Exercise", backref="ExerciseDB", cascade="all, delete", passive_deletes=True)
     Set = db.relationship("Set", backref="ExerciseDB", cascade="all, delete, delete-orphan", passive_deletes=True)
     Rep = db.relationship("Rep", backref="ExerciseDB", cascade="all, delete, delete-orphan", passive_deletes=True)
@@ -106,7 +99,7 @@ class Exercise(db.Model):#one exercise in workout
     exercise_desc = db.Column(db.String(1000000), nullable = False)
     exercise_img = db.Column(db.String(1000000), nullable = False)
     exercise_category_primary = db.Column(db.String(1000000), nullable = False)
-    exercise_category_secondary = db.Column(db.String(1000000), nullable = False)
+    exercise_category_secondary = db.Column(db.String(1000000), nullable = True)
     exercise_caloriesburnt = db.Column(db.Float, nullable = False)
     status = db.Column(db.Boolean, nullable = False, default = False)
 
