@@ -69,13 +69,13 @@
           </div>
           <script type="text/javascript">
             var values = {{ values|tojson }};
-              new Chartist.Line('.ct-chart', {
-                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday','Sunday'],
-                series: [80,79,79,77.5,78,77,77.5]
-                }, {
-                fullWidth: true,
-                showArea:true
-                });
+            var data = {labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri','Sat','Sun'],  
+                        series: [values
+                        ]};
+            var options = {showLine: true,
+                           showPoint: true,
+                           showArea: true};
+            new Chartist.Line('.ct-chart', data, options);
           </script>
         </div>
       </div>

@@ -44,7 +44,7 @@ def nav():
     #print(type(test_user))
     summary_data=[542,1360]
     exercise_data=[838,400,438]
-    values=[80,79,79,77.5,78,77,77.5]
+    values=[80.0,79.0,79.0,77.5,78.0,77.0,77.5]
     return render_template('homepage.html',  data1=summary_data, data2=exercise_data, values=values)
 
 
