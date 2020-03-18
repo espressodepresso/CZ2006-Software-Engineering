@@ -3,10 +3,17 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from sqlalchemy import Integer, Column, Float, DateTime
 from sqlalchemy.orm import relationship
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from Neutral import db, login_manager, app
+from flask_login import UserMixin
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 class User(db.Model): #User info
     __tablename__ = 'User'
