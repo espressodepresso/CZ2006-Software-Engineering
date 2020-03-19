@@ -3,17 +3,14 @@
 
 {% block styles %}
 {{super()}}
-<link rel="stylesheet"
-      href="{{url_for('.static', filename='main.css')}}">
+<meta charset="utf-8">
+        <title>Add Food</title>
+        <link rel="stylesheet" href="static/search.css">
 {% endblock %}
 
 {% block content %}
     <div class="container">
-        <div>
-            <header>
-                Add Food
-            </header>
-        </div>
+        <header>Add Food</header>
         <div class="row first-row">
             <form method="POST" action="{{url_for('displayaddFoodRecord')}}">
             <dl class="col-md-10 col-lg-10">

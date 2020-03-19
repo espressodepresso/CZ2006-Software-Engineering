@@ -1,0 +1,28 @@
+body {
+    background-color: #FFFAF0;
+  }
+  .searchbutton{
+      margin-top: 2.5%;
+  
+  }
+  .first-row{
+     margin-top:20px;
+  }
+  table{
+      width:100%;
+  }
+  th{
+      width: 10%;
+  
+  }
+  
+  .results{
+      background-color:white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 15px;
+      padding: 10px;
+      margin-top: 20px;
+  }
+  .results-row{
+      background-color:#ccffe6;
+  }
