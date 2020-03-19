@@ -15,9 +15,13 @@ from flask_mail import Message
 
 
 @app.route('/')  # what we write in the browser - route to home page
+
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    summary_data=[542,1360]
+    exercise_data=[838,400,438]
+    values=[80.0,79.0,79.0,77.5,78.0,77.0,77.5]
+    return render_template('home.html',  data1=summary_data, data2=exercise_data, values=values)
     
 @app.route('/foodreco',methods=['POST','GET'])
 def displayFoodReco():
@@ -196,3 +200,23 @@ def reset_token(token):
         flash('Your password has been updated! You are now able to log in', 'success')
         return redirect(url_for('login'))
     return render_template('reset_token.html', title='Reset Password', form=form)
+
+
+@app.route('/diary',methods=['POST','GET'])
+def diary():
+    MealData = [20,40,30,10]
+    MealLabels = ['Breakfast', 'Lunch', 'Dinner','Snacks']
+    NutritionData =[30,30,40]
+    NutritionLabels = ['Carbohydrates','Protein','Fats']
+    date='Wednesday, 25 Feb 2020'
+    
+    if request.method == 'POST':
+        data = request.get_json()
+        print(data)
+        if 'Nutrients' in request.form["action"]:
+            return render_template('diary.html', values=NutritionData,labels=NutritionLabels, date=date,header='Nutrients')
+        elif 'Calories' in request.form["action"]:
+            return render_template('diary.html', values=MealData, labels=MealLabels, date=date,header='Calories')
+    else:
+        return render_template('diary.html', values=NutritionData, labels=NutritionLabels, date=date, header='Nutrients')    
+

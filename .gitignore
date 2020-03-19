@@ -1,3 +1,8 @@
 
 __pycache__/model.cpython-38.pyc
 .vscode/settings.json
+Neutral/__pycache__/__init__.cpython-38.pyc
+Neutral/__pycache__/entity.cpython-38.pyc
+Neutral/__pycache__/foodreco.cpython-38.pyc
+Neutral/__pycache__/forms.cpython-38.pyc
+Neutral/__pycache__/routing.cpython-38.pyc
