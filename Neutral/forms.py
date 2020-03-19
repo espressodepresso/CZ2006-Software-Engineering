@@ -13,7 +13,15 @@ from Neutral.model import User
 class searchForm(Form):
     foodname = StringField('Search Food',validators=[InputRequired()])
 
-
+class editfoodForm(FlaskForm):
+    foodrecord_id = StringField('foodrecord_id', validators=[InputRequired()])
+    calories = StringField('calories', validators=[InputRequired()])
+    carb = StringField('carb', validators=[InputRequired()])
+    fat = StringField('fat', validators=[InputRequired()])
+    sat = StringField('sat', validators=[InputRequired()])
+    protein = StringField('protein', validators=[InputRequired()])
+    sodium = StringField('sodium', validators=[InputRequired()])
+    fibres = StringField('fibres', validators=[InputRequired()])
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', 
@@ -94,3 +102,4 @@ class ResetPasswordForm(FlaskForm):
                                       validators=[DataRequired(),
                                                   EqualTo('password')])
     submit = SubmitField('Reset Password')
+

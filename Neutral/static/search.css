@@ -8,12 +8,8 @@ body {
   .first-row{
      margin-top:20px;
   }
-  table{
+  .table{
       width:100%;
-  }
-  th{
-      width: 10%;
-  
   }
   
   .results{

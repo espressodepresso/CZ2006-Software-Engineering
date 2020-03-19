@@ -4,141 +4,328 @@
 
 {% block styles %}
 {{super()}}
-<link rel="stylesheet"
-      href="{{url_for('.static', filename='search.css')}}">
+<meta charset="utf-8">
+        <title>Food Record</title>
+        <link rel="stylesheet" href="../static/search.css">
+        
 {% endblock %}
 
 {% block content %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="editmodal">Edit Food Record</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+                <div class="modal-body">
+                    <input type='hidden' name="foodrecord_id" id="foodrecord_id">
+
+                    <div class="form-group">
+                        <label>Calories</label>
+                            <input type="text" id="calories" class="form-control mx-sm-3" aria-describedby="caloriesHelp">
+                            <small id="caloriesHelp" class="text-muted">kcal</small>
+                    </div>
+                    <div>
+                        <label>Carbohydrate</label>
+                            <input type="text" id="carb" class="form-control mx-sm-3" aria-describedby="carbHelp">
+                            <small id="carbHelp" class="text-muted">g</small>
+                    </div> 
+                    <div>
+                        <label>Fat</label>
+                            <input type="text" id="fat" class="form-control mx-sm-3" aria-describedby="fatHelp">
+                            <small id="fatHelp" class="text-muted">g</small>
+                    </div>
+                    <div>
+                        <label>Saturated Fat</label>
+                            <input type="text" id="sat" class="form-control mx-sm-3" aria-describedby="satHelp">
+                            <small id="satHelp" class="text-muted">g</small>
+                    </div>
+                    <div>
+                        <label>Protein</label>
+                            <input type="text" id="protein" class="form-control mx-sm-3" aria-describedby="proteinHelp">
+                            <small id="proteinHelp" class="text-muted">g</small>
+                    </div>
+                    <div>
+                        <label>Sodium</label>
+                            <input type="text" id="sodium" class="form-control mx-sm-3" aria-describedby="sodiumHelp">
+                            <small id="sodiumHelp" class="text-muted">mg</small>
+                    </div>
+                    <div>
+                        <label>Fibres</label>
+                            <input type="text" id="fibres" class="form-control mx-sm-3" aria-describedby="fibresHelp">
+                            <small id="fibresHelp" class="text-muted">g</small>
+                        </div>
+                  
+
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary savechangesbtn" id="savechanges">Save changes</button>
+            </div>
+            
+        </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="results">
-            <div class="col-12">
-                <table class="table">
-                {% if food_list_breakfast %}
-                <caption>Breakfast</caption>
-                <thead>
-                    <tr class="table-primary">
-                        <th scope="col">Food Name</th>
-                        <th scope="col">Calories</th>
-                        <th scope="col">Carb</th>
-                        <th scope="col">Fat</th>
-                        <th scope="col">Saturated Fat</th>
-                        <th scope="col">Protein</th>
-                        <th scope="col">Sodium</th>
-                        <th scope="col">Fibres</th>
-                    </tr>
-                </thead>
-                {% for food in food_list_breakfast %}
-                <tbody>
-                    <tr class="results-row">
-                        <th scope="row">{{food.food_name}}</th>
-                        <td>{{food.food_calories}}</td>
-                        <td>{{food.food_carb}}</td>
-                        <td>{{food.food_fat}}</td>
-                        <td>{{food.food_saturatedfat}}</td>
-                        <td>{{food.food_protein}}</td>
-                        <td>{{food.food_sodium}}</td>
-                        <td>{{food.food_fibres}}</td>
-                    </tr>
-                </tbody>
-                {% endfor %}
-            </table>
+                <div class="col-12">
+                    <table class="table">
+                    {% if food_list_breakfast %}
+                    <caption>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">ID</th>
+                            <th scope="col">Food Name</th>
+                            <th scope="col">Calories</th>
+                            <th scope="col">Carb</th>
+                            <th scope="col">Fat</th>
+                            <th scope="col">Saturated Fat</th>
+                            <th scope="col">Protein</th>
+                            <th scope="col">Sodium</th>
+                            <th scope="col">Fibres</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    {% for food in food_list_breakfast %}
+                    <tbody>
+                        <tr class="results-row">
+                            <th scope="row">{{food.foodrecord_id}}</th>
+                            <th scope="row">{{food.food_name}}</th>
+                            <td>{{food.food_calories}}</td>
+                            <td>{{food.food_carb}}</td>
+                            <td>{{food.food_fat}}</td>
+                            <td>{{food.food_saturatedfat}}</td>
+                            <td>{{food.food_protein}}</td>
+                            <td>{{food.food_sodium}}</td>
+                            <td>{{food.food_fibres}}</td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn" style = "width:40px;" data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                     <button class="btn btn-primary deletebtn" style = "width:40px;" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                    {% else %}
+                    <caption>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    {% endif %}
+                    </table>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
         
-        {% else %}
-        <body>
-            lol
-        </body>
-        {% endif %}
-
         <div class="row">
             <div class="results">
-            <div class="col-12">
-                <table class="table">
-                {% if food_list_lunch %}
-                <caption>Lunch</caption>
-                <thead>
-                    <tr class="table-primary">
-                        <th scope="col">Food Name</th>
-                        <th scope="col">Calories</th>
-                        <th scope="col">Carb</th>
-                        <th scope="col">Fat</th>
-                        <th scope="col">Saturated Fat</th>
-                        <th scope="col">Protein</th>
-                        <th scope="col">Sodium</th>
-                        <th scope="col">Fibres</th>
-                    </tr>
-                </thead>
-                {% for food in food_list_lunch %}
-                <tbody>
-                    <tr class="results-row">
-                        <th scope="row">{{food.food_name}}</th>
-                        <td>{{food.food_calories}}</td>
-                        <td>{{food.food_carb}}</td>
-                        <td>{{food.food_fat}}</td>
-                        <td>{{food.food_saturatedfat}}</td>
-                        <td>{{food.food_protein}}</td>
-                        <td>{{food.food_sodium}}</td>
-                        <td>{{food.food_fibres}}</td>
-                    </tr>
-                </tbody>
-                {% endfor %}
-            </table>
+                <div class="col-12">
+                    <table class="table">
+                    {% if food_list_lunch %}
+                    <caption>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col" >ID</th>
+                            <th scope="col">Food Name</th>
+                            <th scope="col">Calories</th>
+                            <th scope="col">Carb</th>
+                            <th scope="col">Fat</th>
+                            <th scope="col">Saturated Fat</th>
+                            <th scope="col">Protein</th>
+                            <th scope="col">Sodium</th>
+                            <th scope="col">Fibres</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    {% for food in food_list_lunch %}
+                    <tbody>
+                        <tr class="results-row">
+                            <th scope="row" >{{food.foodrecord_id}}</th>
+                            <th scope="row">{{food.food_name}}</th>
+                            <td>{{food.food_calories}}</td>
+                            <td>{{food.food_carb}}</td>
+                            <td>{{food.food_fat}}</td>
+                            <td>{{food.food_saturatedfat}}</td>
+                            <td>{{food.food_protein}}</td>
+                            <td>{{food.food_sodium}}</td>
+                            <td>{{food.food_fibres}}</td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn" style = "width:40px;" data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                     <button class="btn btn-primary deletebtn" style = "width:40px;" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                    {% else %}
+                    <caption>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    {% endif %}
+                    </table>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
         
-        {% else %}
-        <body>
-            lol
-        </body>
-        {% endif %}
-
-
+        
         <div class="row">
             <div class="results">
-            <div class="col-12">
-                <table class="table">
-                {% if food_list_dinner %}
-                <caption>Dinner</caption>
-                <thead>
-                    <tr class="table-primary">
-                        <th scope="col">Food Name</th>
-                        <th scope="col">Calories</th>
-                        <th scope="col">Carb</th>
-                        <th scope="col">Fat</th>
-                        <th scope="col">Saturated Fat</th>
-                        <th scope="col">Protein</th>
-                        <th scope="col">Sodium</th>
-                        <th scope="col">Fibres</th>
-                    </tr>
-                </thead>
-                {% for food in food_list_dinner %}
-                <tbody>
-                    <tr class="results-row">
-                        <th scope="row">{{food.food_name}}</th>
-                        <td>{{food.food_calories}}</td>
-                        <td>{{food.food_carb}}</td>
-                        <td>{{food.food_fat}}</td>
-                        <td>{{food.food_saturatedfat}}</td>
-                        <td>{{food.food_protein}}</td>
-                        <td>{{food.food_sodium}}</td>
-                        <td>{{food.food_fibres}}</td>
-                    </tr>
-                </tbody>
-                {% endfor %}
-            </table>
+                <div class="col-12">
+                    <table class="table">
+                    {% if food_list_dinner %}
+                    <caption>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">ID</th>
+                            <th scope="col">Food Name</th>
+                            <th scope="col">Calories</th>
+                            <th scope="col">Carb</th>
+                            <th scope="col">Fat</th>
+                            <th scope="col">Saturated Fat</th>
+                            <th scope="col">Protein</th>
+                            <th scope="col">Sodium</th>
+                            <th scope="col">Fibres</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    {% for food in food_list_dinner %}
+                    <tbody>
+                        <tr class="results-row">
+                            <th scope="row">{{food.foodrecord_id}}</th>
+                            <th scope="row">{{food.food_name}}</th>
+                            <td>{{food.food_calories}}</td>
+                            <td>{{food.food_carb}}</td>
+                            <td>{{food.food_fat}}</td>
+                            <td>{{food.food_saturatedfat}}</td>
+                            <td>{{food.food_protein}}</td>
+                            <td>{{food.food_sodium}}</td>
+                            <td>{{food.food_fibres}}</td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn" style = "width:40px;"  data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                     <button class="btn btn-primary deletebtn" style = "width:40px;" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                    {% else %}
+                    <caption>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    {% endif %}
+                    </table>
+                </div>
+            </div>
         </div>
+        
+        <div class="row">
+            <div class="results">
+                <div class="col-12">
+                    <table class="table">
+                    {% if food_list_snack %}
+                    <caption>Snack <button class="btn btn-primary addtbtn" id="add">Snack <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">ID</th>
+                            <th scope="col">Food Name</th>
+                            <th scope="col">Calories</th>
+                            <th scope="col">Carb</th>
+                            <th scope="col">Fat</th>
+                            <th scope="col">Saturated Fat</th>
+                            <th scope="col">Protein</th>
+                            <th scope="col">Sodium</th>
+                            <th scope="col">Fibres</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    {% for food in food_list_snack %}
+                    <tbody>
+                        <tr class="results-row">
+                            <th scope="row">{{food.foodrecord_id}}</th>
+                            <th scope="row">{{food.food_name}}</th>
+                            <td>{{food.food_calories}}</td>
+                            <td>{{food.food_carb}}</td>
+                            <td>{{food.food_fat}}</td>
+                            <td>{{food.food_saturatedfat}}</td>
+                            <td>{{food.food_protein}}</td>
+                            <td>{{food.food_sodium}}</td>
+                            <td>{{food.food_fibres}}</td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn" style = "width:40px;" data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                     <button class="btn btn-primary deletebtn" style = "width:40px;" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                    {% else %}
+                    <caption>Snack <button class="btn btn-primary addtbtn" id="add">Snack <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    {% endif %}
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+            $(".addtbtn").on('click', function(){
+                var meal = $(this).text();
+                var data = '/addFoodRecord/' +meal;
+                window.location.replace(data);
+            });
+        </script>
+        <script>
+           $('.deletebtn').on('click', function(){
+                $tr = $(this).closest('tr');
+                var foodrecord_id = $tr.find('th').text();
+                var data = '/deletefoodrecord/' +foodrecord_id[0];
+                window.location.replace(data);
+            });
+        </script>
+        <script>
+            $('.editbtn').on('click', function(){
+                
+                $('#editmodal').modal('show');
+
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                var foodrecord_id = $tr.find('th').text();
+                var food_calories = $tr.find('td:eq(0)').text();
+                var food_carb = $tr.find('td:eq(1)').text();
+                var food_fat = $tr.find('td:eq(2)').text();
+                var food_saturatedfat = $tr.find('td:eq(3)').text();
+                var food_protein = $tr.find('td:eq(4)').text();
+                var food_sodium = $tr.find('td:eq(5)').text();
+                var food_fibres = $tr.find('td:eq(6)').text();
+
+                $('#foodrecord_id').val(foodrecord_id[0]);
+                $('#calories').val(food_calories);
+                $('#carb').val(food_carb);
+                $('#fat').val(food_fat);
+                $('#sat').val(food_saturatedfat);
+                $('#protein').val(food_protein);
+                $('#sodium').val(food_sodium);
+                $('#fibres').val(food_fibres);
+
+                alert(food_calories)
+
+            });
+        </script>
+        <script>
+            $('#savechanges').on('click', function(){
+                var id = $("#editmodal #foodrecord_id").val().trim();
+                var calories = $("#editmodal #calories").val().trim();
+                var carb = $("#editmodal #carb").val().trim();
+                var fat = $("#editmodal #fat").val().trim();
+                var sat = $("#editmodal #sat").val().trim();
+                var protein = $("#editmodal #protein").val().trim();
+                var sodium = $("#editmodal #sodium").val().trim();
+                var fibres = $("#editmodal #fibres").val().trim();
+                var data = "/editfoodrecord/"+id+"/"+calories+"/"+carb+"/"+fat+"/"+sat+"/"+protein+"/"+sodium+"/"+fibres
+                console.log(data)
+                window.location.replace(data);
+            });
+        </script>
         
-        {% else %}
-        <body>
-            lol
-        </body>
-        {% endif %}
-        
     </div>
+
+    
+
 {% endblock %}

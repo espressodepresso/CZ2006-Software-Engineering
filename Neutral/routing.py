@@ -5,13 +5,13 @@ from flask import render_template, url_for, flash, redirect,request
 from Neutral import app, db, bcrypt, mail
 from Neutral.foodreco import RecommendationManager
 from Neutral.forms import searchForm
-from Neutral.model import FoodRecord
-from Neutral.model import FoodDB
+from Neutral.model import FoodRecord,FoodDB,db
 from Neutral.entity import Food1
 from Neutral.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
 from Neutral.model import User
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
+from sqlalchemy import func, update, delete
 
 
 @app.route('/')  # what we write in the browser - route to home page
@@ -61,14 +61,15 @@ def displayFoodRecord():
     food_list_breakfast = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Breakfast'), FoodRecord.user_id == 1).all()
     food_list_lunch = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Lunch'), FoodRecord.user_id == 1).all()
     food_list_dinner = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Dinner'), FoodRecord.user_id == 1).all()
-    return render_template('foodRecord.html', food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner)
+    food_list_snack = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Snack'), FoodRecord.user_id == 1).all()
+    return render_template('foodRecord.html', food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
 
 
-@app.route('/addFoodRecord', methods=['GET', 'POST'])
-def displayaddFoodRecord():
-        food_item_list = []
-        form = searchForm(request.form)
-        if request.method == 'POST' and form.validate():
+@app.route('/addFoodRecord/<meal>', methods=['GET', 'POST'])
+def displayaddFoodRecord(meal):
+    food_item_list = []
+    form = searchForm(request.form)
+    if request.method == 'POST' and form.validate():
             foodToBeSearched = form.foodname.data
             # convert user entered data into lowercase
             editedfoodToBeSearched = foodToBeSearched.lower()
@@ -84,7 +85,57 @@ def displayaddFoodRecord():
                         food_item = Food1(result.food_id,result.food_name,round(result.food_calories,2),round(result.food_protein,2),round(result.food_carb,2),round(result.food_fat,2),round(result.food_fibres,2),round(result.food_saturatedfat,2),round(result.food_sodium,2))
                         food_item_list.append(food_item)
             
-        return render_template('addFoodRecord.html', form=form,foodList=food_item_list)
+    return render_template('addFoodRecord.html', form=form, foodList=food_item_list, meal=meal)
+
+@app.route("/addfoodprocess/<food_name>/<food_calories>/<food_carb>/<food_fat>/<food_saturatedfat>/<food_protein>/<food_sodium>/<food_fibres>/<food_meal>", methods=['GET', 'POST'])
+def addfood(food_name,food_calories,food_carb,food_fat,food_saturatedfat,food_protein,food_sodium,food_fibres,food_meal):
+    food_calories = float(food_calories)
+    food_carb = float(food_carb)
+    food_fat = float(food_fat)
+    food_saturatedfat = float(food_saturatedfat)
+    food_protein = float(food_protein)
+    food_sodium = float(food_sodium)
+    food_fibres = float(food_fibres)
+    maxid = db.session.query(func.max(FoodRecord.foodrecord_id)).scalar()
+    maxid = maxid + 1
+    food= FoodDB.query.filter(FoodDB.food_name.contains(food_name)).one()
+    food_id = food.food_id
+    fr = FoodRecord(serving_size = 1, foodrecord_id =maxid, user_id = 1, food_id = food_id, food_name = food_name, food_calories = food_calories, food_carb = food_carb, food_fat = food_fat, food_saturatedfat= food_saturatedfat, food_protein = food_protein, food_sodium = food_sodium, food_fibres = food_fibres, foodrecord_meal = food_meal)
+    db.session.add(fr)
+    db.session.commit()
+    food_list_breakfast = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Breakfast'), FoodRecord.user_id == 1).all()
+    food_list_lunch = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Lunch'), FoodRecord.user_id == 1).all()
+    food_list_dinner = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Dinner'), FoodRecord.user_id == 1).all()
+    food_list_snack = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Snack'), FoodRecord.user_id == 1).all()
+    return redirect(url_for('displayFoodRecord'))
+
+@app.route("/editfoodrecord/<id>/<calories>/<carb>/<fat>/<sat>/<protein>/<sodium>/<fibres>", methods=['GET','POST'])
+def editfoodrecord(id,calories,carb,fat,sat,protein,sodium,fibres):
+    user_id = 1
+    calories = float(calories)
+    carb = float(carb)
+    fat = float(fat)
+    sat = float(sat)
+    protein = float(protein)
+    sodium = float(sodium)
+    fibres = float(fibres)
+
+    db.session.query(FoodRecord).filter(FoodRecord.foodrecord_id == id, FoodRecord.user_id == user_id).update({FoodRecord.food_calories: calories})
+    db.session.query(FoodRecord).filter(FoodRecord.foodrecord_id == id, FoodRecord.user_id == user_id).update({FoodRecord.food_carb:carb})
+    db.session.query(FoodRecord).filter(FoodRecord.foodrecord_id == id, FoodRecord.user_id == user_id).update({FoodRecord.food_fat:fat })
+    db.session.query(FoodRecord).filter(FoodRecord.foodrecord_id == id, FoodRecord.user_id == user_id).update({FoodRecord.food_saturatedfat:sat })
+    db.session.query(FoodRecord).filter(FoodRecord.foodrecord_id == id, FoodRecord.user_id == user_id).update({FoodRecord.food_protein:protein })
+    db.session.query(FoodRecord).filter(FoodRecord.foodrecord_id == id, FoodRecord.user_id == user_id).update({FoodRecord.food_sodium:sodium })
+    db.session.query(FoodRecord).filter(FoodRecord.foodrecord_id == id, FoodRecord.user_id == user_id).update({FoodRecord.food_fibres:fibres })
+    db.session.commit()
+
+    return redirect(url_for('displayFoodRecord'))
+
+@app.route("/deletefoodrecord/<id>", methods=['GET','POST'])
+def deletefoodrecord(id):
+    db.session.query(FoodRecord).filter(FoodRecord.foodrecord_id == id).delete(synchronize_session=False)
+    db.session.commit()
+    return redirect(url_for('displayFoodRecord'))
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
