@@ -2,14 +2,12 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="utf-8">
     <link rel="stylesheet" href="static/workoutlist.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
-
-    <h2 align="center">Add Exercise</h2>
+    <h1 align="center">Exercises</h2>
     <p align="center">Click on a category to view exercises.</p>
 
     <div class="dropdown">
@@ -17,9 +15,9 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div id="myDropdown" class="dropdown-content">
-            
-            <a href="#">hi</a>
-
+            {% for name in chestlist %}
+            <a href="#">{{name}}</a>
+            {% endfor %}
         </div>
     </div>
     <br>
@@ -28,9 +26,9 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div id="myDropdown2" class="dropdown-content">
-            <a href="#">hi</a>
-            <a href="#">test</a>
-            <a href="#">Link- 3</a>
+            {% for name in tricepslist %}
+            <a href="#">{{name}}</a>
+            {% endfor %}
         </div>
     </div>
     <br>

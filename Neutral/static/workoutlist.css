@@ -1,3 +1,6 @@
+body {
+  background-color: #FFFAF0 !important;
+}
 .dropbtn {
     background-color: rgba(156,217,207);
     color: white;
