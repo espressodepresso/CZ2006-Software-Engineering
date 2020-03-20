@@ -104,10 +104,6 @@ def addfood(food_name,food_calories,food_carb,food_fat,food_saturatedfat,food_pr
     fr = FoodRecord(serving_size = 1, foodrecord_id =maxid, user_id = 1, food_id = food_id, food_name = food_name, food_calories = food_calories, food_carb = food_carb, food_fat = food_fat, food_saturatedfat= food_saturatedfat, food_protein = food_protein, food_sodium = food_sodium, food_fibres = food_fibres, foodrecord_meal = food_meal)
     db.session.add(fr)
     db.session.commit()
-    food_list_breakfast = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Breakfast'), FoodRecord.user_id == 1).all()
-    food_list_lunch = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Lunch'), FoodRecord.user_id == 1).all()
-    food_list_dinner = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Dinner'), FoodRecord.user_id == 1).all()
-    food_list_snack = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Snack'), FoodRecord.user_id == 1).all()
     return redirect(url_for('displayFoodRecord'))
 
 @app.route("/editfoodrecord/<id>/<calories>/<carb>/<fat>/<sat>/<protein>/<sodium>/<fibres>", methods=['GET','POST'])

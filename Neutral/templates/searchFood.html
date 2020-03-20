@@ -3,56 +3,62 @@
 
 {% block styles %}
 {{super()}}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <title>Search Food</title>
-    <link rel="stylesheet" href="static/search.css">
+<meta charset="utf-8">
+        <title>Search Food</title>
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='search.css')}}">
 {% endblock %}
 
 {% block content %}
-<body>
     <div class="container">
         <div class="row first-row">
-            <form method="POST" action="{{url_for('displaySearchFood')}}" class="main-form">
+            <form method="POST" action="{{url_for('displaySearchFood')}}">
             <dl class="col-md-10 col-lg-10">
                 {{ form.csrf_token }}
                 {{ wtf.form_field(form.foodname) }}
-            </dl>
-            <input class="searchbutton" type="image" src="../static/search.png" width="20" height="20" alt="Submit" />
+            </dl><input class="searchbutton" type="image" src="../static/search.png" width="20" height="20" alt="Submit" />
             </form>
 
         </div>
         {% if foodList %}
         {% for food in foodList %}
-            <div class="card border-dark">
-                <div class="card-body px-5">
-                    <div class="row mb-2"> 
-                        <div class="col-3"><b>Food Name</b></div>
-                        <div class="col-1 text-center"><b>Calorie</b></div>
-                        <div class="col-2 text-center"><b>Carbohydrates</b></div>
-                        <div class="col-1 text-center"><b>Fat</b></div>
-                        <div class="col-2 text-center"><b>Saturated Fat</b></div>
-                        <div class="col-1 text-center"><b>Protein</b></div>
-                        <div class="col-1 text-center"><b>Sodium</b></div>
-                        <div class="col-1 text-center"><b>Fibres</b></div>
-                    </div>
-                    <div class="row" style="background-color:#ccffe6"> 
-                        <div class="col-3"><b>{{food.food_name}}</b></div>
-                        <div class="col-1 text-center">{{food.food_calories}}</div>
-                        <div class="col-2 text-center">{{food.food_carb}}</div>
-                        <div class="col-1 text-center">{{food.food_fat}}</div>
-                        <div class="col-2 text-center">{{food.food_saturatedfat}}</div>
-                        <div class="col-1 text-center">{{food.food_protein}}</div>
-                        <div class="col-1 text-center">{{food.food_sodium}}</div>
-                        <div class="col-1 text-center">{{food.food_fibres}}</div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="results">
+            <div class="col-12">
+                <table class="table">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col" width = '350px' style = 'text-align:left'>Food Name</th>
+                    <th scope="col" style = 'text-align:center'>Calories</th>
+                    <th scope="col" style = 'text-align:center'>Carb</th>
+                    <th scope="col" style = 'text-align:center'>Fat</th>
+                    <th scope="col" style = 'text-align:center'>Saturated Fat</th>
+                    <th scope="col" style = 'text-align:center'>Protein</th>
+                    <th scope="col" style = 'text-align:center'>Sodium</th>
+                    <th scope="col" style = 'text-align:center'>Fibres</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="results-row">
+                <th scope="row">{{food.food_name}}</th>
+                    <td style = 'text-align:center'>{{food.food_calories}}</td>
+                    <td style = 'text-align:center'>{{food.food_carb}}</td>
+                    <td style = 'text-align:center'>{{food.food_fat}}</td>
+                    <td style = 'text-align:center'>{{food.food_saturatedfat}}</td>
+                    <td style = 'text-align:center'>{{food.food_protein}}</td>
+                    <td style = 'text-align:center'>{{food.food_sodium}}</td>
+                    <td style = 'text-align:center'>{{food.food_fibres}}</td>
+            </tr>
+        </tbody>
+        </table>
             </div>
+                </div>
+        </div>
         {% endfor %}
         {% endif %}
 
     </div>
-</body>
+
 
 {% endblock %}
 
