@@ -1,0 +1,29 @@
+body {
+  background-color: #FFFAF0;
+}
+
+  .date-buttons{
+    margin-bottom:10px;
+  }
+  .food-intake{
+    margin-bottom:5px;
+  }
+  .ct-label {
+    font-size: 1.5em;
+    color:black;
+    fill:black;
+}
+
+
+  .ct-series-a .ct-slice-donut {
+  stroke: rgb(100, 100, 233);
+}
+  .ct-series-b .ct-slice-donut {
+  stroke: rgb(100, 233, 155);
+}
+  .ct-series-d .ct-slice-donut {
+  stroke: rgb(253, 206, 77);
+}
+  .ct-series-c .ct-slice-donut {
+  stroke: rgb(235, 76, 76);
+}

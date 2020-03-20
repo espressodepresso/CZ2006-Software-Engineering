@@ -6,6 +6,8 @@
 {{super()}}
 <meta charset="utf-8">
         <title>Add Food</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../static/search.css">
 {% endblock %}
 
@@ -24,39 +26,36 @@
         </div>
         {% if foodList %}
         {% for food in foodList %}
-        <div class="row">
-            <div class="results">
-            <div class="col-12">
-                <table class="table">
-            <thead>
-                <tr class="table-primary">
-                    <th scope="col">Food Name</th>
-                    <th scope="col">Calories</th>
-                    <th scope="col">Carb</th>
-                    <th scope="col">Fat</th>
-                    <th scope="col">Saturated Fat</th>
-                    <th scope="col">Protein</th>
-                    <th scope="col">Sodium</th>
-                    <th scope="col">Fibres</th>
-                    <th scope="col" class = "text-right">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="results-row">
-                    <th scope="row" id ="name">{{food.food_name}}</th>
-                    <td>{{food.food_calories}}</td>
-                    <td>{{food.food_carb}}</td>
-                    <td>{{food.food_fat}}</td>
-                    <td>{{food.food_saturatedfat}}</td>
-                    <td>{{food.food_protein}}</td>
-                    <td>{{food.food_sodium}}</td>
-                    <td>{{food.food_fibres}}</td>
-                    <td class = "text-right"><button class="btn btn-primary" style = "width:100px;"><span class="glyphicon glyphicon-plus-sign"></span> Add Food </button></td>
-                </tr>
-            </tbody>
-        </table>
-            </div>
-            </div>
+            <div class="card border-dark">
+                <div class="card-body px-5">
+                    <div class="row"> 
+                        <div class="col-10">
+                            <div class="row mb-2"> 
+                                <div class="col-3"><b>Food Name</b></div>
+                                <div class="col-1 text-center"><b>Calorie</b></div>
+                                <div class="col-2 text-center"><b>Carbohydrates</b></div>
+                                <div class="col-1 text-center"><b>Fat</b></div>
+                                <div class="col-2 text-center"><b>Saturated Fat</b></div>
+                                <div class="col-1 text-center"><b>Protein</b></div>
+                                <div class="col-1 text-center"><b>Sodium</b></div>
+                                <div class="col-1 text-center"><b>Fibres</b></div>
+                            </div>
+                            <div class="row" style="background-color:#ccffe6"> 
+                                <div class="col-3"><b>{{food.food_name}}</b></div>
+                                <div class="col-1 text-center">{{food.food_calories}}</div>
+                                <div class="col-2 text-center">{{food.food_carb}}</div>
+                                <div class="col-1 text-center">{{food.food_fat}}</div>
+                                <div class="col-2 text-center">{{food.food_saturatedfat}}</div>
+                                <div class="col-1 text-center">{{food.food_protein}}</div>
+                                <div class="col-1 text-center">{{food.food_sodium}}</div>
+                                <div class="col-1 text-center">{{food.food_fibres}}</div>
+                            </div>
+                        </div>
+                        <div class="col-2 align-self-center text-center">
+                            <a href="{{ url_for('diary') }}" class="btn btn-primary btn-lg active   "><i class="fa fa-plus-circle"></i> Add Food</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         {% endfor %}
         {% endif %}
@@ -82,6 +81,8 @@
             window.location.replace(data);
         })
     </script>
+
+
 
 
 {% endblock %}

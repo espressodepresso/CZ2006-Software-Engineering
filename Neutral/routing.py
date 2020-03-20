@@ -258,8 +258,12 @@ def reset_token(token):
 def diary():
     MealData = [20,40,30,10]
     MealLabels = ['Breakfast', 'Lunch', 'Dinner','Snacks']
+    for i in range(len(MealLabels)):
+        MealLabels[i] = MealLabels[i] + ' ' + str(MealData[i]) +'%'
     NutritionData =[30,30,40]
     NutritionLabels = ['Carbohydrates','Protein','Fats']
+    for i in range(len(NutritionLabels)):
+        NutritionLabels[i] = NutritionLabels[i] + ' ' + str(NutritionData[i]) +'%'
     date='Wednesday, 25 Feb 2020'
     
     if request.method == 'POST':
