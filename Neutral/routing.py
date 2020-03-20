@@ -9,6 +9,7 @@ from Neutral.model import FoodRecord,FoodDB,db
 from Neutral.entity import Food1
 from Neutral.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
 from Neutral.model import User
+from Neutral.model import ExerciseDB
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 from sqlalchemy import func, update, delete
@@ -271,3 +272,11 @@ def diary():
     else:
         return render_template('diary.html', values=NutritionData, labels=NutritionLabels, date=date, header='Nutrients')    
 
+@app.route("/workoutlist")
+def addexercises():
+    priexercises_list = list()
+    for exercises in db.session.query(ExerciseDB.exercise_category_primary).distinct():
+        priexercises_list.append(exercises)
+    raw_data_1 = priexercises_list
+    priexercises1 = [item[0] for item in raw_data_1]
+    return render_template('workoutlist.html', title='Workout List', exercisedb=priexercises1)
