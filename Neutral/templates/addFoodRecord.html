@@ -11,18 +11,93 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- Quick Add Modal -->
+<div class="modal fade" id="quickaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="quickaddmodal">Quick Add Food Record</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Food Name</label>
+                        <input type="text" id="name" class="form-control mx-sm-3" >
+                </div>
+
+                <div class="form-group">
+                    <label>Calories</label>
+                        <input type="text" id="calories" class="form-control mx-sm-3" aria-describedby="caloriesHelp">
+                        <small id="caloriesHelp" class="text-muted">kcal</small>
+                </div>
+                <div>
+                    <label>Carbohydrate</label>
+                        <input type="text" id="carb" class="form-control mx-sm-3" aria-describedby="carbHelp">
+                        <small id="carbHelp" class="text-muted">g</small>
+                </div> 
+                <div>
+                    <label>Fat</label>
+                        <input type="text" id="fat" class="form-control mx-sm-3" aria-describedby="fatHelp">
+                        <small id="fatHelp" class="text-muted">g</small>
+                </div>
+                <div>
+                    <label>Saturated Fat</label>
+                        <input type="text" id="sat" class="form-control mx-sm-3" aria-describedby="satHelp">
+                        <small id="satHelp" class="text-muted">g</small>
+                </div>
+                <div>
+                    <label>Protein</label>
+                        <input type="text" id="protein" class="form-control mx-sm-3" aria-describedby="proteinHelp">
+                        <small id="proteinHelp" class="text-muted">g</small>
+                </div>
+                <div>
+                    <label>Sodium</label>
+                        <input type="text" id="sodium" class="form-control mx-sm-3" aria-describedby="sodiumHelp">
+                        <small id="sodiumHelp" class="text-muted">mg</small>
+                </div>
+                <div>
+                    <label>Fibres</label>
+                        <input type="text" id="fibres" class="form-control mx-sm-3" aria-describedby="fibresHelp">
+                        <small id="fibresHelp" class="text-muted">g</small>
+                    </div>
+              
+
+            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary anybutton" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary anybutton savechangesbtn" id="savechanges">Save changes</button>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+
     <div class="container">
-        <header>Add</header>
-        <header id = "meal">{{meal}}</header>
+        
+        <div class = 'row first-row'>
+            <div style="clear: both">
+                <h2 style="float: left" >Add  :</header>
+                <h2 style="float: left" id = "meal">{{meal}}</header>
+            </div>
+        </div>
+        
         <div class="row first-row">
             <form method="POST" action=""  class="main-form">
             <dl class="col-md-10 col-lg-10">
                 {{ form.csrf_token }}
                 {{ wtf.form_field(form.foodname) }}
-            </dl><input class="searchbutton" type="image" src="../static/search.png" width="20" height="20" alt="Submit" />
+            </dl>
+            <input class="searchbutton" type="image" src="../static/search.png" width="20" height="20" alt="Submit" />
+            <button class="btn btn-primary anybutton" id = 'quickadd' style = "width:110px;"><span class="glyphicon glyphicon-plus-sign"></span> Quick Add </button></td>
             </form>
-
         </div>
+
+
         {% if foodList %}
         {% for food in foodList %}
             <div class="row">
@@ -52,7 +127,7 @@
                         <td>{{food.food_protein}}</td>
                         <td>{{food.food_sodium}}</td>
                         <td>{{food.food_fibres}}</td>
-                        <td class = "text-right"><button class="btn btn-primary" style = "width:100px;"><span class="glyphicon glyphicon-plus-sign"></span> Add Food </button></td>
+                        <td class = "text-right"><button class="btn anybutton" style = "width:100px;"><span class="glyphicon glyphicon-plus-sign"></span> Add Food </button></td>
                     </tr>
                 </tbody>
             </table>
@@ -83,6 +158,29 @@
             window.location.replace(data);
         })
     </script>
+    <script>
+        $('#savechanges').on('click', function(){
+            var name = $("#quickaddmodal #name").val().trim();
+            var calories = $("#quickaddmodal #calories").val().trim();
+            var carb = $("#quickaddmodal #carb").val().trim();
+            var fat = $("#quickaddmodal #fat").val().trim();
+            var sat = $("#quickaddmodal #sat").val().trim();
+            var protein = $("#quickaddmodal #protein").val().trim();
+            var sodium = $("#quickaddmodal #sodium").val().trim();
+            var fibres = $("#quickaddmodal #fibres").val().trim();
+            var food_meal = $("#meal").text();
+            var data = "/quickaddfoodprocess/"+name+"/"+calories+"/"+carb+"/"+fat+"/"+sat+"/"+protein+"/"+sodium+"/"+fibres+"/"+food_meal
+            console.log(data)
+            window.location.replace(data);
+        });
+    </script>
+    <script>
+        $('#quickadd').on('click', function(){
+            $('#quickaddmodal').modal('show');
+        });
+    </script>
+
+   
 
 
 

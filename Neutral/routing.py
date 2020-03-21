@@ -135,6 +135,28 @@ def deletefoodrecord(id):
     db.session.commit()
     return redirect(url_for('displayFoodRecord'))
 
+@app.route("/quickaddfoodprocess/<food_name>/<food_calories>/<food_carb>/<food_fat>/<food_saturatedfat>/<food_protein>/<food_sodium>/<food_fibres>/<food_meal>", methods=['GET', 'POST'])
+def quickaddfood(food_name,food_calories,food_carb,food_fat,food_saturatedfat,food_protein,food_sodium,food_fibres,food_meal):
+    food_calories = float(food_calories)
+    food_carb = float(food_carb)
+    food_fat = float(food_fat)
+    food_saturatedfat = float(food_saturatedfat)
+    food_protein = float(food_protein)
+    food_sodium = float(food_sodium)
+    food_fibres = float(food_fibres)
+    maxrecordid = db.session.query(func.max(FoodRecord.foodrecord_id)).scalar()
+    maxrecordid = maxrecordid + 1
+    maxfoodid = db.session.query(func.max(FoodDB.food_id)).scalar()
+    maxfoodid = maxfoodid + 1
+
+    fooddb = FoodDB(food_id=maxfoodid, food_name=food_name, food_calories = food_calories, food_protein= food_protein, food_carb = food_carb, food_fat=food_fat,food_fibres=food_fibres, food_saturatedfat=food_saturatedfat, food_sodium=food_sodium,serving_size=1)
+    fr = FoodRecord(serving_size = 1, foodrecord_id =maxrecordid, user_id = 1, food_id = maxfoodid, food_name = food_name, food_calories = food_calories, food_carb = food_carb, food_fat = food_fat, food_saturatedfat= food_saturatedfat, food_protein = food_protein, food_sodium = food_sodium, food_fibres = food_fibres, foodrecord_meal = food_meal)
+    db.session.add(fr)
+    db.session.add(fooddb)
+    db.session.commit()
+    return redirect(url_for('displayFoodRecord'))
+
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
