@@ -1,15 +1,13 @@
 import secrets
+from datetime import datetime
 from PIL import Image
 import os
 from flask import render_template, url_for, flash, redirect,request
 from Neutral import app, db, bcrypt, mail
 from Neutral.foodreco import RecommendationManager
-from Neutral.forms import searchForm
-from Neutral.model import FoodRecord,FoodDB,db
+from Neutral.model import FoodRecord,FoodDB,db,ExerciseDB,User
 from Neutral.entity import Food1
-from Neutral.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
-from Neutral.model import User
-from Neutral.model import ExerciseDB
+from Neutral.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm, searchForm, dateForm
 from Neutral.workoutlist import ChestList, TricepsList, PrimaryexerciseList
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
@@ -60,11 +58,36 @@ def displaySearchFood():
 
 @app.route('/foodRecord', methods=['GET', 'POST'])
 def displayFoodRecord():
-    food_list_breakfast = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Breakfast'), FoodRecord.user_id == 1).all()
-    food_list_lunch = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Lunch'), FoodRecord.user_id == 1).all()
-    food_list_dinner = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Dinner'), FoodRecord.user_id == 1).all()
-    food_list_snack = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Snack'), FoodRecord.user_id == 1).all()
-    return render_template('foodRecord.html', food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
+    
+    form = dateForm(request.form)
+    breakfast = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Breakfast'), FoodRecord.user_id == 1).all()
+    lunch = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Lunch'), FoodRecord.user_id == 1).all()
+    dinner = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Dinner'), FoodRecord.user_id == 1).all()
+    snack = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Snack'), FoodRecord.user_id == 1).all()
+    
+    food_list_breakfast = []
+    food_list_lunch = []
+    food_list_dinner = []
+    food_list_snack = []
+
+    if request.method == 'POST' and form.validate():
+        dateToBeSearched = form.fooddate.data
+    else:
+        dateToBeSearched = datetime.now().date()
+    for i in breakfast:
+        print(i.foodrecord_date)
+        if i.foodrecord_date.date() == dateToBeSearched:
+            food_list_breakfast.append(i);
+    for i in lunch:
+        if i.foodrecord_date.date() == dateToBeSearched:
+            food_list_lunch.append(i);
+    for i in dinner:
+        if i.foodrecord_date.date() == dateToBeSearched:
+            food_list_dinner.append(i);
+    for i in snack:
+        if i.foodrecord_date.date() == dateToBeSearched:
+            food_list_snack.append(i);        
+    return render_template('foodRecord.html', form = form, food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
 
 
 @app.route('/addFoodRecord/<meal>', methods=['GET', 'POST'])

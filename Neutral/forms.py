@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from wtforms import Form,StringField,validators
 from wtforms.validators import InputRequired
@@ -13,15 +14,8 @@ from Neutral.model import User
 class searchForm(Form):
     foodname = StringField('Search Food',validators=[InputRequired()])
 
-class editfoodForm(FlaskForm):
-    foodrecord_id = StringField('foodrecord_id', validators=[InputRequired()])
-    calories = StringField('calories', validators=[InputRequired()])
-    carb = StringField('carb', validators=[InputRequired()])
-    fat = StringField('fat', validators=[InputRequired()])
-    sat = StringField('sat', validators=[InputRequired()])
-    protein = StringField('protein', validators=[InputRequired()])
-    sodium = StringField('sodium', validators=[InputRequired()])
-    fibres = StringField('fibres', validators=[InputRequired()])
+class dateForm(Form):
+    fooddate = DateField('Select Food Record Date', validators=[InputRequired()], format='%Y-%m-%d')
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', 

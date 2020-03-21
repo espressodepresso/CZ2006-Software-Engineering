@@ -7,14 +7,16 @@
 <meta charset="utf-8">
         <title>Food Record</title>
         <link rel="stylesheet" type="text/css" href="static/search.css">
- 
-        
 {% endblock %}
 
 {% block content %}
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 <!-- Edit Modal -->
     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -75,22 +77,29 @@
         </div>
         </div>
     </div>
-    <div class="container background" style="margin-top:3rem">
-        <div class="date-buttons center-block text-center">
-          <button type="button" class="btn btn-primary" id = 'dateminus'><i class="fa fa-angle-left"></i> <span class="glyphicon glyphicon-chevron-left"></span></button>
-          <a href="#" class="btn btn-primary">DATE</a>
-          <button type="button" class="btn btn-primary" id = 'dateplus'><i class="fa fa-angle-right"></i> <span class="glyphicon glyphicon-chevron-right"></span></button>
+    <div class="container">
+        <div class="row">
+            <div class="md-form">
+                <form action="" method="POST">
+                    <!-- <label for="fooddate">Select Date:</label> -->
+                    <!-- <input type="date" id="fooddate"> -->
+                    {{ form.csrf_token }}
+                    {{ wtf.form_field(form.fooddate)}}
+                    <input type="submit" alt="Submit" />
+                </form>
+                <!-- <input placeholder="Select date" type="text" id="datepicker" class="form-control datepicker">
+                <button class="picker-opener btn btn-primary btn-sm" data-open="datePicker">Open</button> -->
+            </div>
         </div>
     </div>
-        
-    </div>
+
     <div class="container">
         <div class="row">
             <div class="results">
                 <div class="col-12">
                     <table class="table">
                     {% if food_list_breakfast %}
-                    <caption>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <h3>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
                     <thead>
                         <tr class="table-primary">
                             <th scope="col" style = 'text-align:left'>ID</th>
@@ -117,13 +126,13 @@
                             <td style = 'text-align:center'>{{food.food_protein}}</td>
                             <td style = 'text-align:center'>{{food.food_sodium}}</td>
                             <td style = 'text-align:center'>{{food.food_fibres}}</td>
-                            <td class = "text-right"><button class="btn btn-primary editbtn" style = "width:40px;" data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                     <button class="btn btn-primary deletebtn" style = "width:40px;" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn"  data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                     <button class="btn btn-primary deletebtn" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
                         </tr>
                     </tbody>
                     {% endfor %}
                     {% else %}
-                    <caption>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <h3>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
                     {% endif %}
                     </table>
                 </div>
@@ -135,7 +144,7 @@
                 <div class="col-12">
                     <table class="table">
                     {% if food_list_lunch %}
-                    <caption>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <h3>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
                     <thead>
                         <tr class="table-primary">
                             <th scope="col" style = 'text-align:left'>ID</th>
@@ -162,13 +171,13 @@
                             <td style = 'text-align:center'>{{food.food_protein}}</td>
                             <td style = 'text-align:center'>{{food.food_sodium}}</td>
                             <td style = 'text-align:center'>{{food.food_fibres}}</td>
-                            <td class = "text-right"><button class="btn btn-primary editbtn" style = "width:40px;"  data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                     <button class="btn btn-primary deletebtn" style = "width:40px;" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn"   data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                     <button class="btn btn-primary deletebtn" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
                         </tr>
                     </tbody>
                     {% endfor %}
                     {% else %}
-                    <caption>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <h3>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
                     {% endif %}
                     </table>
                 </div>
@@ -181,7 +190,7 @@
                 <div class="col-12">
                     <table class="table">
                     {% if food_list_dinner %}
-                    <caption>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <h3>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
                     <thead>
                         <tr class="table-primary">
                             <th scope="col" style = 'text-align:left'>ID</th>
@@ -208,13 +217,13 @@
                             <td style = 'text-align:center'>{{food.food_protein}}</td>
                             <td style = 'text-align:center'>{{food.food_sodium}}</td>
                             <td style = 'text-align:center'>{{food.food_fibres}}</td>
-                            <td class = "text-right"><button class="btn btn-primary editbtn" style = "width:40px;"  data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                     <button class="btn btn-primary deletebtn" style = "width:40px;" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn" data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                     <button class="btn btn-primary deletebtn" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
                         </tr>
                     </tbody>
                     {% endfor %}
                     {% else %}
-                    <caption>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <h3>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
                     {% endif %}
                     </table>
                 </div>
@@ -226,10 +235,10 @@
                 <div class="col-12">
                     <table class="table">
                     {% if food_list_snack %}
-                    <caption>Snack <button class="btn btn-primary addtbtn" id="add">Snack <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <h3>Snack <button class="btn btn-primary addtbtn" id="add">Snack <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
                     <thead>
                         <tr class="table-primary">
-                            <th scope="col" style = 'text-align:left'>ID</th>
+                            <th scope="col" width = '10px' style = 'text-align:left'>ID</th>
                             <th scope="col" width = '350px'>Food Name</th>
                             <th scope="col" style = 'text-align:center'>Calories</th>
                             <th scope="col" style = 'text-align:center'>Carb</th>
@@ -253,22 +262,19 @@
                             <td style = 'text-align:center'>{{food.food_protein}}</td>
                             <td style = 'text-align:center'>{{food.food_sodium}}</td>
                             <td style = 'text-align:center'>{{food.food_fibres}}</td>
-                            <td class = "text-right"><button class="btn btn-primary editbtn" style = "width:40px;" data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                     <button class="btn btn-primary deletebtn" style = "width:40px;" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn" data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                     <button class="btn btn-primary deletebtn" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
                         </tr>
                     </tbody>
                     {% endfor %}
                     {% else %}
-                    <caption>Snack <button class="btn btn-primary addtbtn" id="add">Snack <span class="glyphicon glyphicon-plus-sign"></span></button></caption>
+                    <h3>Snack <button class="btn btn-primary addtbtn" id="add">Snack <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
                     {% endif %}
                     </table>
                 </div>
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
             $(".addtbtn").on('click', function(){
                 var meal = $(this).text();
@@ -329,6 +335,22 @@
                 console.log(data)
                 window.location.replace(data);
             });
+        </script>
+        <script>
+
+                $('.datepicker').pickadate({
+                    showMonthsShort: true,
+                    onStart: function() {
+                        //alert()
+                    },
+                    autoclose: false,
+                    closeOnSelect: false,
+
+                    onClose: function() {
+                         
+                    },
+                });
+
         </script>
         
     </div>

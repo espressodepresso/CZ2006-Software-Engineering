@@ -43,12 +43,9 @@ body {
       color:black;
       fill:black;
   }
-
-  .btn-primary {
-    background-color: #f2cbbb;
-  }
-  
-  
+  .btn-primary{
+    color: #f2cbbb;
+}
     .ct-series-a .ct-slice-donut {
     stroke: rgb(100, 100, 233);
   }
