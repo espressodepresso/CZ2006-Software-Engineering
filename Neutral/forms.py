@@ -39,7 +39,7 @@ class RegistrationForm(FlaskForm):
                                       validators=[DataRequired(),
                                                   EqualTo('password')])
 
-    healthGoal = SelectField(label='Health Goals', choices=[('1', 'Maintain Weight'),('2', 'Lose 0.5Kg in a week'), ('3', 'Lose 1.0Kg in a week'), ('4', 'Lose 1.5Kg in a week'), ('5', 'Lose 2.0Kg in a week')])
+    healthGoal = SelectField(label='Health Goals', choices=[('Maintain Weight', 'Maintain Weight'),('Lose 0.5Kg in a week', 'Lose 0.5Kg in a week'), ('Lose 1.0Kg in a week', 'Lose 1.0Kg in a week'), ('Lose 1.5Kg in a week', 'Lose 1.5Kg in a week'), ('Lose 2.0Kg in a week', 'Lose 2.0Kg in a week')])
     submit = SubmitField('Sign Up')
 
     def validate_username(self,username):
