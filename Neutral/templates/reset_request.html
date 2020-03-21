@@ -1,30 +1,63 @@
-{% extends "layout.html" %}
-{% block content %}
-    <div class="content-section">
-        <form method = "POST" action="">
-            {{ form.hidden_tag() }}
-            <fieldset cclass="form-group">
-                <legend class="border-bottom mb-4">Reset Password</legend>
-                <div class="form-group">
-                    {{ form.email.label(class="form-control-label")}} <!--prints out the email label--> 
-                    {% if form.email.errors %}
-                        {{ form.email(class="form-control form-control-lg is-invalid")}}
-                        <div class='invalid-feedback'>
-                            {% for error in form.email.errors %}
-                                <span>
-                                    {{ error }}
-                                </span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.email(class="form-control form-control-lg")}} <!--prints out the username field--> 
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='register.css') }}">
+
+    {% if title %}
+        <title>Neutral - {{ title }}</title>
+    {% else %}
+        <title>Neutral</title>
+    {% endif %}
+</head>
+<body>
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                            {{ message }}
+                            </div>
+                        {% endfor %}
                     {% endif %}
+                {% endwith %}
+                <div class="content-section">
+                    <form method = "POST" action="">
+                        {{ form.hidden_tag() }}
+                        <fieldset cclass="form-group">
+                            <legend class="border-bottom border-dark mb-4">Reset Password</legend>
+                            <div class="form-group">
+                                {{ form.email.label(class="form-control-label")}}
+                                {% if form.email.errors %}
+                                    {{ form.email(class="form-control is-invalid")}}
+                                    <div class='invalid-feedback'>
+                                        {% for error in form.email.errors %}
+                                            <span>
+                                                {{ error }}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.email(class="form-control", placeholder="Enter your email")}}
+                                {% endif %}
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-outline-info sign-up-btn") }}
+                        </div>
+                    </form>
                 </div>
-            </fieldset>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
             </div>
-        </form>
-    </div>
-{% endblock content%}
+        </div>
+    </main>
+</body>
+</html>
 

@@ -11,7 +11,7 @@ from flask_mail import Mail
 
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SECRET_KEY'] = 'myat secret'
+app.config['SECRET_KEY'] = '1e730902dd46e15ee749c371b91cb549'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)

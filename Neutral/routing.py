@@ -15,7 +15,6 @@ from sqlalchemy import func, update, delete
 
 
 @app.route('/')  # what we write in the browser - route to home page
-
 @app.route('/home')
 def home():
     summary_data=[542,1360]
@@ -216,7 +215,6 @@ def login():
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Log in unsuccessful. Please check email and password', 'danger')
-            return render_template('login.html', title='Login', form=form)
     return render_template('login.html', title='Login', form=form)
 
 @app.route("/logout")
@@ -258,12 +256,12 @@ def account():
 
 def send_reset_email(user):
     token = user.get_reset_token()
-    msg = Message('Password Reset Request', sender='noreply@demo.com', recipients=[user.email])
-    msg.body=f''' To reset your password, visit the following link:
+    msg = Message('Password Reset Request',
+                  sender='noreply@demo.com',
+                  recipients=[user.email])
+    msg.body = f'''To reset your password, visit the following link:
     {url_for('reset_token', token=token, _external=True)}
-
-    If you did not make this request then simply ignore this email and no changes will be made.
-    '''
+    If you did not make this request then simply ignore this email and no changes will be made.'''
     mail.send(msg)
 
 @app.route("/reset_password", methods=['GET', 'POST'])

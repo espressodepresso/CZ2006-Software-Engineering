@@ -1,15 +1,75 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
-body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+body {
+    color: #333333;
     background: url("background.jpg") no-repeat center fixed;
     background-size: cover;
     background-color: black;
+    font-family: sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+  }
+  
+  .content-section {
+    left:50%;
+    transform: translate(25%, 10%);
+    margin-bottom: 20px;
+    background-color: rgb(44, 155, 136);
+    border-radius: 15px 15px 15px 15px;
+    color: black;
+    box-sizing: border-box;
+    padding: 60px 30px;
+    font-size: 18px;
 }
 
-.button-spacing{
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: fixed;
+    top:-50px;
+    left: calc(50% - 50px);
+}
+legend{
+    text-align: center;
+}
+
+.sign-up-btn{
+    background:rgba(156, 217, 207);
+    color: black;
+    font: sans-serif;
+}
+.btn-align{
+    text-align: center;
+}
+.btn{
+    padding: 10px 60px;
+}
+
+.link-color{
+    color: black;
+    border-bottom: black;
+    font-size: 16px;
+}
+
+.link-color a{
+    color: black;
+    border-bottom: black;
+    font-size: 16px;
+}
+
+.link-color:hover{
+    color:black;
+    opacity: 70%;
+}
+
+.link-color a:hover{
+    color:black;
+    opacity: 70%;
+}
+/*.button-spacing{
     margin-top: 10px;
 }
 
@@ -22,8 +82,8 @@ body{
 }
 
 .loginbox{
-    width: 400px;
-    height: 800px;
+    width: 475px;
+    height: 850px;
     background: rgb(44, 155, 136);
     color: #fff;
     position: absolute;
@@ -32,7 +92,7 @@ body{
     box-sizing: border-box;
     padding: 60px 20px;
     border-radius: 15px 15px 15px 15px;
-    margin-top: 480px;
+    margin-top: 500px;
     
 }
 
@@ -177,7 +237,7 @@ h1{
 
 .need-account a{
     font-size: 10pt;
-}
+}*/
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -187,7 +247,7 @@ input:-webkit-autofill:active {
    transition-delay: 9999s;
 }
 
-
+/*
 .btn {
     margin-top:5pt;
 }
@@ -207,7 +267,7 @@ input:-webkit-autofill:active {
 .form-group{
     color: black;
     font-weight: bolder;
-}
+}*/
 
 
 

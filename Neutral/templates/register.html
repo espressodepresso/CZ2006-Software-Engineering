@@ -1,5 +1,168 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='register.css') }}">
+
+    {% if title %}
+        <title>Neutral - {{ title }}</title>
+    {% else %}
+        <title>Neutral</title>
+    {% endif %}
+</head>
+<body>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          <div class="content-section">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <img src="static/avatar.png" class="avatar">
+                <fieldset class="form-group">
+                    <legend class="border-bottom border-dark mb-4">Create An Account</legend>
+                    <div class="form-group">
+                        {{ form.username.label(class="form-control-label") }}
+                        {% if form.username.errors %}
+                            {{ form.username(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.username(class="form-control", placeholder="Enter username") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label(class="form-control-label") }}
+                        {% if form.email.errors %}
+                            {{ form.email(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control", placeholder="Enter email") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form.age.label(class="form-control-label") }}
+                            {% if form.age.errors %}
+                                {{ form.age(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.age.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.age(class="form-control", placeholder="Enter age") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form.height.label(class="form-control-label") }}
+                            {% if form.height.errors %}
+                                {{ form.height(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.height.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.height(class="form-control", placeholder="Enter height") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form.weight.label(class="form-control-label") }}
+                            {% if form.weight.errors %}
+                                {{ form.weight(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.weight.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.weight(class="form-control", placeholder="Enter weight") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form.healthGoal.label(class="form_control_label")}}
+                            {% if form.healthGoal.errors %}
+                                {{ form.healthGoal(class="form-control is-invalid")}}
+                                <div class='invalid-feedback'>
+                                    {% for error in form.healthGoal.errors %}
+                                        <span>
+                                            {{ error }}
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                    {{ form.healthGoal(class="form-control")}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.password.label(class="form-control-label") }}
+                        {% if form.password.errors %}
+                            {{ form.password(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class="form-control", placeholder="Enter password") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.confirm_password.label(class="form-control-label") }}
+                        {% if form.confirm_password.errors %}
+                            {{ form.confirm_password(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.confirm_password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.confirm_password(class="form-control", placeholder="Enter password again") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group btn-align">
+                    {{ form.submit(class="btn btn-outline-info sign-up-btn") }}
+                </div>
+            </form>
+            <div class="border-dark border-top pt-3">
+                <small>
+                    Already Have An Account? <a class="ml-2 link-color" href="{{ url_for('login') }}">Sign In Here</a>
+                </small>
+            </div>
+        </div>
+        </div>
+      </div>
+    </main>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>
+<html>
     <head>
         <meta charset="utf-8">
         <title>Register</title>
@@ -11,7 +174,7 @@
                     <img src="static/avatar.png" class="avatar">
                         <h1>Create Account</h1>
                         <div class="form-group">
-                            {{ form.username.label(class="form-control-label")}} <!--prints out the username label--> 
+                            {{ form.username.label(class="form-control-label")}}
                             {% if form.username.errors %}
                                 {{ form.username(class="form-control form-control-lg is-invalid")}}
                                 <div class='invalid-feedback'>
@@ -22,11 +185,11 @@
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                {{ form.username(class="form-control form-control-lg", placeholder="Enter username")}} <!--prints out the username field--> 
+                                {{ form.username(class="form-control form-control-lg", placeholder="Enter username")}}
                             {% endif %}
                         </div>
                         <div class="form-group">
-                            {{ form.age.label(class="form-control-label")}} <!--prints out the email label--> 
+                            {{ form.age.label(class="form-control-label")}}
                             {% if form.age.errors %}
                                 {{ form.age(class="form-control form-control-lg is-invalid")}}
                                 <div class='invalid-feedback'>
@@ -37,11 +200,11 @@
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                {{ form.age(class="form-control form-control-lg", placeholder="Enter your age")}} <!--prints out the email field--> 
+                                {{ form.age(class="form-control form-control-lg", placeholder="Enter your age")}}
                             {% endif %}
                         </div>
                         <div class="form-group">
-                            {{ form.height.label(class="form-control-label")}} <!--prints out the email label--> 
+                            {{ form.height.label(class="form-control-label")}} 
                             {% if form.height.errors %}
                                 {{ form.height(class="form-control form-control-lg is-invalid")}}
                                 <div class='invalid-feedback'>
@@ -52,11 +215,11 @@
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                {{ form.height(class="form-control form-control-lg", placeholder="Enter your height")}} <!--prints out the email field--> 
+                                {{ form.height(class="form-control form-control-lg", placeholder="Enter your height")}}
                             {% endif %}
                         </div>
                         <div class="form-group">
-                            {{ form.weight.label(class="form-control-label")}} <!--prints out the email label--> 
+                            {{ form.weight.label(class="form-control-label")}} 
                             {% if form.weight.errors %}
                                 {{ form.weight(class="form-control form-control-lg is-invalid")}}
                                 <div class='invalid-feedback'>
@@ -67,11 +230,11 @@
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                {{ form.weight(class="form-control form-control-lg", placeholder="Enter your weight")}} <!--prints out the email field--> 
+                                {{ form.weight(class="form-control form-control-lg", placeholder="Enter your weight")}} 
                             {% endif %}
                         </div>
                         <div class="form-group">
-                            {{ form.email.label(class="form-control-label")}} <!--prints out the email label--> 
+                            {{ form.email.label(class="form-control-label")}}
                             {% if form.email.errors %}
                                 {{ form.email(class="form-control form-control-lg is-invalid")}}
                                 <div class='invalid-feedback'>
@@ -82,11 +245,11 @@
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                {{ form.email(class="form-control form-control-lg", placeholder="Enter your email")}} <!--prints out the email field--> 
+                                {{ form.email(class="form-control form-control-lg", placeholder="Enter your email")}}
                             {% endif %}
                         </div>
                         <div class="form-group">
-                            {{ form.password.label(class="form-control-label")}} <!--prints out the password label--> 
+                            {{ form.password.label(class="form-control-label")}} 
                             {% if form.password.errors %}
                                 {{ form.password(class="form-control form-control-lg is-invalid")}}
                                 <div class='invalid-feedback'>
@@ -97,11 +260,11 @@
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                {{ form.password(class="form-control form-control-lg", placeholder="Enter your password")}} <!--prints out the password field--> 
+                                {{ form.password(class="form-control form-control-lg", placeholder="Enter your password")}} 
                             {% endif %}
                         </div>
                         <div class="form-group">
-                            {{ form.confirm_password.label(class="form-control-label")}} <!--prints out the confirm password label--> 
+                            {{ form.confirm_password.label(class="form-control-label")}} 
                             {% if form.confirm_password.errors %}
                                 {{ form.confirm_password(class="form-control form-control-lg is-invalid")}}
                                 <div class='invalid-feedback'>
@@ -112,12 +275,12 @@
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                {{ form.confirm_password(class="form-control form-control-lg", placeholder="Enter password again")}} <!--prints out the confirm password field--> 
+                                {{ form.confirm_password(class="form-control form-control-lg", placeholder="Enter password again")}} 
                             {% endif %} 
                         </div>
                         <div class="form-group">
                             <div class="healthgoal-spacing">
-                                {{ form.healthGoal.label(class="form_control_label")}} <!--prints out the confirm password label--> 
+                                {{ form.healthGoal.label(class="form_control_label")}}
                             </div>
                             {% if form.healthGoal.errors %}
                                 {{ form.healthGoal(class="form-control form-control-lg is-invalid")}}
@@ -130,7 +293,7 @@
                                 </div>
                             {% else %}
                                 <div class="drop-down-spacing">
-                                    {{ form.healthGoal(class="form-control form-control-lg")}} <!--prints out the confirm password field--> 
+                                    {{ form.healthGoal(class="form-control form-control-lg")}} -> 
                                 </div>
                             {% endif %}
                         </div>
@@ -147,7 +310,7 @@
                 </form>               
             </div>           
         </body>
-</html>
+</html>-->
 
     
 

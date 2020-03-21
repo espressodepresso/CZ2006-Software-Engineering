@@ -1,6 +1,124 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
-body{
+body {
+    
+    background: url("background.jpg") no-repeat center fixed;
+    background-size: cover;
+    background-color: black;
+    font-family: sans-serif;
+}
+
+
+.content-section {
+    margin-top:5rem;
+    margin-bottom: 20px;
+    background-color: rgb(44, 155, 136);
+    border-radius: 15px 15px 15px 15px;
+    color: black;
+    box-sizing: border-box;
+    padding: 30px 30px;
+    font-size: 16px;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;  
+    position: relative;
+    border-radius: 50%;
+    left: calc(43% - 25px);
+    top:-70px;
+    margin-bottom:-16%;
+}
+
+legend{
+    text-align: center;
+    margin:0;
+    padding:0;
+}
+
+.sign-up-btn{
+    background:rgba(156, 217, 207);
+    color: black;
+    font: sans-serif;
+}
+
+.btn{
+    padding: 6px 54px;
+    margin:0;
+}
+
+.link-color{
+    color: black;
+    border-bottom: black;
+    font-size: 14px;
+    position:relative;
+}
+
+.link-color:hover{
+    color:black;
+    opacity: 70%;
+}
+
+small{
+    margin:0;
+}
+
+.alert{
+    font-size:12px;
+    margin-bottom:2px;
+    margin-top:none;
+    padding-top:none;
+
+}
+
+.background-black{
+    width: 50%;
+   position: absolute;
+   right: 0px;
+   height: 100%;
+   opacity: 50%;
+    margin:0;
+    padding:0;
+   background:cover;
+}
+
+.title img {
+    padding: 0;
+    display: block;
+    margin: 0;
+    height: 100% auto;
+    width: 100% auto;
+    top:0;
+    position: absolute;
+}
+
+.logo{
+    right:220px;
+    position: relative;
+    transform: translate(10%, 70%);
+}
+
+.title p{
+    color:white;
+    position: relative;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: center;
+    margin-left:700px;
+    margin-top:-30%;
+}
+
+.title h2{
+    color:white;
+    padding-left:700px;
+    text-align: center;
+    margin:0;
+    font-size:20px;
+    font-family: sans-serif;
+}
+
+
+/*body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -100,53 +218,9 @@ h1{
 .loginbox a:hover{
     color: black;
     opacity: 50%;
-}
+}*/
 
-.background-black{
-    width: 50%;
-   position: absolute;
-   right: 0px;
-   height: 100%;
-   opacity: 50%;
-   padding-top:0px;
-   margin-top:-19px;
-}
-
-.title img {
-    padding: 0;
-    display: block;
-    margin: 0;
-    height: 100% auto;
-    width: 100% auto;
-    top:0;
-    position: absolute;
-}
-
-
-.logo{
-    right:220px;
-
-    position: absolute;
-    
-}
-
-.title p{
-    color:white;
-    padding-left:700px;
-    padding-top:220px;
-    position: relative;
-    text-align: center;
-    font-size: 18px;
-}
-
-.title h2{
-    color:white;
-    padding-left:700px;
-    padding-top:50px;
-    position: relative;
-    text-align: center;
-}
-
+/*
 .form-control-label{
     color: black;
     font-weight: bold;
@@ -205,7 +279,7 @@ input:-webkit-autofill:active {
 
 .invalid-feedback{
     color: red;
-}
+}*/
 
 
 

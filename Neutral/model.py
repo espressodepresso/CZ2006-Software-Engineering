@@ -15,23 +15,43 @@ db = SQLAlchemy(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class User(db.Model): #User info
+class User(db.Model, UserMixin): #User info
     __tablename__ = 'User'
     user_id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(20), nullable = False)
     email = db.Column(db.String(120), unique = True, nullable = False)
-    password = db.Column(db.Unicode(50), unique = True, nullable = False)
+    password = db.Column(db.Unicode(100), unique = True, nullable = False)
     age = db.Column(db.Integer, nullable = False)
     height = db.Column(db.Float, nullable = False)
     weight = db.Column(db.Float, nullable = False)
     image = db.Column(db.String(20), nullable = False, default = 'default.jpg')
-    healthGoal = db.Column(db.String(120), nullable = False, default = 'Lose 0.5kg in a week')
+    healthGoal = db.Column(db.String(120), nullable = False, default = 'Maintain Weight')
     FoodRecord = db.relationship("FoodRecord", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     WorkoutRecord = db.relationship("WorkoutRecord", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     Workout = db.relationship("Workout", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     Exercise = db.relationship("Exercise", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     Set = db.relationship("Set", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     Rep = db.relationship("Rep", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
+
+    def get_reset_token(self, expires_sec=1800):
+        s = Serializer('SECRET_KEY', expires_sec)
+        return s.dumps({'user_id': self.user_id}).decode('utf-8')
+
+    @staticmethod
+    def verify_reset_token(token):
+        s = Serializer(app.config['SECRET_KEY'])
+        try: #if check if token has expired 
+            user_id = s.loads(token)['user_id']
+        except:
+            return None
+        return User.query.get(user_id)
+
+    def get_id(self):
+           return (self.user_id)
+
+    def __repr__(self):
+        return f"User('{self.username}', '{self.email}', '{self.image}')"
+
 
 class FoodDB(db.Model): #from food API
     __tablename__ = 'FoodDB'
