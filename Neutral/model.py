@@ -11,6 +11,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
+app.config['SECRET_KEY'] = '1e730902dd46e15ee749c371b91cb549'
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -33,8 +35,8 @@ class User(db.Model, UserMixin): #User info
     Set = db.relationship("Set", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
     Rep = db.relationship("Rep", backref="User", cascade="all, delete, delete-orphan", passive_deletes=True)
 
-    def get_reset_token(self, expires_sec=1800):
-        s = Serializer('SECRET_KEY', expires_sec)
+    def get_reset_token(self, expires_sec=600): #10mins to change their password
+        s = Serializer(app.config['SECRET_KEY'], expires_sec)
         return s.dumps({'user_id': self.user_id}).decode('utf-8')
 
     @staticmethod

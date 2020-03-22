@@ -20,24 +20,24 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-8">
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }}">
-                            {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
                 <div class="content-section">
                     <form method = "POST" action="">
                         {{ form.hidden_tag() }}
                         <fieldset cclass="form-group">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                                 {% if messages %}
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{ category }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
                             <legend class="border-bottom mb-4">Reset Password</legend>
                             <div class="form-group">
                                 {{ form.password.label(class="form-control-label")}} <!--prints out the email label--> 
                                 {% if form.password.errors %}
-                                    {{ form.password(class="form-control form-control-lg is-invalid")}}
+                                    {{ form.password(class="form-controls is-invalid")}}
                                     <div class='invalid-feedback'>
                                         {% for error in form.password.errors %}
                                             <span>
@@ -46,13 +46,13 @@
                                         {% endfor %}
                                     </div>
                                 {% else %}
-                                    {{ form.password(class="form-control form-control-lg")}} <!--prints out the username field--> 
+                                    {{ form.password(class="form-control", placeholder="Enter your new password")}} <!--prints out the username field--> 
                                 {% endif %}
                             </div>
                             <div class="form-group">
                                 {{ form.confirm_password.label(class="form-control-label")}} <!--prints out the email label--> 
                                 {% if form.confirm_password.errors %}
-                                    {{ form.confirm_password(class="form-control form-control-lg is-invalid")}}
+                                    {{ form.confirm_password(class="form-control is-invalid")}}
                                     <div class='invalid-feedback'>
                                         {% for error in form.confirm_password.errors %}
                                             <span>
@@ -61,12 +61,12 @@
                                         {% endfor %}
                                     </div>
                                 {% else %}
-                                    {{ form.confirm_password(class="form-control form-control-lg")}} <!--prints out the username field--> 
+                                    {{ form.confirm_password(class="form-control", placeholder="Enter your new password again")}} <!--prints out the username field--> 
                                 {% endif %}
                             </div>
                         </fieldset>
                         <div class="form-group">
-                            {{ form.submit(class="btn btn-outline-info") }}
+                            {{ form.submit(class="btn btn-outline-info sign-up-btn") }}
                         </div>
                     </form>
                 </div>
@@ -78,50 +78,4 @@
 
 
 
-
-
-<!--{% extends "layout.html" %}
-{% block content %}
-    <div class="content-section">
-        <form method = "POST" action="">
-            {{ form.hidden_tag() }}
-            <fieldset cclass="form-group">
-                <legend class="border-bottom mb-4">Reset Password</legend>
-                <div class="form-group">
-                    {{ form.password.label(class="form-control-label")}}
-                    {% if form.password.errors %}
-                        {{ form.password(class="form-control form-control-lg is-invalid")}}
-                        <div class='invalid-feedback'>
-                            {% for error in form.password.errors %}
-                                <span>
-                                    {{ error }}
-                                </span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.password(class="form-control form-control-lg")}}
-                    {% endif %}
-                </div>
-                <div class="form-group">
-                    {{ form.confirm_password.label(class="form-control-label")}}
-                    {% if form.confirm_password.errors %}
-                        {{ form.confirm_password(class="form-control form-control-lg is-invalid")}}
-                        <div class='invalid-feedback'>
-                            {% for error in form.confirm_password.errors %}
-                                <span>
-                                    {{ error }}
-                                </span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.confirm_password(class="form-control form-control-lg")}
-                    {% endif %}
-                </div>
-            </fieldset>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
-            </div>
-        </form>
-    </div>
-{% endblock content%}-->
 

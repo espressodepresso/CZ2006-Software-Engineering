@@ -240,19 +240,29 @@ def account():
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
-            current_user.image_file = picture_file
-        current_user.username = form.username.data
-        current_user.email = form.email.data
-        db.session.commit()
-        flash('Your Account has been updated!', 'success')
-        return redirect(url_for('account'))
+            current_user.image = picture_file
+            current_user.username = form.username.data
+            current_user.email = form.email.data
+            current_user.age = form.age.data
+            current_user.height = form.height.data
+            current_user.weight = form.weight.data
+            current_user.healthGoal = form.healthGoal.data
+            current_user.password = form.password.data
+            db.session.commit()
+            flash('Your Account has been updated!', 'success')
+            return redirect(url_for('account'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
-    image_file = url_for(
-        'static', filename='profile_pics/' + current_user.image_file)
+        form.age.data = current_user.age
+        form.height.data = current_user.height
+        form.weight.data = current_user.weight
+        form.healthGoal.data = current_user.healthGoal
+        form.password.data = current_user.password
+        image = url_for(
+        'static', filename='profile_pics/' + current_user.image)
 
-    return render_template('account.html', title='Account', image_file=image_file, form=form)
+    return render_template('account.html', title='Account', image=image, form=form)
 
 def send_reset_email(user):
     token = user.get_reset_token()
@@ -282,7 +292,7 @@ def reset_token(token):
         return redirect(url_for('home'))
     user = User.verify_reset_token(token)
     if user is None:
-        flash('That is an invalid or expired token', 'warning')
+        flash('That is an invalid or expired token. Please enter your email again.', 'warning')
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():

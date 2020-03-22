@@ -20,19 +20,19 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-8">
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }}">
-                            {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
                 <div class="content-section">
                     <form method = "POST" action="">
                         {{ form.hidden_tag() }}
                         <fieldset cclass="form-group">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{ category }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
                             <legend class="border-bottom border-dark mb-4">Reset Password</legend>
                             <div class="form-group">
                                 {{ form.email.label(class="form-control-label")}}

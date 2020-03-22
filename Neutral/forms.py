@@ -7,6 +7,7 @@ from wtforms.validators import InputRequired
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, ValidationError, IntegerField, FloatField, SelectField
+from wtforms.widgets import PasswordInput
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from Neutral.model import User
 
@@ -64,6 +65,13 @@ class UpdateAccountForm(FlaskForm):
                         validators=[DataRequired(),
                                     Email()])
     picture = FileField('Update Profile Picture', validators = [FileAllowed(['jpg', 'png'])])
+    age = IntegerField('Age', validators=[DataRequired()])
+    height = FloatField('Height', validators=[DataRequired()])
+    weight = FloatField('Weight', validators=[DataRequired()])
+    password = PasswordField('Password',
+                              validators=[DataRequired()],widget=PasswordInput(hide_value=False))  
+    healthGoal = SelectField(label='Health Goals', choices=[('Maintain Weight', 'Maintain Weight'),('Lose 0.5Kg in a week', 'Lose 0.5Kg in a week'), ('Lose 1.0Kg in a week', 'Lose 1.0Kg in a week'), ('Lose 1.5Kg in a week', 'Lose 1.5Kg in a week'), ('Lose 2.0Kg in a week', 'Lose 2.0Kg in a week')])
+
     submit = SubmitField('Update')
 
     def validate_username(self,username):
