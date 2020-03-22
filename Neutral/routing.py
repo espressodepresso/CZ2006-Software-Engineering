@@ -24,10 +24,10 @@ def home():
     
 @app.route('/foodreco',methods=['POST','GET'])
 def displayFoodReco():
-    names_list = RecommendationManager.readCSV('userselectiondata.csv')
+    names_list = RecommendationManager.readCSV('Neutral/userselectionwithlinks.csv')
     if request.method == 'POST':
         userLikes = (request.form.getlist('mycheckbox'))
-        RecommendationManager.writeUserLikesCSV(userLikes,'userselectiondata.csv')
+        RecommendationManager.writeUserLikesCSV(userLikes,'Neutral/userselectionwithlinks.csv')
         recommendedFoodList = RecommendationManager.recommendFood()
         return render_template('foodrecoresults.html',food_list= recommendedFoodList)
     return render_template('foodreco.html',names_list=names_list)

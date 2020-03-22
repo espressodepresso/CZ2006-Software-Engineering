@@ -1,0 +1,42 @@
+.food-card{
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    transition: 0.3s;
+    width: 350px;
+    margin-top:15px;
+    margin-bottom:auto;
+    margin-left:15px;
+    text-align:center;
+}
+.food-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.food-card-bod {
+  padding: 2px 16px;
+}
+.food{
+  width: 100%;
+  height: auto;
+  max-height: 20vh;
+}
+.submit{
+    margin-left: 600px;
+    margin-bottom: 20px;
+
+}
+.myheader{
+  padding: 40px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.foodrecotable{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.food-td{
+    width: 90px;
+}
