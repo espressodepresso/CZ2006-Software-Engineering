@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Food Recommendation Results</title>
-</head>
-<body>
-    <h1>Here are the foods recommended for you:</h1>
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf%}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='foodreco.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="row myheader">
+        <h1>Here are the foods recommended for you:</h1>
+</div>
+<div class="container">
     {% for food in food_list %}
-        <p>{{food}}</p>
+    <div class="row foodrecotable">
+        <table class="table">
+            <td class="food-td">{{food}}</td>
+        </table>
+    </div>
     {% endfor %}
-</body>
-</html>
+</div>
+{% endblock %}
