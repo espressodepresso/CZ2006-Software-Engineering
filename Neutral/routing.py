@@ -241,16 +241,18 @@ def account():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
             current_user.image = picture_file
-            current_user.username = form.username.data
-            current_user.email = form.email.data
-            current_user.age = form.age.data
-            current_user.height = form.height.data
-            current_user.weight = form.weight.data
-            current_user.healthGoal = form.healthGoal.data
-            current_user.password = form.password.data
-            db.session.commit()
-            flash('Your Account has been updated!', 'success')
-            return redirect(url_for('account'))
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        current_user.age = form.age.data
+        current_user.height = form.height.data
+        current_user.weight = form.weight.data
+        current_user.healthGoal = form.healthGoal.data
+        hashed_pw = bcrypt.generate_password_hash(
+            form.password.data).decode('utf-8')
+        current_user.password = hashed_pw
+        db.session.commit()
+        flash('Your Account has been updated!', 'success')
+        return redirect(url_for('account'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
