@@ -6,6 +6,12 @@ body {
     background-size: cover;
     background-color: black;
     font-family: sans-serif;
+    
+
+}
+
+.loginform{
+    margin-left: 25%;
 }
 
 
@@ -18,6 +24,11 @@ body {
     box-sizing: border-box;
     padding: 30px 30px;
     font-size: 16px;
+    width:450px;
+    height:500px;
+    position:absolute;
+    text-align:left;
+    
 }
 
 .avatar{
@@ -26,7 +37,7 @@ body {
     position: relative;
     border-radius: 50%;
     left: calc(43% - 25px);
-    top:-70px;
+    top:-77px;
     margin-bottom:-16%;
 }
 
@@ -70,53 +81,6 @@ small{
     padding-top:none;
 
 }
-
-.background-black{
-    width: 50%;
-   position: absolute;
-   right: 0px;
-   height: 100%;
-   opacity: 50%;
-    margin:0;
-    padding:0;
-   background:cover;
-}
-
-.title img {
-    padding: 0;
-    display: block;
-    margin: 0;
-    height: 100% auto;
-    width: 100% auto;
-    top:0;
-    position: absolute;
-}
-
-.logo{
-    right:220px;
-    position: relative;
-    transform: translate(10%, 70%);
-}
-
-.title p{
-    color:white;
-    position: relative;
-    font-size: 16px;
-    font-family: sans-serif;
-    text-align: center;
-    margin-left:700px;
-    margin-top:-30%;
-}
-
-.title h2{
-    color:white;
-    padding-left:700px;
-    text-align: center;
-    margin:0;
-    font-size:20px;
-    font-family: sans-serif;
-}
-
 
 /*body{
     margin: 0;

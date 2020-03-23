@@ -17,10 +17,8 @@
     {% endif %}
 </head>
 <body>
-    <main role="main" class="container">
-        <div class="form-row">
-            <div class="col-md-5">
-                <div class="content-section">
+    <div class="container"> 
+                <div class="content-section loginform">
                     <form method="POST" action="">
                         {{ form.hidden_tag() }}
                         <img src="static/avatar.png" class="avatar">
@@ -78,20 +76,7 @@
                             Need An Account?<a class="ml-2 link-color" href="{{ url_for('register') }}">Sign Up Now!</a>
                         </small>
                     </div>
-                </div>
-            </div>
-            <div>
-                <div class="title">
-                    <img src="static/background-black.png" class="background-black">
-                    <img class="logo" src="static/logo.png">
-
-                    <!--<h1>NEUTRAL</h1>-->
-                    <p>NEUTRAL is a comprehensive food and fitness manager<br>that makes it easy for you to track your food and exercise<br> as well as maintain a healthy nutritional balance.</p>
-                    <h2>Food, Fitness and Fun, Let’s Get It Done!</h2>
-                </div>
-            </div>
-        </div>
-    </main>
+    </div>
 </body>
 </html>
 
