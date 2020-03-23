@@ -1,17 +1,16 @@
-{% extends "bootstrap/base.html" %}
+{% extends "layout.html" %}
 {% import "bootstrap/wtf.html" as wtf%}
 
 
 {% block styles %}
-{{super()}}
 <meta charset="utf-8">
         <title>Add Food</title>
         <link rel="stylesheet"
-        href="{{url_for('.static', filename='search.css')}}">
+        href="{{url_for('static', filename='search.css')}}">
 {% endblock %}
 
 {% block content %}
-
+<div class="container">
 <!-- Quick Add Modal -->
 <div class="modal fade" id="quickaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -86,7 +85,7 @@
             </div>
         </div>
         
-        <div class="row first-row">
+        <div class="row">
             <form method="POST" action=""  class="main-form">
             <dl class="col-md-10 col-lg-10">
                 {{ form.csrf_token }}
@@ -99,7 +98,7 @@
         {% if foodList %}
         {% for food in foodList %}
             <div class="row">
-                <div class="results">
+                <div class="results container-fluid">
                 <div class="col-12">
                     <table class="table">
                 <thead>
@@ -179,9 +178,7 @@
     </script>
 
    
-
-
-
+</div>
 
 {% endblock %}
 
