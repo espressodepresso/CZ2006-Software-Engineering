@@ -1,23 +1,22 @@
-{% extends "bootstrap/base.html" %}
+{% extends "layout.html" %}
 {% import "bootstrap/wtf.html" as wtf%}
 
 
 {% block styles %}
-{{super()}}
 <meta charset="utf-8">
 <title>Food Record</title>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>   
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="static/search.css">
 {% endblock %}
 
 {% block content %}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <!-- Edit Modal -->
     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -79,7 +78,7 @@
         </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container mt-2">
         <div class="row">
             <div class="md-form">
                 <form action="" method="POST">
@@ -101,7 +100,7 @@
                 <div class="col-12">
                     <table class="table">
                     {% if food_list_breakfast %}
-                    <h3>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
+                    <h3>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <i class="fa fa-plus-circle"></i></span></button></h3>
                     <thead>
                         <tr class="table-primary">
                             <th scope="col" style = 'text-align:left'>ID</th>
@@ -128,13 +127,13 @@
                             <td style = 'text-align:center'>{{food.food_protein}}</td>
                             <td style = 'text-align:center'>{{food.food_sodium}}</td>
                             <td style = 'text-align:center'>{{food.food_fibres}}</td>
-                            <td class = "text-right"><button class="btn btn-primary editbtn"  data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                     <button class="btn btn-primary deletebtn" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn"  data-toggle="editmodal" data-target="#edit"><i class="fa fa-pencil-square"></i></button>
+                                                     <button class="btn btn-primary deletebtn" id = "delete"><i class="fa fa-trash"></i></button></td>
                         </tr>
                     </tbody>
                     {% endfor %}
                     {% else %}
-                    <h3>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
+                    <h3>Breakfast <button class="btn btn-primary addtbtn" id="add">Breakfast <i class="fa fa-plus-circle"></i></button></h3>
                     {% endif %}
                     </table>
                 </div>
@@ -146,7 +145,7 @@
                 <div class="col-12">
                     <table class="table">
                     {% if food_list_lunch %}
-                    <h3>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
+                    <h3>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <i class="fa fa-plus-circle"></i></button></h3>
                     <thead>
                         <tr class="table-primary">
                             <th scope="col" style = 'text-align:left'>ID</th>
@@ -173,13 +172,13 @@
                             <td style = 'text-align:center'>{{food.food_protein}}</td>
                             <td style = 'text-align:center'>{{food.food_sodium}}</td>
                             <td style = 'text-align:center'>{{food.food_fibres}}</td>
-                            <td class = "text-right"><button class="btn btn-primary editbtn"   data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                     <button class="btn btn-primary deletebtn" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn"   data-toggle="editmodal" data-target="#edit"><i class="fa fa-pencil-square"></i></button>
+                                                     <button class="btn btn-primary deletebtn" id = "delete"><i class="fa fa-trash"></i></button></td>
                         </tr>
                     </tbody>
                     {% endfor %}
                     {% else %}
-                    <h3>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
+                    <h3>Lunch <button class="btn btn-primary addtbtn" id="add">Lunch <i class="fa fa-plus-circle"></i></button></h3>
                     {% endif %}
                     </table>
                 </div>
@@ -192,7 +191,7 @@
                 <div class="col-12">
                     <table class="table">
                     {% if food_list_dinner %}
-                    <h3>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
+                    <h3>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner <i class="fa fa-plus-circle"></i></button></h3>
                     <thead>
                         <tr class="table-primary">
                             <th scope="col" style = 'text-align:left'>ID</th>
@@ -219,13 +218,13 @@
                             <td style = 'text-align:center'>{{food.food_protein}}</td>
                             <td style = 'text-align:center'>{{food.food_sodium}}</td>
                             <td style = 'text-align:center'>{{food.food_fibres}}</td>
-                            <td class = "text-right"><button class="btn btn-primary editbtn" data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                     <button class="btn btn-primary deletebtn" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn" data-toggle="editmodal" data-target="#edit"><i class="fa fa-pencil-square"></i></button>
+                                                     <button class="btn btn-primary deletebtn" id = "delete"><i class="fa fa-trash"></i></button></td>
                         </tr>
                     </tbody>
                     {% endfor %}
                     {% else %}
-                    <h3>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
+                    <h3>Dinner <button class="btn btn-primary addtbtn" id="add">Dinner<i class="fa fa-plus-circle"></i></button></h3>
                     {% endif %}
                     </table>
                 </div>
@@ -237,7 +236,7 @@
                 <div class="col-12">
                     <table class="table">
                     {% if food_list_snack %}
-                    <h3>Snack <button class="btn btn-primary addtbtn" id="add">Snack <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
+                    <h3>Snack <button class="btn btn-primary addtbtn" id="add">Snack <i class="fa fa-plus-circle"></i></button></h3>
                     <thead>
                         <tr class="table-primary">
                             <th scope="col" width = '10px' style = 'text-align:left'>ID</th>
@@ -264,13 +263,13 @@
                             <td style = 'text-align:center'>{{food.food_protein}}</td>
                             <td style = 'text-align:center'>{{food.food_sodium}}</td>
                             <td style = 'text-align:center'>{{food.food_fibres}}</td>
-                            <td class = "text-right"><button class="btn btn-primary editbtn" data-toggle="editmodal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                     <button class="btn btn-primary deletebtn" id = "delete"><span class="glyphicon glyphicon-trash"></span></button></td>
+                            <td class = "text-right"><button class="btn btn-primary editbtn" data-toggle="editmodal" data-target="#edit"><i class="fa fa-pencil-square"></i></button>
+                                                     <button class="btn btn-primary deletebtn" id = "delete"><i class="fa fa-trash"></i></button></td>
                         </tr>
                     </tbody>
                     {% endfor %}
                     {% else %}
-                    <h3>Snack <button class="btn btn-primary addtbtn" id="add">Snack <span class="glyphicon glyphicon-plus-sign"></span></button></h3>
+                    <h3>Snack <button class="btn btn-primary addtbtn" id="add">Snack <i class="fa fa-plus-circle"></i></button></h3>
                     {% endif %}
                     </table>
                 </div>

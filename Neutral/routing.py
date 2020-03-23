@@ -140,24 +140,25 @@ def displayFoodRecord():
             fat+=round(item.food_fat)
         if hasattr(item, 'food_protein'):
             protein+=round(item.food_protein)
+    cal_list.append(cals)
 
     nutrition_list=[carbs,protein,fat]
-    print(nutrition_list)
-    cal_list.append(cals)
     percentage_list=[]
-    for i in cal_list:
-        percentage_list.append(round((i/total)*100))
-
-
-    
     MealLabels = ['Breakfast', 'Lunch', 'Dinner','Snacks']
-    for i in range(len(cal_list)):
-        MealLabels[i] = MealLabels[i] + ' ' + str(percentage_list[i]) +'%'
-
     NutritionLabels = ['Carbohydrates','Protein','Fats']
-    for i in range(len(NutritionLabels)):
-        NutritionLabels[i] = NutritionLabels[i] + ' ' + str(nutrition_list[i]) +'g'
-    date='Wednesday, 25 Feb 2020'
+    print (nutrition_list)
+    if total != 0:
+        for i in cal_list:
+            percentage_list.append(round((i/total)*100))
+   
+        
+        for i in range(len(cal_list)):
+            MealLabels[i] = MealLabels[i] + ' ' + str(percentage_list[i]) +'%'
+
+        
+        for i in range(len(nutrition_list)):
+            NutritionLabels[i] = NutritionLabels[i] + ' ' + str(nutrition_list[i]) +'g'
+
     
     
     try:
@@ -345,8 +346,7 @@ def account():
         form.healthGoal.data = current_user.healthGoal
         form.password.data = current_user.password
         image = url_for(
-        'static', filename='profile_pics/' + current_user.image)
-
+        '.static', filename='profile_pics/' + current_user.image)
     return render_template('account.html', title='Account', image=image, form=form)
 
 def send_reset_email(user):

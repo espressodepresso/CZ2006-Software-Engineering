@@ -1,71 +1,71 @@
 name,calorie,protein,carb,fat,fat_saturated,fibres,sodium,userLikes
-"pasta, homemade, made without egg, cooked",124,4.37,25.12,0.98,0.14,0,0.074,1
-"potato, baked, flesh and skin, without salt",93,2.5,21.15,0.13,0.035,2.2,0.01,1
+"pasta, homemade, made without egg, cooked",124,4.37,25.12,0.98,0.14,0,0.074,0
+"potato, baked, flesh and skin, without salt",93,2.5,21.15,0.13,0.035,2.2,0.01,0
 "bread, multi-grain (includes whole-grain)",265,13.36,43.34,4.23,0.872,7.4,0.381,0
 "vanilla, light, soft-serve ice cream, with cone",166,4.24,26.36,4.86,2.542,0.1,0.067,0
 "pancakes, buttermilk, prepared from recipe",227,6.8,28.7,9.3,1.832,0,0.522,1
-"sandwiches and burgers, steak sandwich",225,14.87,25.47,6.9,1.87,0,0.391,1
-"cake, boston cream pie, commercially prepared",252,2.4,42.9,8.5,2.445,1.4,0.254,1
+"sandwiches and burgers, steak sandwich",225,14.87,25.47,6.9,1.87,0,0.391,0
+"cake, boston cream pie, commercially prepared",252,2.4,42.9,8.5,2.445,1.4,0.254,0
 "muffins, plain,made with low fat (2%) milk",296,6.9,41.4,11.4,2.156,2.7,0.467,0
-"bananas, raw",89,1.09,22.84,0.33,0.112,2.6,0.001,0
+"bananas, raw",89,1.09,22.84,0.33,0.112,2.6,0.001,1
 "apples, raw, golden delicious, with skin",57,0.28,13.6,0.15,0.011,2.4,0.002,1
 "oranges, raw, all commercial varieties",47,0.94,11.75,0.12,0.015,2.4,0,1
-"grapes, red or green, raw",69,0.72,18.1,0.16,0.054,0.9,0.002,0
+"grapes, red or green, raw",69,0.72,18.1,0.16,0.054,0.9,0.002,1
 "cheese, cheddar",403,24.9,1.28,33.14,21.092,0,0.621,0
-chips (naturel),544,6,49,36,0,0,0,1
+chips (naturel),544,6,49,36,0,0,0,0
 "beef, bottom sirloin,roasted",193,26.34,0,9.73,3.527,0,0.054,0
 "pork, leg (ham), cooked, roasted",209,27.03,0,10.32,3.369,0,0.077,0
-"chicken, broilers or fryers,cooked, roasted",239,28.19,0,13.16,3.6,0,0.096,1
+"chicken, broilers or fryers,cooked, roasted",239,28.19,0,13.16,3.6,0,0.096,0
 broccoli,20,2,3,0,0,0,0,0
-"cauliflower, cooked, boiled, drained, without salt",23,1.84,4.11,0.45,0.07,2.3,0.015,1
-"tomatoes, red, ripe, cooked",18,0.95,4.01,0.11,0.015,0.7,0.011,0
-"kiwifruit, green, raw",61,1.14,14.66,0.52,0.029,3,0.003,0
-"beef, chuck eye country-style ribs",205,18.97,0,14.32,6.154,0,0.077,1
-"egg, whole, cooked, omelet",154,10.57,0.64,11.66,3.319,0,0.155,1
-bacon,430,13,0,42,0,0,0,1
-"beef sausage, pre-cooked",405,15.5,0.03,37.57,15.098,0,0.822,1
-"cake, chocolate, with chocolate frosting",389,3.48,52.84,20.05,5.917,2.2,0.348,1
+"cauliflower, cooked, boiled, drained, without salt",23,1.84,4.11,0.45,0.07,2.3,0.015,0
+"tomatoes, red, ripe, cooked",18,0.95,4.01,0.11,0.015,0.7,0.011,1
+"kiwifruit, green, raw",61,1.14,14.66,0.52,0.029,3,0.003,1
+"beef, chuck eye country-style ribs",205,18.97,0,14.32,6.154,0,0.077,0
+"egg, whole, cooked, omelet",154,10.57,0.64,11.66,3.319,0,0.155,0
+bacon,430,13,0,42,0,0,0,0
+"beef sausage, pre-cooked",405,15.5,0.03,37.57,15.098,0,0.822,0
+"cake, chocolate, with chocolate frosting",389,3.48,52.84,20.05,5.917,2.2,0.348,0
 donut,413,6.2,34.6,27.8,0,0,0,0
-"healthy request, minestrone soup, condensed",63,2.38,11.9,0.4,0,2.4,0.325,1
-"ham, sliced, prepackaged (96% fat free)",107,16.59,0.5,3.8,1.062,0,1.13,1
-hotdog,295,9.8,37.5,11.8,0,0,0,1
+"healthy request, minestrone soup, condensed",63,2.38,11.9,0.4,0,2.4,0.325,0
+"ham, sliced, prepackaged (96% fat free)",107,16.59,0.5,3.8,1.062,0,1.13,0
+hotdog,295,9.8,37.5,11.8,0,0,0,0
 popcorn,376,13,72,4,0,0,0,0
-"onions, yellow, sauteed",132,0.95,7.86,10.8,1.477,1.7,0.012,1
-"applesauce, canned, sweetened",68,0.16,17.49,0.17,0.03,1.2,0.002,1
-"melons, cantaloupe, raw",34,0.84,8.16,0.19,0.051,0.9,0.016,1
-"sweet potato, cooked, baked in skin, without salt",90,2.01,20.71,0.15,0.034,3.3,0.036,1
+"onions, yellow, sauteed",132,0.95,7.86,10.8,1.477,1.7,0.012,0
+"applesauce, canned, sweetened",68,0.16,17.49,0.17,0.03,1.2,0.002,0
+"melons, cantaloupe, raw",34,0.84,8.16,0.19,0.051,0.9,0.016,0
+"sweet potato, cooked, baked in skin, without salt",90,2.01,20.71,0.15,0.034,3.3,0.036,0
 mango,60,0.82,14.98,0.38,0.092,1.6,0.001,1
 "noodles, chinese, chow mein",459,10.58,67.02,17.64,1.764,2.7,0.847,0
 "toppings, strawberry",254,0.2,66.3,0.1,0.005,0.7,0.021,0
 "corn, sweet,cooked, boiled, without salt",97,3.34,21.71,1.41,0.197,2.7,0.003,0
-"kellogg's, eggo, nutri-grain, waffles, blueberry",257,6.2,43.6,7.8,1.8,3.9,0.527,1
-"swanson, chicken and dumplings",93,4.45,9.72,4.05,1.822,0.8,0.401,1
-tofu,67,8,2,3,0,0,0,1
-kidney beans,95,7.1,15.2,0.7,0,0,0,1
-"peanuts, all types, dry-roasted, with salt",585,23.68,21.51,49.66,6.893,8,0.679,1
-"nuts, almonds, dry roasted, without salt added",595,21.06,21.2,52.05,4.03,10.9,0.003,1
+"kellogg's, eggo, nutri-grain, waffles, blueberry",257,6.2,43.6,7.8,1.8,3.9,0.527,0
+"swanson, chicken and dumplings",93,4.45,9.72,4.05,1.822,0.8,0.401,0
+tofu,67,8,2,3,0,0,0,0
+kidney beans,95,7.1,15.2,0.7,0,0,0,0
+"peanuts, all types, dry-roasted, with salt",585,23.68,21.51,49.66,6.893,8,0.679,0
+"nuts, almonds, dry roasted, without salt added",595,21.06,21.2,52.05,4.03,10.9,0.003,0
 "plums, raw",46,0.7,11.42,0.28,0.017,1.4,0,0
 "nuts, coconut meat, dried",660,6.88,23.65,64.53,57.218,16.3,0.037,0
-"fish, tuna salad",187,16.04,9.41,9.26,1.544,0,0.402,1
-"pumpkin, cooked, boiled, drained, with salt",18,0.72,4.31,0.07,0.037,1.1,0.237,1
-"cabbage, chinese (pak-choi), cooked,with salt",12,1.56,1.78,0.16,0.021,1,0.27,1
+"fish, tuna salad",187,16.04,9.41,9.26,1.544,0,0.402,0
+"pumpkin, cooked, boiled, drained, with salt",18,0.72,4.31,0.07,0.037,1.1,0.237,0
+"cabbage, chinese (pak-choi), cooked,with salt",12,1.56,1.78,0.16,0.021,1,0.27,0
 "lettuce, cos or romaine, raw",17,1.23,3.29,0.3,0.039,2.1,0.008,0
-"arugula, raw",25,2.58,3.65,0.66,0.086,1.6,0.027,1
+"arugula, raw",25,2.58,3.65,0.66,0.086,1.6,0.027,0
 "carrots, cooked, boiled, drained, with salt",35,0.76,8.22,0.18,0.037,3,0.302,0
 "radishes, oriental, cooked, boiled, drained, with salt",17,0.67,3.43,0.24,0.073,1.6,0.249,0
-"avocados, raw, all commercial varieties",160,2,8.53,14.66,2.126,6.7,0.007,1
-"cinnamon buns, frosted (includes honey buns)",436,4.72,49.59,24.36,12.11,1.3,0.305,1
-chicken mushroom chowder,78,3.27,7.76,3.67,0.612,1.2,0.347,1
-chicken noodle soup,48,2.38,6.35,1.59,0.397,0.8,0.524,1
+"avocados, raw, all commercial varieties",160,2,8.53,14.66,2.126,6.7,0.007,0
+"cinnamon buns, frosted (includes honey buns)",436,4.72,49.59,24.36,12.11,1.3,0.305,0
+chicken mushroom chowder,78,3.27,7.76,3.67,0.612,1.2,0.347,0
+chicken noodle soup,48,2.38,6.35,1.59,0.397,0.8,0.524,0
 hershey's milk chocolate with almond bites,550,9.76,51,35.73,17.39,3.6,0.074,0
 "candies, reese's pieces candy",497,12.46,59.86,24.77,16.42,3,0.194,0
 "cereals, frosted oat cereal ",388,7.1,84.1,3.5,0.62,4.3,0.533,0
-"quaker, instant oatmeal, dry",368,8.85,75.86,4.75,0.785,6.4,0.7,1
-"chickpeas,cooked with salt",164,8.86,27.42,2.59,0.269,7.6,0.243,1
+"quaker, instant oatmeal, dry",368,8.85,75.86,4.75,0.785,6.4,0.7,0
+"chickpeas,cooked with salt",164,8.86,27.42,2.59,0.269,7.6,0.243,0
 "coffee, brewed, espresso, restaurant-prepared",9,0.12,1.67,0.18,0.092,0,0.014,0
-"duck, domesticated, meat only, cooked, roasted",201,23.48,0,11.2,3.951,0,0.065,1
-"eggplant, cooked, boiled, drained, with salt",33,0.83,8.14,0.23,0.044,2.5,0.239,1
-"fish, salmon, atlantic, farmed, raw",208,20.42,0,13.42,3.05,0,0.059,1
+"duck, domesticated, meat only, cooked, roasted",201,23.48,0,11.2,3.951,0,0.065,0
+"eggplant, cooked, boiled, drained, with salt",33,0.83,8.14,0.23,0.044,2.5,0.239,0
+"fish, salmon, atlantic, farmed, raw",208,20.42,0,13.42,3.05,0,0.059,0
 "milk, nonfat,protein fortified",41,3.96,5.56,0.25,0.162,0,0.059,0
-"olives, pickled, canned or bottled, green",145,1.03,3.84,15.32,2.029,3.3,1.556,1
-"pizza hut 14' pepperoni pizza, thin 'n crispy crust",333,14.13,32.66,16.17,6.674,2.1,0.967,1
+"olives, pickled, canned or bottled, green",145,1.03,3.84,15.32,2.029,3.3,1.556,0
+"pizza hut 14' pepperoni pizza, thin 'n crispy crust",333,14.13,32.66,16.17,6.674,2.1,0.967,0
