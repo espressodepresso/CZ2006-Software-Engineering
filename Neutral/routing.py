@@ -73,6 +73,7 @@ def displayFoodRecord():
         dateToBeSearched = form.fooddate.data
     else:
         dateToBeSearched = datetime.now().date()
+    
     for i in breakfast:
         print(i.foodrecord_date)
         if i.foodrecord_date.date() == dateToBeSearched:
@@ -85,9 +86,91 @@ def displayFoodRecord():
             food_list_dinner.append(i);
     for i in snack:
         if i.foodrecord_date.date() == dateToBeSearched:
-            food_list_snack.append(i);        
-    return render_template('foodRecord.html', form = form, food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
+            food_list_snack.append(i);  
+    
+    cal_list=[]
+    carbs=0
+    fat=0
+    protein=0
+    cals=0
+    total=0
 
+    for item in food_list_breakfast:
+        print(item.food_name)
+        cals+=item.food_calories
+        total+=item.food_calories
+        if hasattr(item, 'food_carb'):
+            carbs+=round(item.food_carb)
+        if hasattr(item, 'food_fat'):
+            fat+=round(item.food_fat)
+        if hasattr(item, 'food_protein'):
+            protein+=round(item.food_protein)
+
+    cal_list.append(cals)
+    cals=0
+    for item in food_list_lunch:
+        cals+=item.food_calories
+        total+=item.food_calories
+        if hasattr(item, 'food_carb'):
+            carbs+=round(item.food_carb)
+        if hasattr(item, 'food_fat'):
+            fat+=round(item.food_fat)
+        if hasattr(item, 'food_protein'):
+            protein+=round(item.food_protein)
+
+    cal_list.append(cals)
+    cals=0
+    for item in food_list_dinner:
+        cals+=item.food_calories
+        total+=item.food_calories
+        if hasattr(item, 'food_carb'):
+            carbs+=round(item.food_carb)
+        if hasattr(item, 'food_fat'):
+            fat+=round(item.food_fat)
+        if hasattr(item, 'food_protein'):
+            protein+=round(item.food_protein)
+    cal_list.append(cals)
+    cals=0
+    for item in food_list_snack:
+        cals+=item.food_calories
+        total+=item.food_calories
+        if hasattr(item, 'food_carb'):
+            carbs+=round(item.food_carb)
+        if hasattr(item, 'food_fat'):
+            fat+=round(item.food_fat)
+        if hasattr(item, 'food_protein'):
+            protein+=round(item.food_protein)
+
+    nutrition_list=[carbs,protein,fat]
+    print(nutrition_list)
+    cal_list.append(cals)
+    percentage_list=[]
+    for i in cal_list:
+        percentage_list.append(round((i/total)*100))
+
+
+    
+    MealLabels = ['Breakfast', 'Lunch', 'Dinner','Snacks']
+    for i in range(len(cal_list)):
+        MealLabels[i] = MealLabels[i] + ' ' + str(percentage_list[i]) +'%'
+
+    NutritionLabels = ['Carbohydrates','Protein','Fats']
+    for i in range(len(NutritionLabels)):
+        NutritionLabels[i] = NutritionLabels[i] + ' ' + str(nutrition_list[i]) +'g'
+    date='Wednesday, 25 Feb 2020'
+    
+    
+    try:
+        if request.method == 'POST':           
+            if 'Nutrients' in request.form["action"]:
+                    return render_template('foodRecord.html', values=nutrition_list,labels=NutritionLabels, header='Nutrients', form = form, food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
+            elif 'Calories' in request.form["action"]:
+                    print("lol")
+                    return render_template('foodRecord.html', values=percentage_list, labels=MealLabels, header='Calories', form = form, food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
+    except:
+        return render_template('foodRecord.html', values=nutrition_list, labels=NutritionLabels, header='Nutrients', form = form, food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
+    else:
+        return render_template('foodRecord.html', values=nutrition_list, labels=NutritionLabels, header='Nutrients', form = form, food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
 
 @app.route('/addFoodRecord/<meal>', methods=['GET', 'POST'])
 def displayaddFoodRecord(meal):

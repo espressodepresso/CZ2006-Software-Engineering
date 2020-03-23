@@ -11,12 +11,7 @@ body {
 
   .first-row{
      margin-top:20px;
-  /* }
-  table{
-      width:100%;
-  } */
-
-  
+  }
   .results{
       background-color:white;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -45,7 +40,7 @@ body {
   }
   .btn-primary{
     color: #f2cbbb;
-}
+  }
     .ct-series-a .ct-slice-donut {
     stroke: rgb(100, 100, 233);
   }
@@ -58,3 +53,4 @@ body {
     .ct-series-c .ct-slice-donut {
     stroke: rgb(235, 76, 76);
   }
+
