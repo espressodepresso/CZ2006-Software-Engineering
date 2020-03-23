@@ -30,13 +30,13 @@
           <a class="navbarcolor nav-link" href="{{ url_for('home') }}">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{{ url_for('foodRecord') }}" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{{ url_for('displayFoodRecord') }}" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Food
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url_for('foodRecord.html')">Diary</a>
-            <a class="dropdown-item" href="{{ url_for('searchFood') }}">Search Food</a>
-            <a class="dropdown-item" href="{{ url_for('foodreco') }}">Recommend Food</a>
+            <a class="dropdown-item" href="{{ url_for('displayFoodRecord') }}">Diary</a>
+            <a class="dropdown-item" href="{{ url_for('displaySearchFood') }}">Search Food</a>
+            <a class="dropdown-item" href="{{ url_for('displayFoodReco') }}">Recommend Food</a>
           </div>
         </li>
         <li class="nav-item dropdown">
