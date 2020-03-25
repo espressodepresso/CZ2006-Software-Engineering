@@ -106,6 +106,7 @@
                     <table class="table">
                 <thead>
                     <tr class="table-primary">
+                        <th scope='col'>ID</th>
                         <th scope="col">Food Name</th>
                         <th scope="col">Calories</th>
                         <th scope="col">Carb</th>
@@ -119,7 +120,8 @@
                 </thead>
                 <tbody>
                     <tr class="results-row">
-                        <th scope="row" id ="name">{{food.food_name}}</th>
+                        <th scope="row" id ="name">{{food.food_id}}</th>
+                        <td>{{food.food_name}}</th>
                         <td>{{food.food_calories}}</td>
                         <td>{{food.food_carb}}</td>
                         <td>{{food.food_fat}}</td>
@@ -142,16 +144,17 @@
      <script>
         $('.table tbody').on('click','.btn',function(){
             var food = $(this).closest('tr');
-            var food_name = food.find('th').text();
-            var food_calories = food.find('td:eq(0)').text();
-            var food_carb = food.find('td:eq(1)').text();
-            var food_fat = food.find('td:eq(2)').text();
-            var food_saturatedfat = food.find('td:eq(3)').text();
-            var food_protein = food.find('td:eq(4)').text();
-            var food_sodium = food.find('td:eq(5)').text();
-            var food_fibres = food.find('td:eq(6)').text();
+            var food_id = food.find('th').text();
+            var food_name = food.find('td:eq(0)').text();
+            var food_calories = food.find('td:eq(1)').text();
+            var food_carb = food.find('td:eq(2)').text();
+            var food_fat = food.find('td:eq(3)').text();
+            var food_saturatedfat = food.find('td:eq(4)').text();
+            var food_protein = food.find('td:eq(5)').text();
+            var food_sodium = food.find('td:eq(6)').text();
+            var food_fibres = food.find('td:eq(7)').text();
             var food_meal = $("#meal").text();
-            var data = "/addfoodprocess/"+food_name+"/"+food_calories+"/"+food_carb+"/"+food_fat+"/"+food_saturatedfat+"/"+food_protein+"/"+food_sodium+"/"+food_fibres+"/"+food_meal
+            var data = "/addfoodprocess/"+food_id+"/"+food_name+"/"+food_calories+"/"+food_carb+"/"+food_fat+"/"+food_saturatedfat+"/"+food_protein+"/"+food_sodium+"/"+food_fibres+"/"+food_meal
             window.location.replace(data);
         })
     </script>

@@ -195,8 +195,9 @@ def displayaddFoodRecord(meal):
             
     return render_template('addFoodRecord.html', form=form, foodList=food_item_list, meal=meal)
 
-@app.route("/addfoodprocess/<food_name>/<food_calories>/<food_carb>/<food_fat>/<food_saturatedfat>/<food_protein>/<food_sodium>/<food_fibres>/<food_meal>", methods=['GET', 'POST'])
-def addfood(food_name,food_calories,food_carb,food_fat,food_saturatedfat,food_protein,food_sodium,food_fibres,food_meal):
+@app.route("/addfoodprocess/<food_id>/<food_name>/<food_calories>/<food_carb>/<food_fat>/<food_saturatedfat>/<food_protein>/<food_sodium>/<food_fibres>/<food_meal>", methods=['GET', 'POST'])
+def addfood(food_id,food_name,food_calories,food_carb,food_fat,food_saturatedfat,food_protein,food_sodium,food_fibres,food_meal):
+    food_id = int(food_id)
     food_calories = float(food_calories)
     food_carb = float(food_carb)
     food_fat = float(food_fat)
@@ -206,8 +207,6 @@ def addfood(food_name,food_calories,food_carb,food_fat,food_saturatedfat,food_pr
     food_fibres = float(food_fibres)
     maxid = db.session.query(func.max(FoodRecord.foodrecord_id)).scalar()
     maxid = maxid + 1
-    food= FoodDB.query.filter(FoodDB.food_name.contains(food_name)).one()
-    food_id = food.food_id
     fr = FoodRecord(serving_size = 1, foodrecord_id =maxid, user_id = 1, food_id = food_id, food_name = food_name, food_calories = food_calories, food_carb = food_carb, food_fat = food_fat, food_saturatedfat= food_saturatedfat, food_protein = food_protein, food_sodium = food_sodium, food_fibres = food_fibres, foodrecord_meal = food_meal)
     db.session.add(fr)
     db.session.commit()
