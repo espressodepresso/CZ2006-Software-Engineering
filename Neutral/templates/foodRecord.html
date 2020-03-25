@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="static/search.css">
+
 {% endblock %}
 
 {% block content %}
@@ -36,7 +37,6 @@
                         <label>Calories</label>
                             <input type="text" id="calories" class="form-control mx-sm-3" aria-describedby="caloriesHelp">
                             <small id="caloriesHelp" class="text-muted">kcal</small>
-                    </div>
                     <div>
                         <label>Carbohydrate</label>
                             <input type="text" id="carb" class="form-control mx-sm-3" aria-describedby="carbHelp">
@@ -46,29 +46,33 @@
                         <label>Fat</label>
                             <input type="text" id="fat" class="form-control mx-sm-3" aria-describedby="fatHelp">
                             <small id="fatHelp" class="text-muted">g</small>
+                            
                     </div>
                     <div>
                         <label>Saturated Fat</label>
                             <input type="text" id="sat" class="form-control mx-sm-3" aria-describedby="satHelp">
                             <small id="satHelp" class="text-muted">g</small>
+                            
                     </div>
                     <div>
                         <label>Protein</label>
                             <input type="text" id="protein" class="form-control mx-sm-3" aria-describedby="proteinHelp">
                             <small id="proteinHelp" class="text-muted">g</small>
+                           
                     </div>
                     <div>
                         <label>Sodium</label>
                             <input type="text" id="sodium" class="form-control mx-sm-3" aria-describedby="sodiumHelp">
                             <small id="sodiumHelp" class="text-muted">mg</small>
+                          
                     </div>
                     <div>
                         <label>Fibres</label>
                             <input type="text" id="fibres" class="form-control mx-sm-3" aria-describedby="fibresHelp">
                             <small id="fibresHelp" class="text-muted">g</small>
-                        </div>
-                  
-
+                            
+                    </div>
+                    </div>
                 </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -320,6 +324,51 @@
                 $('#protein').val(food_protein);
                 $('#sodium').val(food_sodium);
                 $('#fibres').val(food_fibres);
+            });
+        </script>
+        <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+        <script>
+            bootstrapValidate('#calories','numeric:Please input a valid number!', function (isValid) {
+            if (isValid) {
+            } else {
+                alert('Element is invalid');
+            }
+            });
+            bootstrapValidate('#carb','numeric:Please input a valid number!', function (isValid) {
+            if (isValid) {
+            } else {
+                alert('Element is invalid');
+            }
+            });
+            bootstrapValidate('#fat','numeric:Please input a valid number!', function (isValid) {
+            if (isValid) {
+            } else {
+                alert('Element is invalid');
+            }
+            });
+            bootstrapValidate('#sat','numeric:Please input a valid number!', function (isValid) {
+            if (isValid) {
+            } else {
+                alert('Element is invalid');
+            }
+            });
+            bootstrapValidate('#protein','numeric:Please input a valid number!', function (isValid) {
+            if (isValid) {
+            } else {
+                alert('Element is invalid');
+            }
+            });
+            bootstrapValidate('#sodium','numeric:Please input a valid number!', function (isValid) {
+            if (isValid) {
+            } else {
+                alert('Element is invalid');
+            }
+            });
+            bootstrapValidate('#fibres','numeric:Please input a valid number!', function (isValid) {
+            if (isValid) {
+            } else {
+                alert('Element is invalid');
+            }
             });
         </script>
         <script>
