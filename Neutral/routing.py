@@ -1,5 +1,5 @@
 import secrets
-from datetime import datetime
+import datetime
 from PIL import Image
 import os
 from flask import render_template, url_for, flash, redirect,request
@@ -17,10 +17,40 @@ from sqlalchemy import func, update, delete
 @app.route('/')  # what we write in the browser - route to home page
 @app.route('/home')
 def home():
-    summary_data=[542,1360]
+    summary_data=[]
     exercise_data=[838,400,438]
-    values=[80.0,79.0,79.0,77.5,78.0,77.0,77.5]
-    return render_template('home.html',  data1=summary_data, data2=exercise_data, values=values)
+
+    #beased on current day find which week it is
+    today = datetime.date.today()
+    cur_monday = today - datetime.timedelta(days=today.weekday())
+    dates = [cur_monday + datetime.timedelta(days=d) for d in range(7)]
+
+    #list of all foods
+    food = FoodRecord.query.order_by(FoodRecord.foodrecord_date, FoodRecord.user_id == 1).all()
+   
+    #find total cals consumed every day of the week
+    daily_cals=[]
+    today_cals=0
+    for j in range(7):
+        total_cals=0
+        for i in food:
+            if i.foodrecord_date.date() == dates[j]:
+                total_cals+=i.food_calories
+        daily_cals.append(total_cals)
+   
+    #get total for today
+    for i in food:
+        if i.foodrecord_date.date() == today:
+            today_cals+=i.food_calories
+    #BMR = 10W + 6.25H - 5A + 5
+    user_data = User.query.filter(User.user_id == 1).all()
+    rec_cals = (10*user_data[0].weight + 6.25*user_data[0].height - 5*user_data[0].age +5)*1.5
+    summary_data.append(round(rec_cals,0))
+    summary_data.append(round(today_cals,0))
+    summary_data.append((round(rec_cals,0)-round(today_cals,0)))
+    summary_data.append(user_data[0].healthGoal)
+
+    return render_template('home.html',  data1=summary_data, values=daily_cals)
     
 @app.route('/foodreco',methods=['POST','GET'])
 def displayFoodReco():
@@ -43,7 +73,7 @@ def displaySearchFood():
         editedfoodToBeSearched = foodToBeSearched.lower()
         # find in FoodDB
         results = FoodDB.query.filter(FoodDB.food_name.contains(editedfoodToBeSearched)).all()
-
+        
         if results is not None:
             for result in results:
                 splitted_result = result.food_name.split(", ")
@@ -70,9 +100,11 @@ def displayFoodRecord():
     food_list_snack = []
 
     if request.method == 'POST' and form.validate():
+        print('here')
         dateToBeSearched = form.fooddate.data
+        print("search" , dateToBeSearched)
     else:
-        dateToBeSearched = datetime.now().date()
+        dateToBeSearched = datetime.datetime.now().date()
     
     for i in breakfast:
         print(i.foodrecord_date)

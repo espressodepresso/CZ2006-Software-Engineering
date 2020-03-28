@@ -6,19 +6,48 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>   
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Calorie Intake Exceeded!</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>You have exceeded your daily recommended calorie intake. Please get up and exercise more!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+{% if (data1[0]>data1[1]) %}
+  <script>
+  $(document).ready(function(){
+    // Show the Modal on load
+    $("#myModal").modal("show");
+  });
+  </script>
+{% endif %}
 
 <div class="container-fluid" style="margin-top:3rem">
+
+
   <div class="d-flex justify-content-end">
-    <a href="{{ url_for('diary') }}" class="btn btn-primary btn-lg active mr-3"><i class="fa fa-plus-circle"></i> Add Food</a>
-    <a href="{{ url_for('diary') }}" class="btn btn-primary btn-lg active"><i class="fa fa-plus-circle"></i> Add Workout</a>
+    <a href="{{ url_for('displayFoodRecord') }}" class="btn btn-primary btn-lg active mr-3"><i class="fa fa-plus-circle"></i> Add Food</a>
+    <a href="{{ url_for('displaySearchFood') }}" class="btn btn-primary btn-lg active">Search For Food!</a>
   </div>
   <div class="row">
     <div class="col-sm-5">
       <div class="card border-dark mt-2">
         <div class="card-body ">
           <h4 class="card-title">Daily Summary</h4>
-          <p class="card-text">Calories remaining: {{data1[0]}} calories</p>
-          <p class="card-text">Goal: {{data1[1]}} calories</p>
+          <p class="card-text">Calories remaining : {{data1[2]}} calories</p>
+          <p class="card-text">Goal : {{data1[0]}} calories</p>
         </div>
       </div>
     </div>
@@ -26,16 +55,16 @@
       <div class="card border-dark mt-2">
         <div class="card-body">
           <div class="row">
-            <div class="col-sm-4 text-center">{{data2[0]}} calories</div>
+            <div class="col-sm-4 text-center">{{data1[0]}} calories</div>
             <div class="col-sm-1 text-center">-</div>
-            <div class="col-sm-2 text-center">{{data2[1]}} calories</div>
+            <div class="col-sm-2 text-center">{{data1[1]}} calories</div>
             <div class="col-sm-1 text-center">=</div>
-            <div class="col-sm-4 text-center">{{data2[2]}} calories</div>
+            <div class="col-sm-4 text-center">{{data1[2]}} calories</div>
           </div>
           <div class="row">
-            <div class="col-sm-4 text-center">FOOD</div>
-            <div class="col-sm-4 text-center">EXERCISE</div>
-            <div class="col-sm-4 text-center">NETT</div>
+            <div class="col-sm-4 text-center">Recommended Intake</div>
+            <div class="col-sm-4 text-center">Calories Conusmed</div>
+            <div class="col-sm-4 text-center">Calories Remaining</div>
           </div>
         </div>
       </div>
@@ -48,7 +77,7 @@
       <div class="card border-dark mt-2">
         <div class="card-body">
           <h4 class="card-title">Weekly Goals</h4>
-          <p class="card-text">placeholder</p>
+          <p class="card-text">{{data1[3]}}</p>
         </div>
       </div>
     </div>
@@ -77,5 +106,5 @@
 {% endblock content%}
 
 {% block extra %}
-    <h1>hello</h1>
+
 {% endblock extra%}
