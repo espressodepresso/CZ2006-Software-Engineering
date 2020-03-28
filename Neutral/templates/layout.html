@@ -9,7 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />-->
 
     {% if title %}
         <title>Neutral - {{ title }}</title>
@@ -25,16 +26,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
+      <div class="nav-item">
+        <a class = "navbar-brand" href="{{ url_for('home') }}"><img src="../static/images/logo.png"></a>
+      </div>
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class = "navbar-brand" href="{{ url_for('home') }}"><img src="../static/logo.png"></a>
-        </li>
-        <li class="nav-item">
-          <a class="navbarcolor nav-link" href="{{ url_for('home') }}">Home</a>
+          <a class="navbarcolor nav-link" href="{{ url_for('home') }}"><img src="static/images\home.png" class="small-icons"> Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{{ url_for('displayFoodRecord') }}" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Food
+          <a class="nav-link dropdown-toggle" href="{{ url_for('displayFoodRecord') }}" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="static/images\food.png" class="small-icons">
+             Food
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ url_for('displayFoodRecord') }}">Diary</a>
@@ -42,88 +43,16 @@
             <a class="dropdown-item" href="{{ url_for('displayFoodReco') }}">Recommend Food</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Fitness
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            <a class="dropdown-item" href="#">Diary</a>
-            <a class="dropdown-item" href="#">Workout</a>
-            <a class="dropdown-item" href="#">Exercises</a>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('account') }}"><img src="static/images\default profile pic.png" class="small-icons"> Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('account') }}">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+          <a class="nav-link" href="{{ url_for('logout') }}"><img src="static/images\logout.png" class="small-icons"> Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-            <!--<div class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('home') }}"><img class='img-valign' src="static/home.png"/> Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{{ url_for('home') }}" id="navbarDropDown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class='img-valign' src="static/food.png"/>
-                   Food
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                  <a class="dropdown-item" href="#">Diary</a>
-                  <a class="dropdown-item" href="#">Search Food</a>
-                  <a class="dropdown-item" href="#">Recommend Food</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{{ url_for('home') }}" id="navbarDropDown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class='img-valign' src="static/fitness.png"/>
-                   Fitness
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                  <a class="dropdown-item" href="#">Diary</a>
-                  <a class="dropdown-item" href="#">Workout</a>
-                  <a class="dropdown-item" href="#">Fitness</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('account') }}"><img class='img-valign' src="static/default profile pic.png"/> Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('logout') }}"><img class='img-valign' src="static/logout.png"/> Logout</a>
-              </li>-->
-              <!--original-->
-              <!--<a class="nav-item nav-link style-nav" href="{{ url_for('home') }}"><img class='img-valign' src="static/home.png"/> Home</a>
-              <a class="nav-item nav-link style-nav" href="{{ url_for('home') }}"><img class='img-valign' src="static/food.png"/> Food</a>
-                <div class="nolist">
-                  <a href="{{ url_for('home') }}">Diary</a></li>
-                  <a href="#">Search Food</a></li>
-                  <a href="#">Recommend Food</a></li>
-                </div>
-              <a class="nav-item nav-link style-nav" href="{{ url_for('home') }}"><img class='img-valign' src="static/fitness.png"/> Fitness</a>
-                <div class="nolist">
-                  <a href="">Diary</a></li>
-                  <a href="">Workout</a></li>
-                  <a href="">Exercise</a></li>
-                </div>-->
-              <!--<a class="nav-item nav-link style-nav" href="{{ url_for('account') }}"><img class='img-valign' src="static/default profile pic.png"/> Profile</a>
-              <a class="nav-item nav-link style-nav" href="{{ url_for('logout') }}"><img class='img-valign' src="static/logout.png"/> Logout</a>-->
-              <!--</div>-
-          </div>
-        </div>
-      </nav>
-    </header>-->
-
-          <!--{% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}-->
     {% block content %}{% endblock %}
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

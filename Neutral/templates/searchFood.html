@@ -6,7 +6,7 @@
 <meta charset="utf-8">
         <title>Search Food</title>
 <link rel="stylesheet"
-      href="{{url_for('.static', filename='search.css')}}">
+      href="{{url_for('.static', filename='styles/search.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,9 @@
             <dl class="col-md-10 col-lg-10">
                 {{ form.csrf_token }}
                 {{ wtf.form_field(form.foodname) }}
-            </dl><input class="searchbutton" type="image" src="../static/search.png" width="20" height="20" alt="Submit" />
+                <input class="searchbutton" type="image" src="../static/images/search.png" width="20" height="20" alt="Submit" />
+            </dl>
+            
             </form>
 
         </div>

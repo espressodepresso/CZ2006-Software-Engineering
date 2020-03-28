@@ -5,14 +5,15 @@
 {% block styles %}
 <meta charset="utf-8">
 <title>Food Record</title>
+
 <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>   
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="static/search.css">
+<link rel="stylesheet" type="text/css" href="static/styles/search.css">
 
 {% endblock %}
 
@@ -421,7 +422,7 @@
             </div>
                 <script type="text/javascript">
                     var values = {{ values|tojson }};
-                    var labels = {{ labels|tojson}};
+                    var labels = {{ labels|tojson }};
                     var data = {labels:labels,
                                 series: values};
                     var options = {
@@ -449,4 +450,6 @@
         </div>
         </div>
 
+
+        
 {% endblock %}

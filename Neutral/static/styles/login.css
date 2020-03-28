@@ -2,7 +2,7 @@
 
 body {
     
-    background: url("background.jpg") no-repeat center fixed;
+    background: url("../images/background.jpg") no-repeat center fixed;
     background-size: cover;
     background-color: black;
     font-family: sans-serif;
@@ -11,12 +11,12 @@ body {
 }
 
 .loginform{
-    margin-left: 25%;
+    margin-left: 22%;
 }
 
 
 .content-section {
-    margin-top:5rem;
+    margin-top:7rem;
     margin-bottom: 20px;
     background-color: rgb(44, 155, 136);
     border-radius: 15px 15px 15px 15px;

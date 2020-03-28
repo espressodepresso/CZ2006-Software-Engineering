@@ -13,6 +13,8 @@ db = SQLAlchemy(app)
 
 app.config['SECRET_KEY'] = '1e730902dd46e15ee749c371b91cb549'
 
+#Defined all the models that we require including the relationships between the models.
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))

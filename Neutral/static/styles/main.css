@@ -15,6 +15,7 @@ body {
     height : 3rem;
     width:9rem;
     object-fit: contain;
+    margin-left: auto;
 }
   
   .account-img {
@@ -47,6 +48,15 @@ body {
     color: black;
 }
 
+.nav-item{
+    margin-top: 5px;
+    margin-bottom:0;
+}
+
+.small-icons{
+    height: 20px;
+    width:20px;
+}
 
 
 /*.nav-link{
