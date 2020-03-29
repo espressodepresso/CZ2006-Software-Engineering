@@ -5,19 +5,24 @@
 {{super()}}
 <meta charset="utf-8">
         <title>Search Food</title>
-<link rel="stylesheet"
-      href="{{url_for('.static', filename='styles/search.css')}}">
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/search.css') }}" />
 {% endblock %}
 
 {% block content %}
     <div class="container">
         <div class="row first-row">
-            <form method="POST" action="{{url_for('displaySearchFood')}}">
-            <dl class="col-md-10 col-lg-10">
-                {{ form.csrf_token }}
-                {{ wtf.form_field(form.foodname) }}
-                <input class="searchbutton" type="image" src="../static/images/search.png" width="20" height="20" alt="Submit" />
-            </dl>
+            <form method="POST" action="{{url_for('displaySearchFood')}}" class="search-form">
+                <div class="parent">
+                <div class="col-md-9 col-lg-9">
+                    <dl>
+                        {{ form.csrf_token }}
+                        {{ wtf.form_field(form.foodname) }}
+                    </dl>
+                </div>
+            <div>
+                     <input class="searchbutton searchsearch" type="image" src="../static/images/search.png" width="20" height="20" alt="Submit" />
+                </div>
+                    </div>
             
             </form>
 

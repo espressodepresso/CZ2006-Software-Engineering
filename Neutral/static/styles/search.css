@@ -1,39 +1,69 @@
 body {
     background-color: #FFFAF0;
   }
-  .searchbutton{
-      margin-top: 2.5%;
-  
-  }
 
-  
+.searchsearch{
+    margin-top:190%;
+}
+
+dl{
+    width:50%
+    display:inline-block;
+}
+.main-form{
+    width:90%;
+}
+
+.search-form{
+    width:90%;
+}
+.anybutton{
+    margin-top:20%;
+}
+.add-div{
+    margin-left: 5px;
+}
+
+input#foodname.form-control{
+    width:100%
+}
+label.control-label{
+    width:100%
+}
+.food-record-add{
+    width:650px;
+}
+
+.food-record-search{
+    margin-right:10px;
+    margin-top:150%;
+}
   
 
-  .first-row{
+.first-row{
      margin-top:20px;
   }
-  .results{
+.results{
       background-color:white;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       border-radius: 15px;
       padding: 10px;
       margin-top: 20px;
   }
-  .results-row{
+.results-row{
       background-color:#ccffe6;
   }
   
-  body {
+body {
     background-color: #FFFAF0;
-  }
-  
-    .date-buttons{
+}
+ .date-buttons{
       margin-bottom:10px;
     }
-    .food-intake{
+ .food-intake{
       margin-bottom:5px;
     }
-    .ct-label {
+ .ct-label {
       font-size: 1.5em;
       color:black;
       fill:black;
@@ -54,3 +84,11 @@ body {
     stroke: rgb(235, 76, 76);
   }
 
+.editbtn{
+    margin-bottom: 3%;
+}
+
+.parent{
+    display:flex;
+
+}
