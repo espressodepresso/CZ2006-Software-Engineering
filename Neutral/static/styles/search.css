@@ -93,5 +93,8 @@ body {
 
 }
 .modal-body{
-    width:50%;
+    width:70%;
+}
+.small-labels{
+    display:inline-block;
 }
