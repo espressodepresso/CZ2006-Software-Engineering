@@ -84,6 +84,69 @@
         </div>
     </div>
     <div class="container mt-2">
+
+            <div class="food-intake">
+            <h1 class="text-center">Food Intake Breakdowns</h1>
+                <div class="col center-block text-center">
+                <form action="{{ url_for('displayFoodRecord') }}" method="post">
+                <input type="submit" name="action" value="Nutrients"class="btn btn-primary btn-lg active">
+                <input type="submit" name="action" value="Calories" class="btn btn-primary btn-lg active">
+                </form>
+                </div>
+        </div>  
+            <h1 class="text-center"><u>{{header}}</u></h1>
+        <div class='row'>
+            <div class="ct-chart ct-golden-section"></div>
+        </div>
+                <script type="text/javascript">
+                    var values = {{ values|tojson }};
+                    var labels = {{ labels|tojson }};
+                    function isEmpty(obj) {
+                    for(var key in obj) {
+                        if(obj.hasOwnProperty(key))
+                            return false;
+                    }
+                    return true;
+                    }   
+                    if (!isEmpty(values)){
+                        var data = {labels:labels,
+                                series: values};
+                        var options = {
+                            donut: true,
+                            donutWidth:'55%',
+                            showLabel:true,
+                            labelDirection: 'explode'
+                        };
+                        var responsiveOptions = [
+                        ['screen and (min-width: 640px)', {
+                        chartPadding: 50,
+                        labelOffset: 50,
+                        labelDirection: 'explode',
+                        labelInterpolationFnc: function(value) {
+                            return value;
+                        }
+                        }],
+                        ['screen and (min-width: 1024px)', {
+                        labelOffset:50,
+                        chartPadding:20
+                        }]
+                        ];
+                        new Chartist.Pie('.ct-chart', data, options, responsiveOptions);
+                    }
+                    else{
+                        
+                        var data = {labels:["No Records!"],
+                                    series: [100]};
+                        var options = {
+                            donut: true,
+                            donutWidth:'55%',
+                            showLabel:true,
+                        };
+                        new Chartist.Pie('.ct-chart', data, options);
+                    }
+
+                    
+                </script>
         <div class="row">
             <div class="md-form">
                 <form action="" method="POST">
@@ -407,46 +470,7 @@
 
         <div class="container background" style="margin-top:3rem">
 
-        <div class="food-intake">
-            <h1 class="text-center">Food Intake Breakdowns</h1>
-                <div class="col center-block text-center">
-                <form action="{{ url_for('displayFoodRecord') }}" method="post">
-                <input type="submit" name="action" value="Nutrients"class="btn btn-primary btn-lg active">
-                <input type="submit" name="action" value="Calories" class="btn btn-primary btn-lg active">
-                </form>
-                </div>
-        </div>  
-            <h1 class="text-center"><u>{{header}}</u></h1>
-        <div class='row'>
-            <div class="ct-chart ct-golden-section"></div>
-            </div>
-                <script type="text/javascript">
-                    var values = {{ values|tojson }};
-                    var labels = {{ labels|tojson }};
-                    var data = {labels:labels,
-                                series: values};
-                    var options = {
-                        donut: true,
-                        donutWidth:'55%',
-                        showLabel:true,
-                        labelDirection: 'explode'
-                    };
-                    var responsiveOptions = [
-                    ['screen and (min-width: 640px)', {
-                    chartPadding: 50,
-                    labelOffset: 50,
-                    labelDirection: 'explode',
-                    labelInterpolationFnc: function(value) {
-                        return value;
-                    }
-                    }],
-                    ['screen and (min-width: 1024px)', {
-                    labelOffset:50,
-                    chartPadding:20
-                    }]
-                    ];
-                    new Chartist.Pie('.ct-chart', data, options, responsiveOptions);
-                </script>
+
         </div>
         </div>
 

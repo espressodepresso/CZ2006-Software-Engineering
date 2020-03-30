@@ -20,15 +20,13 @@ def home():
     summary_data=[]
     exercise_data=[838,400,438]
 
-    #beased on current day find which week it is
+    #Get the range of dates for the current date
     today = datetime.date.today()
     cur_monday = today - datetime.timedelta(days=today.weekday())
     dates = [cur_monday + datetime.timedelta(days=d) for d in range(7)]
-
-    #list of all foods
+    #List of all foods by the user
     food = FoodRecord.query.order_by(FoodRecord.foodrecord_date, FoodRecord.user_id == 1).all()
-   
-    #find total cals consumed every day of the week
+    #Total cals per day
     daily_cals=[]
     today_cals=0
     for j in range(7):
@@ -38,18 +36,19 @@ def home():
                 total_cals+=i.food_calories
         daily_cals.append(total_cals)
    
-    #get total for today
+    #get total for current day
     for i in food:
         if i.foodrecord_date.date() == today:
             today_cals+=i.food_calories
-    #BMR = 10W + 6.25H - 5A + 5
+        
+    #Calculate user's reccomended calorie intake
     user_data = User.query.filter(User.user_id == 1).all()
     rec_cals = (10*user_data[0].weight + 6.25*user_data[0].height - 5*user_data[0].age +5)*1.5
-    summary_data.append(round(rec_cals,0))
+    summary_data.append(int(round(rec_cals,0)))
     summary_data.append(round(today_cals,0))
-    summary_data.append((round(rec_cals,0)-round(today_cals,0)))
+    summary_data.append(int((round(rec_cals,0)-round(today_cals,0))))
     summary_data.append(user_data[0].healthGoal)
-
+    print(summary_data)
     return render_template('home.html',  data1=summary_data, values=daily_cals)
     
 @app.route('/foodreco',methods=['POST','GET'])
@@ -93,19 +92,25 @@ def displayFoodRecord():
     lunch = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Lunch'), FoodRecord.user_id == 1).all()
     dinner = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Dinner'), FoodRecord.user_id == 1).all()
     snack = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Snack'), FoodRecord.user_id == 1).all()
-    
+
+    carbs=0
+    fat=0
+    protein=0
+    cals=0
+    total=0
     food_list_breakfast = []
     food_list_lunch = []
     food_list_dinner = []
     food_list_snack = []
+    cal_list=[]
 
+    #Get the list of foods for the selected day
     if request.method == 'POST' and form.validate():
         print('here')
         dateToBeSearched = form.fooddate.data
         print("search" , dateToBeSearched)
     else:
         dateToBeSearched = datetime.datetime.now().date()
-    
     for i in breakfast:
         print(i.foodrecord_date)
         if i.foodrecord_date.date() == dateToBeSearched:
@@ -120,13 +125,7 @@ def displayFoodRecord():
         if i.foodrecord_date.date() == dateToBeSearched:
             food_list_snack.append(i);  
     
-    cal_list=[]
-    carbs=0
-    fat=0
-    protein=0
-    cals=0
-    total=0
-
+    #Calculation of nutrients and calories of the food consumed
     for item in food_list_breakfast:
         print(item.food_name)
         cals+=item.food_calories
@@ -178,21 +177,19 @@ def displayFoodRecord():
     percentage_list=[]
     MealLabels = ['Breakfast', 'Lunch', 'Dinner','Snacks']
     NutritionLabels = ['Carbohydrates','Protein','Fats']
-    print (nutrition_list)
+
+    #Formatting of strings
     if total != 0:
         for i in cal_list:
             percentage_list.append(round((i/total)*100))
-   
-        
         for i in range(len(cal_list)):
             MealLabels[i] = MealLabels[i] + ' ' + str(percentage_list[i]) +'%'
-
-        
         for i in range(len(nutrition_list)):
             NutritionLabels[i] = NutritionLabels[i] + ' ' + str(nutrition_list[i]) +'g'
-
+    if (nutrition_list==[0,0,0]):
+        nutrition_list=[]
     
-    
+    #For cases where there are no records and inital loading
     try:
         if request.method == 'POST':           
             if 'Nutrients' in request.form["action"]:
@@ -418,29 +415,6 @@ def reset_token(token):
         flash('Your password has been updated! You are now able to log in', 'success')
         return redirect(url_for('login'))
     return render_template('reset_token.html', title='Reset Password', form=form)
-
-
-@app.route('/diary',methods=['POST','GET'])
-def diary():
-    MealData = [20,40,30,10]
-    MealLabels = ['Breakfast', 'Lunch', 'Dinner','Snacks']
-    for i in range(len(MealLabels)):
-        MealLabels[i] = MealLabels[i] + ' ' + str(MealData[i]) +'%'
-    NutritionData =[30,30,40]
-    NutritionLabels = ['Carbohydrates','Protein','Fats']
-    for i in range(len(NutritionLabels)):
-        NutritionLabels[i] = NutritionLabels[i] + ' ' + str(NutritionData[i]) +'%'
-    date='Wednesday, 25 Feb 2020'
-    
-    if request.method == 'POST':
-        data = request.get_json()
-        print(data)
-        if 'Nutrients' in request.form["action"]:
-            return render_template('diary.html', values=NutritionData,labels=NutritionLabels, date=date,header='Nutrients')
-        elif 'Calories' in request.form["action"]:
-            return render_template('diary.html', values=MealData, labels=MealLabels, date=date,header='Calories')
-    else:
-        return render_template('diary.html', values=NutritionData, labels=NutritionLabels, date=date, header='Nutrients')    
 
 @app.route("/workoutlist")
 def addexercises():
