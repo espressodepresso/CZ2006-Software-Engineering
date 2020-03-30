@@ -5,6 +5,7 @@ html{
 body {
     background: #fafafa;
     color: black;
+
   }
   
   .bg-color {
@@ -56,6 +57,9 @@ body {
 .small-icons{
     height: 20px;
     width:20px;
+}
+.layout-div{
+    border: 20px solid transparent;
 }
 
 

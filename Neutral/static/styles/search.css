@@ -92,3 +92,6 @@ body {
     display:flex;
 
 }
+.modal-body{
+    width:50%;
+}
