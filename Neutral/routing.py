@@ -52,7 +52,7 @@ def home():
 
     return render_template('home.html',  data1=summary_data, values=daily_cals)
     
-@app.route('/foodreco',methods=['POST','GET'])
+@app.route('/foodreco',methods=['POST','GET']) #Food recommendation Page
 def displayFoodReco():
     names_list = RecommendationManager.readCSV('Neutral/userselectionwithlinks.csv')
     if request.method == 'POST':
@@ -63,7 +63,7 @@ def displayFoodReco():
     return render_template('foodreco.html',names_list=names_list)
 
 
-@app.route('/searchfood', methods=['GET', 'POST'])
+@app.route('/searchfood', methods=['GET', 'POST']) #Search Food Page
 def displaySearchFood():
     food_item_list = []
     form = searchForm(request.form)
@@ -85,7 +85,7 @@ def displaySearchFood():
     return render_template('searchFood.html', form=form,foodList=food_item_list)
 
 
-@app.route('/foodRecord', methods=['GET', 'POST'])
+@app.route('/foodRecord', methods=['GET', 'POST']) #Diary Page
 def displayFoodRecord():
     
     form = dateForm(request.form)
@@ -205,7 +205,7 @@ def displayFoodRecord():
     else:
         return render_template('foodRecord.html', values=nutrition_list, labels=NutritionLabels, header='Nutrients', form = form, food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
 
-@app.route('/addFoodRecord/<meal>', methods=['GET', 'POST'])
+@app.route('/addFoodRecord/<meal>', methods=['GET', 'POST']) 
 def displayaddFoodRecord(meal):
     food_item_list = []
     form = searchForm(request.form)
@@ -294,15 +294,15 @@ def quickaddfood(food_name,food_calories,food_carb,food_fat,food_saturatedfat,fo
     return redirect(url_for('displayFoodRecord'))
 
 
-@app.route("/register", methods=['GET', 'POST'])
+@app.route("/register", methods=['GET', 'POST']) #Registration Page
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_pw = bcrypt.generate_password_hash(
-            form.password.data).decode('utf-8')
-        user = User(username=form.username.data,
+            form.password.data).decode('utf-8') #Store password as hash in databse
+        user = User(username=form.username.data, 
                     email=form.email.data, 
                     password=hashed_pw,
                     age=form.age.data,
@@ -310,21 +310,20 @@ def register():
                     weight=form.weight.data,
                     healthGoal=form.healthGoal.data
                     )
-        db.session.add(user)
+        db.session.add(user) #Store data into database
         db.session.commit()
-        flash('Your account has been created. You are now able to login.',
-              'success')  # message, category of message
-        return redirect(url_for('login'))
+        flash('Your account has been created. You are now able to login.','success')
+        return redirect(url_for('login')) #After Registration, redirect to login page
     return render_template('register.html', title='Register', form=form)
 
-@app.route("/login", methods=['GET', 'POST'])
+@app.route("/login", methods=['GET', 'POST']) #Login page
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        return redirect(url_for('home')) #If already logged in, redirect to home page
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
+        user = User.query.filter_by(email=form.email.data).first() #Search for user in database
+        if user and bcrypt.check_password_hash(user.password, form.password.data): 
             login_user(user, remember=form.remember.data)
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('home'))
@@ -332,27 +331,27 @@ def login():
             flash('Log in unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
-@app.route("/logout")
+@app.route("/logout") #Logout, redirect to login page
 def logout():
     logout_user()
     return redirect(url_for('login'))
 
-def save_picture(form_picture):
+def save_picture(form_picture): #To allow users too change their account picture
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path,'static/profile_pics', picture_fn)
+    picture_path = os.path.join(app.root_path,'static/profile_pics', picture_fn) #Save all of users pcitures into the folder
     output_size = (125, 125)
     i = Image.open(form_picture)
     i.thumbnail(output_size)
     i.save(picture_path)
     return picture_fn
 
-@app.route("/account", methods=['GET', 'POST'])
+@app.route("/account", methods=['GET', 'POST']) #Profile page
 @login_required
 def account():
     form = UpdateAccountForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit(): #Updates the user's info
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
             current_user.image = picture_file
@@ -375,12 +374,12 @@ def account():
         form.height.data = current_user.height
         form.weight.data = current_user.weight
         form.healthGoal.data = current_user.healthGoal
-        form.password.data = current_user.password
+        #form.password.data = current_user.password
         image = url_for(
         '.static', filename='profile_pics/' + current_user.image)
     return render_template('account.html', title='Account', image=image, form=form)
 
-def send_reset_email(user):
+def send_reset_email(user): #Content of the email sent to reset password
     token = user.get_reset_token()
     msg = Message('Password Reset Request',
                   sender='noreply@demo.com',
@@ -390,8 +389,8 @@ def send_reset_email(user):
     If you did not make this request then simply ignore this email and no changes will be made.'''
     mail.send(msg)
 
-@app.route("/reset_password", methods=['GET', 'POST'])
-def reset_request(): #enter email to request password reset
+@app.route("/reset_password", methods=['GET', 'POST']) #Page to send the email to reset password
+def reset_request(): 
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = RequestResetForm()
@@ -402,17 +401,17 @@ def reset_request(): #enter email to request password reset
         return redirect(url_for('login'))
     return render_template('reset_request.html', title = 'Reset password', form = form)
 
-@app.route("/reset_password/<token>", methods=['GET', 'POST'])
+@app.route("/reset_password/<token>", methods=['GET', 'POST']) #After clicking url in email, will redirect to this page
 def reset_token(token):
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-    user = User.verify_reset_token(token)
-    if user is None:
+    user = User.verify_reset_token(token) 
+    if user is None: #If token is expired or reset password was not requeted, return error
         flash('That is an invalid or expired token. Please enter your email again.', 'warning')
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8') #Hash password before storing it in the database
         user.password = hashed_password
         db.session.commit()
         flash('Your password has been updated! You are now able to log in', 'success')

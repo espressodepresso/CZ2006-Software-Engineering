@@ -11,14 +11,16 @@ from wtforms.widgets import PasswordInput
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from Neutral.model import User
 
+#Defined all the forms and the input data
 
-class searchForm(Form):
+
+class searchForm(Form): # Form to search for the food as seen in Search Food
     foodname = StringField('Search Food',validators=[InputRequired()])
 
 class dateForm(Form):
     fooddate = DateField('Select Food Record Date', validators=[InputRequired()], format='%Y-%m-%d')
 
-class RegistrationForm(FlaskForm):
+class RegistrationForm(FlaskForm):  # Form to get the registration details as seen in the Register page
     username = StringField('Username', 
                             validators=[DataRequired(), 
                                         Length(min=2, max=20)])
@@ -37,17 +39,17 @@ class RegistrationForm(FlaskForm):
     healthGoal = SelectField(label='Health Goals', choices=[('Maintain Weight', 'Maintain Weight'),('Lose 0.5Kg in a week', 'Lose 0.5Kg in a week'), ('Lose 1.0Kg in a week', 'Lose 1.0Kg in a week'), ('Lose 1.5Kg in a week', 'Lose 1.5Kg in a week'), ('Lose 2.0Kg in a week', 'Lose 2.0Kg in a week')])
     submit = SubmitField('Sign Up')
 
-    def validate_username(self,username):
+    def validate_username(self,username): #To check if username is already used by another user
         user = User.query.filter_by(username=username.data).first()
-        if user:
+        if user: #If there is another user using the username already, return error
             raise ValidationError('Username is already taken. Please choose a different username')
 
-    def validate_email(self,email):
+    def validate_email(self,email): #To check if the email is registered already
         user = User.query.filter_by(email=email.data).first()
-        if user:
+        if user: #If email is registerd already, return error
             raise ValidationError('Email is already registered. Please use a different email.')
 
-class LoginForm(FlaskForm):
+class LoginForm(FlaskForm): #Form to log user in as seen in login page
     email = StringField('Email',
                         validators=[DataRequired(),
                                     Email()])
@@ -57,7 +59,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 
-class UpdateAccountForm(FlaskForm):
+class UpdateAccountForm(FlaskForm): #Form to allow users to change their account details as seen in Profile page
     username = StringField('Username', 
                             validators=[DataRequired(), 
                                         Length(min=2, max=20)])
@@ -74,30 +76,30 @@ class UpdateAccountForm(FlaskForm):
 
     submit = SubmitField('Update')
 
-    def validate_username(self,username):
+    def validate_username(self,username):#To check if the username is used by another user already
         if username.data != current_user.username:
             user = User.query.filter_by(username=username.data).first()
             if user:
                 raise ValidationError('Username is already taken. Please choose a different username')
 
-    def validate_email(self,email):
+    def validate_email(self,email): #To check if the email is registered already
         if email.data != current_user.email:
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('Email is already registered. Please use a different email.')
 
-class RequestResetForm(FlaskForm):
+class RequestResetForm(FlaskForm): #Form to send the email to user to reset password
     email = StringField('Email',
                         validators=[DataRequired(),
                                     Email()])
     submit = SubmitField('Request Password Reset')
-    def validate_email(self,email):
+    def validate_email(self,email): #To check if the email is registered
         user = User.query.filter_by(email=email.data).first()
-        if user is None:
+        if user is None: #If email is not registered, return error
             raise ValidationError('No account is registered with this email. Please Register.')
 
 
-class ResetPasswordForm(FlaskForm):
+class ResetPasswordForm(FlaskForm): #Form to allow users to change their password
     password = PasswordField('Password',
                               validators=[DataRequired()])  
     confirm_password = PasswordField('Confirm Password',
