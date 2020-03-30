@@ -16,6 +16,7 @@ from sqlalchemy import func, update, delete
 
 @app.route('/')  # what we write in the browser - route to home page
 @app.route('/home')
+@login_required
 def home():
     summary_data=[]
     exercise_data=[838,400,438]
@@ -25,7 +26,7 @@ def home():
     cur_monday = today - datetime.timedelta(days=today.weekday())
     dates = [cur_monday + datetime.timedelta(days=d) for d in range(7)]
     #List of all foods by the user
-    food = FoodRecord.query.order_by(FoodRecord.foodrecord_date, FoodRecord.user_id == 1).all()
+    food = FoodRecord.query.order_by(FoodRecord.foodrecord_date, FoodRecord.user_id == current_user.user_id).all()
     #Total cals per day
     daily_cals=[]
     today_cals=0
@@ -42,7 +43,7 @@ def home():
             today_cals+=i.food_calories
         
     #Calculate user's reccomended calorie intake
-    user_data = User.query.filter(User.user_id == 1).all()
+    user_data = User.query.filter(User.user_id == current_user.user_id).all()
     rec_cals = (10*user_data[0].weight + 6.25*user_data[0].height - 5*user_data[0].age +5)*1.5
     summary_data.append(int(round(rec_cals,0)))
     summary_data.append(round(today_cals,0))
@@ -52,6 +53,7 @@ def home():
     return render_template('home.html',  data1=summary_data, values=daily_cals)
     
 @app.route('/foodreco',methods=['POST','GET']) #Food recommendation Page
+@login_required
 def displayFoodReco():
     names_list = RecommendationManager.readCSV('Neutral/userselectionwithlinks.csv')
     if request.method == 'POST':
@@ -63,6 +65,7 @@ def displayFoodReco():
 
 
 @app.route('/searchfood', methods=['GET', 'POST']) #Search Food Page
+@login_required
 def displaySearchFood():
     food_item_list = []
     form = searchForm(request.form)
@@ -85,13 +88,14 @@ def displaySearchFood():
 
 
 @app.route('/foodRecord', methods=['GET', 'POST']) #Diary Page
+@login_required
 def displayFoodRecord():
     
     form = dateForm(request.form)
-    breakfast = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Breakfast'), FoodRecord.user_id == 1).all()
-    lunch = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Lunch'), FoodRecord.user_id == 1).all()
-    dinner = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Dinner'), FoodRecord.user_id == 1).all()
-    snack = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Snack'), FoodRecord.user_id == 1).all()
+    breakfast = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Breakfast'), FoodRecord.user_id == current_user.user_id).all()
+    lunch = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Lunch'), FoodRecord.user_id == current_user.user_id).all()
+    dinner = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Dinner'), FoodRecord.user_id == current_user.user_id).all()
+    snack = FoodRecord.query.filter(FoodRecord.foodrecord_meal.contains('Snack'), FoodRecord.user_id == current_user.user_id).all()
 
     carbs=0
     fat=0
@@ -203,6 +207,7 @@ def displayFoodRecord():
         return render_template('foodRecord.html', values=nutrition_list, labels=NutritionLabels, header='Nutrients', form = form, food_list_breakfast = food_list_breakfast, food_list_lunch = food_list_lunch, food_list_dinner = food_list_dinner, food_list_snack=food_list_snack)
 
 @app.route('/addFoodRecord/<meal>', methods=['GET', 'POST']) 
+@login_required
 def displayaddFoodRecord(meal):
     food_item_list = []
     form = searchForm(request.form)
@@ -225,6 +230,7 @@ def displayaddFoodRecord(meal):
     return render_template('addFoodRecord.html', form=form, foodList=food_item_list, meal=meal)
 
 @app.route("/addfoodprocess/<food_id>/<food_name>/<food_calories>/<food_carb>/<food_fat>/<food_saturatedfat>/<food_protein>/<food_sodium>/<food_fibres>/<food_meal>", methods=['GET', 'POST'])
+@login_required
 def addfood(food_id,food_name,food_calories,food_carb,food_fat,food_saturatedfat,food_protein,food_sodium,food_fibres,food_meal):
     food_id = int(food_id)
     food_calories = float(food_calories)
@@ -236,14 +242,15 @@ def addfood(food_id,food_name,food_calories,food_carb,food_fat,food_saturatedfat
     food_fibres = float(food_fibres)
     maxid = db.session.query(func.max(FoodRecord.foodrecord_id)).scalar()
     maxid = maxid + 1
-    fr = FoodRecord(serving_size = 1, foodrecord_id =maxid, user_id = 1, food_id = food_id, food_name = food_name, food_calories = food_calories, food_carb = food_carb, food_fat = food_fat, food_saturatedfat= food_saturatedfat, food_protein = food_protein, food_sodium = food_sodium, food_fibres = food_fibres, foodrecord_meal = food_meal)
+    fr = FoodRecord(serving_size = 1, foodrecord_id =maxid, user_id = current_user.user_id, food_id = food_id, food_name = food_name, food_calories = food_calories, food_carb = food_carb, food_fat = food_fat, food_saturatedfat= food_saturatedfat, food_protein = food_protein, food_sodium = food_sodium, food_fibres = food_fibres, foodrecord_meal = food_meal)
     db.session.add(fr)
     db.session.commit()
     return redirect(url_for('displayFoodRecord'))
 
 @app.route("/editfoodrecord/<id>/<calories>/<carb>/<fat>/<sat>/<protein>/<sodium>/<fibres>", methods=['GET','POST'])
+@login_required
 def editfoodrecord(id,calories,carb,fat,sat,protein,sodium,fibres):
-    user_id = 1
+    user_id = current_user.user_id
     calories = float(calories)
     carb = float(carb)
     fat = float(fat)
@@ -264,12 +271,14 @@ def editfoodrecord(id,calories,carb,fat,sat,protein,sodium,fibres):
     return redirect(url_for('displayFoodRecord'))
 
 @app.route("/deletefoodrecord/<id>", methods=['GET','POST'])
+@login_required
 def deletefoodrecord(id):
     db.session.query(FoodRecord).filter(FoodRecord.foodrecord_id == id).delete(synchronize_session=False)
     db.session.commit()
     return redirect(url_for('displayFoodRecord'))
 
 @app.route("/quickaddfoodprocess/<food_name>/<food_calories>/<food_carb>/<food_fat>/<food_saturatedfat>/<food_protein>/<food_sodium>/<food_fibres>/<food_meal>", methods=['GET', 'POST'])
+@login_required
 def quickaddfood(food_name,food_calories,food_carb,food_fat,food_saturatedfat,food_protein,food_sodium,food_fibres,food_meal):
     food_calories = float(food_calories)
     food_carb = float(food_carb)
@@ -284,7 +293,7 @@ def quickaddfood(food_name,food_calories,food_carb,food_fat,food_saturatedfat,fo
     maxfoodid = maxfoodid + 1
 
     fooddb = FoodDB(food_id=maxfoodid, food_name=food_name, food_calories = food_calories, food_protein= food_protein, food_carb = food_carb, food_fat=food_fat,food_fibres=food_fibres, food_saturatedfat=food_saturatedfat, food_sodium=food_sodium,serving_size=1)
-    fr = FoodRecord(serving_size = 1, foodrecord_id =maxrecordid, user_id = 1, food_id = maxfoodid, food_name = food_name, food_calories = food_calories, food_carb = food_carb, food_fat = food_fat, food_saturatedfat= food_saturatedfat, food_protein = food_protein, food_sodium = food_sodium, food_fibres = food_fibres, foodrecord_meal = food_meal)
+    fr = FoodRecord(serving_size = 1, foodrecord_id =maxrecordid, user_id = current_user.user_id, food_id = maxfoodid, food_name = food_name, food_calories = food_calories, food_carb = food_carb, food_fat = food_fat, food_saturatedfat= food_saturatedfat, food_protein = food_protein, food_sodium = food_sodium, food_fibres = food_fibres, foodrecord_meal = food_meal)
     db.session.add(fr)
     db.session.add(fooddb)
     db.session.commit()
