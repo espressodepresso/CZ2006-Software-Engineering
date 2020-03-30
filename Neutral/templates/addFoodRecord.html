@@ -27,45 +27,44 @@
         </div>
         
             <div class="modal-body">
-                <div class="form-group">
-                    <label>Food Name</label>
+                <label>Food Name</label>
+                <div class="form-group parent">
                         <input type="text" id="name" class="form-control mx-sm-3" >
                 </div>
-
-                <div class="form-group">
-                    <label>Calories</label>
-                        <input type="text" id="calories" class="form-control mx-sm-3" aria-describedby="caloriesHelp">
-                        <small id="caloriesHelp" class="text-muted">kcal</small>
+                <label>Calories</label>
+                <div class="form-group parent">
+                    <div><input type="text" id="calories" class="form-control mx-sm-3" aria-describedby="caloriesHelp"></div>
+                    <div class="unit-measure"><small id="caloriesHelp" class="text-muted">kcal</small></div>
                 </div>
-                <div>
-                    <label>Carbohydrate</label>
-                        <input type="text" id="carb" class="form-control mx-sm-3" aria-describedby="carbHelp">
-                        <small id="carbHelp" class="text-muted">g</small>
-                </div> 
-                <div>
-                    <label>Fat</label>
-                        <input type="text" id="fat" class="form-control mx-sm-3" aria-describedby="fatHelp">
-                        <small id="fatHelp" class="text-muted">g</small>
+                <label>Carbohydrate</label>
+                <div class="parent">
+                    <div><input type="text" id="carb" class="form-control mx-sm-3" aria-describedby="carbHelp"></div>
+                    <div class="unit-measure"><small id="carbHelp" class="text-muted">g</small></div>
                 </div>
-                <div>
-                    <label>Saturated Fat</label>
-                        <input type="text" id="sat" class="form-control mx-sm-3" aria-describedby="satHelp">
-                        <small id="satHelp" class="text-muted">g</small>
+                <label>Fat</label>
+                <div class="parent">
+                    <div><input type="text" id="fat" class="form-control mx-sm-3" aria-describedby="fatHelp"></div>
+                    <div class="unit-measure"><small id="fatHelp" class="text-muted">g</small></div>
                 </div>
-                <div>
-                    <label>Protein</label>
-                        <input type="text" id="protein" class="form-control mx-sm-3" aria-describedby="proteinHelp">
-                        <small id="proteinHelp" class="text-muted">g</small>
+                <label>Saturated Fat</label>
+                <div class="parent">
+                    <div><input type="text" id="sat" class="form-control mx-sm-3" aria-describedby="satHelp"></div>
+                    <div class="unit-measure"><small id="satHelp" class="text-muted">g</small></div>
                 </div>
-                <div>
-                    <label>Sodium</label>
-                        <input type="text" id="sodium" class="form-control mx-sm-3" aria-describedby="sodiumHelp">
-                        <small id="sodiumHelp" class="text-muted">mg</small>
+                <label>Protein</label>
+                <div class="parent">
+                     <div><input type="text" id="protein" class="form-control mx-sm-3" aria-describedby="proteinHelp"></div>
+                      <div class="unit-measure"><small id="proteinHelp" class="text-muted">g</small></div>
                 </div>
-                <div>
-                    <label>Fibres</label>
-                        <input type="text" id="fibres" class="form-control mx-sm-3" aria-describedby="fibresHelp">
-                        <small id="fibresHelp" class="text-muted">g</small>
+                <label>Sodium</label>
+                <div class="parent">
+                     <div><input type="text" id="sodium" class="form-control mx-sm-3" aria-describedby="sodiumHelp"></div>
+                     <div class="unit-measure"><small id="sodiumHelp" class="text-muted">mg</small></div>
+                </div>
+                <label>Fibres</label>
+                <div class="parent">
+                     <div><input type="text" id="fibres" class="form-control mx-sm-3" aria-describedby="fibresHelp"></div>
+                     <div class="unit-measure"><small id="fibresHelp" class="text-muted">g</small></div>
                     </div>
               
 
@@ -82,29 +81,32 @@
 
     <div class="container">
         
-        <div class = 'row first-row'>
+        <div class = 'row first-row parent-first'>
             <div style="clear: both">
-                <h2 style="float: left" id = "meal" >Add {{meal}} </header>
+                <h2 style="float: left" id = "meal" >Add {{meal}} </h2>
+            </div>
+            <div>
+                <button class="btn btn-primary anybutton btn-lg" id = 'quickadd' style="display:inline-block;"><span class="glyphicon glyphicon-plus-sign"></span> Quick Add </button>
             </div>
         </div>
         
         <div class="row">
+
             <form method="POST" action=""  class="main-form">
                 <div class="parent">
                     <div class="food-record-add">
-                        <dl class="col-md-9 col-lg-9 ">
+                        <dl>
                             {{ form.csrf_token }}
                             {{ wtf.form_field(form.foodname) }}
                         </dl>
                     </div>
-                    <div class="add-div">
+                    <div class="add-div" style="display:inline-block;">
                         <input class="searchbutton food-record-search" type="image" src="../static/images/search.png" width="20" height="20" alt="Submit"/>
                     </div>
                 </div>
             </form>
-            <div class="add-div">
-                <button class="btn btn-primary anybutton btn-lg" id = 'quickadd'><span class="glyphicon glyphicon-plus-sign"></span> Quick Add </button>
-            </div>
+
+
         </div>
         {% if foodList %}
         {% for food in foodList %}

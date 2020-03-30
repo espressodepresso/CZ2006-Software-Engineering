@@ -18,10 +18,10 @@ dl{
     width:90%;
 }
 .anybutton{
-    margin-top:20%;
+    margin-left:17%;
 }
 .add-div{
-    margin-left: 5px;
+    margin-left: 1px;
 }
 
 input#foodname.form-control{
@@ -31,12 +31,12 @@ label.control-label{
     width:100%
 }
 .food-record-add{
-    width:650px;
+    width:80%;
 }
 
 .food-record-search{
-    margin-right:10px;
-    margin-top:150%;
+    margin-top:200%;
+    margin-left:35%;
 }
   
 
@@ -90,11 +90,22 @@ body {
 
 .parent{
     display:flex;
+    width:70%
 
 }
 .modal-body{
-    width:70%;
+    width:100%;
 }
 .small-labels{
     display:inline-block;
+}
+.unit-measure{
+    margin-left:-15px;
+    margin-right:5px;
+}
+.modal-content{
+    width:85%;
+}
+.date-form{
+    width:60%;
 }
