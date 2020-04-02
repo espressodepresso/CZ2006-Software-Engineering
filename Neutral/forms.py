@@ -36,7 +36,7 @@ class RegistrationForm(FlaskForm):  # Form to get the registration details as se
                                       validators=[DataRequired(),
                                                   EqualTo('password')])
 
-    healthGoal = SelectField(label='Health Goals', choices=[('Maintain Weight', 'Maintain Weight'),('Lose 0.5Kg in a week', 'Lose 0.5Kg in a week'), ('Lose 1.0Kg in a week', 'Lose 1.0Kg in a week'), ('Lose 1.5Kg in a week', 'Lose 1.5Kg in a week'), ('Lose 2.0Kg in a week', 'Lose 2.0Kg in a week')])
+    healthGoal = SelectField(label='Health Goals', choices=[('Maintain Weight', 'Maintain Weight'),('Lose 0.25Kg in a week', 'Lose 0.25Kg in a week'), ('Lose 0.5Kg in a week', 'Lose 0.5Kg in a week'), ('Lose 0.75kg in a week', 'Lose 0.75Kg in a week'), ('Lose 1.0Kg in a week', 'Lose 1.0Kg in a week')])
     submit = SubmitField('Sign Up')
 
     def validate_username(self,username): #To check if username is already used by another user
