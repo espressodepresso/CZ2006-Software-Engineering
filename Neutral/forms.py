@@ -72,7 +72,7 @@ class UpdateAccountForm(FlaskForm): #Form to allow users to change their account
     weight = FloatField('Weight', validators=[DataRequired()])
     password = PasswordField('Password',
                               validators=[DataRequired()],widget=PasswordInput(hide_value=False))  
-    healthGoal = SelectField(label='Health Goals', choices=[('Maintain Weight', 'Maintain Weight'),('Lose 0.5Kg in a week', 'Lose 0.5Kg in a week'), ('Lose 1.0Kg in a week', 'Lose 1.0Kg in a week'), ('Lose 1.5Kg in a week', 'Lose 1.5Kg in a week'), ('Lose 2.0Kg in a week', 'Lose 2.0Kg in a week')])
+    healthGoal = SelectField(label='Health Goals', choices=[('Maintain Weight', 'Maintain Weight'),('Lose 0.25Kg in a week', 'Lose 0.25Kg in a week'), ('Lose 0.5Kg in a week', 'Lose 0.5Kg in a week'), ('Lose 0.75Kg in a week', 'Lose 0.75Kg in a week'), ('Lose 1.0Kg in a week', 'Lose 1.0Kg in a week')])
 
     submit = SubmitField('Update')
 

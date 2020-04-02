@@ -3,7 +3,7 @@ name,calorie,protein,carb,fat,fat_saturated,fibres,sodium,userLikes
 "potato, baked, flesh and skin, without salt",93,2.5,21.15,0.13,0.035,2.2,0.01,0
 "bread, multi-grain (includes whole-grain)",265,13.36,43.34,4.23,0.872,7.4,0.381,0
 "vanilla, light, soft-serve ice cream, with cone",166,4.24,26.36,4.86,2.542,0.1,0.067,0
-"pancakes, buttermilk, prepared from recipe",227,6.8,28.7,9.3,1.832,0,0.522,1
+"pancakes, buttermilk, prepared from recipe",227,6.8,28.7,9.3,1.832,0,0.522,0
 "sandwiches and burgers, steak sandwich",225,14.87,25.47,6.9,1.87,0,0.391,0
 "cake, boston cream pie, commercially prepared",252,2.4,42.9,8.5,2.445,1.4,0.254,0
 "muffins, plain,made with low fat (2%) milk",296,6.9,41.4,11.4,2.156,2.7,0.467,0
@@ -32,11 +32,11 @@ hotdog,295,9.8,37.5,11.8,0,0,0,0
 popcorn,376,13,72,4,0,0,0,0
 "onions, yellow, sauteed",132,0.95,7.86,10.8,1.477,1.7,0.012,0
 "applesauce, canned, sweetened",68,0.16,17.49,0.17,0.03,1.2,0.002,0
-"melons, cantaloupe, raw",34,0.84,8.16,0.19,0.051,0.9,0.016,0
+"melons, cantaloupe, raw",34,0.84,8.16,0.19,0.051,0.9,0.016,1
 "sweet potato, cooked, baked in skin, without salt",90,2.01,20.71,0.15,0.034,3.3,0.036,0
 mango,60,0.82,14.98,0.38,0.092,1.6,0.001,1
 "noodles, chinese, chow mein",459,10.58,67.02,17.64,1.764,2.7,0.847,0
-"toppings, strawberry",254,0.2,66.3,0.1,0.005,0.7,0.021,0
+"toppings, strawberry",254,0.2,66.3,0.1,0.005,0.7,0.021,1
 "corn, sweet,cooked, boiled, without salt",97,3.34,21.71,1.41,0.197,2.7,0.003,0
 "kellogg's, eggo, nutri-grain, waffles, blueberry",257,6.2,43.6,7.8,1.8,3.9,0.527,0
 "swanson, chicken and dumplings",93,4.45,9.72,4.05,1.822,0.8,0.401,0

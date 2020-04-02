@@ -26,7 +26,7 @@ def home():
     cur_monday = today - datetime.timedelta(days=today.weekday())
     dates = [cur_monday + datetime.timedelta(days=d) for d in range(7)]
     #List of all foods by the user
-    food = FoodRecord.query.order_by(FoodRecord.foodrecord_date, FoodRecord.user_id == current_user.user_id).all()
+    food = FoodRecord.query.filter(FoodRecord.foodrecord_date, FoodRecord.user_id == current_user.user_id).all()
     #Total cals per day
     daily_cals=[]
     today_cals=0
@@ -44,17 +44,29 @@ def home():
         
     #Calculate user's reccomended calorie intake
     user_data = User.query.filter(User.user_id == current_user.user_id).all()
-    rec_cals = (10*user_data[0].weight + 6.25*user_data[0].height - 5*user_data[0].age +5)*1.5
+    if (user_data[0].healthGoal=='Maintain Weight'):
+        rec_cals = ((10*user_data[0].weight + 6.25*user_data[0].height - 5*user_data[0].age +5)*1.5)
+    elif (user_data[0].healthGoal=='Lose 0.25Kg in a week'):
+        rec_cals = 0.9*((10*user_data[0].weight + 6.25*user_data[0].height - 5*user_data[0].age +5)*1.5)
+    elif (user_data[0].healthGoal=='Lose 0.5Kg in a week'):
+        rec_cals = 0.8*((10*user_data[0].weight + 6.25*user_data[0].height - 5*user_data[0].age +5)*1.5)
+    elif (user_data[0].healthGoal=='Lose 0.75Kg in a week'):
+        rec_cals = 0.7*((10*user_data[0].weight + 6.25*user_data[0].height - 5*user_data[0].age +5)*1.5)
+    elif (user_data[0].healthGoal=='Lose 1.0Kg in a week'):
+        rec_cals = 0.6*((10*user_data[0].weight + 6.25*user_data[0].height - 5*user_data[0].age +5)*1.5)
+    
+    
+    
     summary_data.append(int(round(rec_cals,0)))
     summary_data.append(round(today_cals,0))
     summary_data.append(int((round(rec_cals,0)-round(today_cals,0))))
     summary_data.append(user_data[0].healthGoal)
-    print(summary_data)
     return render_template('home.html',  data1=summary_data, values=daily_cals)
     
 @app.route('/foodreco',methods=['POST','GET']) #Food recommendation Page
 @login_required
 def displayFoodReco():
+    #Recommendation of the food to the user
     names_list = RecommendationManager.readCSV('Neutral/userselectionwithlinks.csv')
     if request.method == 'POST':
         userLikes = (request.form.getlist('mycheckbox'))

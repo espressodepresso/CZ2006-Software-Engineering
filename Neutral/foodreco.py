@@ -11,6 +11,7 @@ class Food_CSV:
         self.link = link
 
 class RecommendationManager:
+    #reading the data from the csv file and saving it into a list
     def readCSV(csvname):
         names_list = []
         with open(csvname, mode='r') as csv_file:
@@ -23,6 +24,8 @@ class RecommendationManager:
         return names_list
 
     def writeUserLikesCSV(userLikesList, csvname):
+        #Based on the users selection of food that that like,
+        #create a csv with all the data of the foods
         row_list = []
         row_list.append(['name','calorie','protein','carb','fat','fat_saturated','fibres','sodium','userLikes'])
         userLikesListInt = []
@@ -49,6 +52,7 @@ class RecommendationManager:
             writer.writerows(row_list)
 
     def recommendFood():
+        #Machine learning model using a decision tree to recommend food to the user
         recommendedFoodList = []
         df = pandas.read_csv('Neutral/userselectionwithlikes.csv', encoding="ISO-8859-1")
         X = df.values[:, 1:8]
